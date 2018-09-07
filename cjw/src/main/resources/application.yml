@@ -1,0 +1,31 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cjw_db?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    initialSize: 10
+    maxActive: 100
+    minIdle: 5
+    maxIdle: 20
+    maxWait: 50000
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.cjw.Dao.Entity
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+wx:
+  api: https://api.weixin.qq.com/sns/jscode2session
+  appId: wxe12df03a91262d60
+  secret: 92c30f6fc262872bbfa88ad66f452b20
