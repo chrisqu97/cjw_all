@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
 import java.security.AlgorithmParameters;
 import java.security.Security;
@@ -27,23 +26,7 @@ public class WxUtiles {
     @Value("${wx.secret}")
     private String secret;
 
-
-    /**
-     * 设置header
-     * @param response
-     * @return
-     */
-    public static HttpServletResponse setHeader(HttpServletResponse response) {
-        response.setContentType("text/html;charset=utf-8");
-        /* 设置响应头允许ajax跨域访问 */
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        /* 星号表示所有的异域请求都可以接受， */
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-
-        return response;
-    }
-
-    public String getApiUrl(String code){
+    public String CreateApiUrl(String code){
         return api+"?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code";
     }
 
@@ -80,4 +63,16 @@ public class WxUtiles {
         return null;
     }
 
+    public static void main(String[] args) {
+        String s="cq2g4hwn3reXLtac5bF1JA==";
+        String e="8agdn+Un4B97GOJhcR1T/ToQhXCsOExumDx2ERuKSum59Sjz86KT/wLol4Cku5pDUCjmpXe6omzYH80gOSwjJKBM5DtCtxZhAbIqJNhq9u8LwRwbIITekuQZl0ATtI23jwD6eS9GzKoZqi1dNBE028ybgL35unVTIKeickRRziTzejLhgTxxodMS4/nL0FsZy1jGlXmyuFQpooCv1lawYGon4viP5h/QAt4Vuul7CYYyH5SzJHmw9TzODJamKzjMAi31F0xvtVITUrUeTvHV9A6xXhJCnKWoQZ4dIUVtPSV5MOhvSEhBrCJDGqZwWSiYUaAPGU+LHf+Wz+YeHtXHLVxxtItH5Ww9sx445Zl5Sa9YyFshryGMkzzpJy6QVg2Zimuu28dLukQWgyUZUclCs9yxXBIk5+F0jPxV1IYw+9Q9uvH1qH95QGcH7Wghezqw3PWpJ0m0A/6lxfMESdaiWhlYw22sTa/g1+OjjTJH2Vc=";
+        String iv="jOyGnalK9mQCcDEJVlYTlA==";
+        WxUtiles wxUtiles=new WxUtiles();
+        try{
+            System.out.println(wxUtiles.decodeBase64(e,s,iv));
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
 }

@@ -102,6 +102,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.Dao.Entity.SendFile">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into send_file (id, user_id, accept_id, 
       file_id, create_time, done_time, 
       state)
@@ -110,11 +113,12 @@
       #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.SendFile">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into send_file
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
+      id,
       <if test="userId != null">
         user_id,
       </if>
@@ -135,9 +139,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
+      #{id,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

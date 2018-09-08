@@ -3,6 +3,7 @@ package com.cjw.config;
 import com.cjw.Pojo.ResultPojo;
 import com.cjw.Pojo.SessionKeyPojo;
 import com.cjw.Service.UserService;
+import com.cjw.Utils.AESUtils;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -38,7 +39,7 @@ public class LoginAspect {
 
         if (sessionKey != null && !sessionKey.trim().equals("")) {
             SessionKeyPojo sessionKeyPojo = decodeSessionKey(sessionKey);
-            if (sessionKeyPojo != null && userService.checkOpenId(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
+            if (sessionKeyPojo != null && userService.checkSessionKey(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
                 try {
                     Object result = proceedingJoinPoint.proceed();
                     return result;
@@ -59,10 +60,9 @@ public class LoginAspect {
     }
 
 
-    public SessionKeyPojo decodeSessionKey(String sessionKey) throws Exception {
-        //临时的解密方法
-        String[] split = sessionKey.split("&");
+    public SessionKeyPojo decodeSessionKey(String sessionKey){
         try {
+            String[] split = AESUtils.decrypt(sessionKey).split("&");
             SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
             sessionKeyPojo.setUserId(Integer.parseInt(split[0]));
             sessionKeyPojo.setSessionKey(split[1]);

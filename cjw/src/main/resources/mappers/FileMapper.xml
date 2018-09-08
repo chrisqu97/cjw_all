@@ -123,17 +123,21 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.Dao.Entity.File">
+    <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into file (file_id, user_id, file_name, 
       state, path)
     values (#{fileId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{path,jdbcType=VARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.File">
+    <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into file
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fileId != null">
-        file_id,
-      </if>
+      file_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -148,9 +152,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fileId != null">
-        #{fileId,jdbcType=INTEGER},
-      </if>
+      #{fileId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

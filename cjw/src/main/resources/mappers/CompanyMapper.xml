@@ -126,6 +126,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.Dao.Entity.Company">
+    <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into company (company_id, company_name, area, 
       home_page_link, company_type, size, 
       state, description)
@@ -134,11 +137,12 @@
       #{state,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.Company">
+    <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="companyId != null">
-        company_id,
-      </if>
+      company_id,
       <if test="companyName != null">
         company_name,
       </if>
@@ -162,9 +166,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="companyId != null">
-        #{companyId,jdbcType=INTEGER},
-      </if>
+      #{companyId,jdbcType=INTEGER},
       <if test="companyName != null">
         #{companyName,jdbcType=VARCHAR},
       </if>

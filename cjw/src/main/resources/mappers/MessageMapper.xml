@@ -128,6 +128,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.Dao.Entity.Message">
+    <selectKey keyProperty="messageId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into message (message_id, user_id, accepter_id, 
       message_type, position_id, create_time, 
       if_read, state, content
@@ -138,11 +141,12 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.Message">
+    <selectKey keyProperty="messageId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="messageId != null">
-        message_id,
-      </if>
+      message_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -169,9 +173,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="messageId != null">
-        #{messageId,jdbcType=INTEGER},
-      </if>
+      #{messageId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

@@ -33,6 +33,6 @@ public class CompanyTest extends  TestBase{
 
     @Test
     public void fun4(){
-        System.out.println(wxUtiles.getApiUrl("123456"));
+        System.out.println(wxUtiles.CreateApiUrl("123456"));
     }
 }
