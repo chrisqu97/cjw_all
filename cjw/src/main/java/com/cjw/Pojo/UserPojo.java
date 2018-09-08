@@ -5,9 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UserPojo {
-    private Integer userId;
-    private String openId;
+public class UserPojo extends BasePojo{
     private String userName;
     private String birthday;
     private String phone;

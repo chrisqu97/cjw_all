@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private static Logger logger = LogManager.getLogger(GlobalExceptionHandler.class.getName());
 
-    @ExceptionHandler(value = PermissionException.class)
+    @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResultPojo errorHandler(HttpServletRequest request, Exception e) throws Exception {
         ResultPojo resultPojo=new ResultPojo();
