@@ -1,7 +1,6 @@
 package com.cjw.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cjw.Dao.Entity.User;
 import com.cjw.Dao.UserDao;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 @Service
 public class UserService {
