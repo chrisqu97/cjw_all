@@ -50,17 +50,38 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="company" domainObjectName="Company"></table>
-        <table tableName="file" domainObjectName="File"></table>
-        <table tableName="follow_company" domainObjectName="FollowCompany"></table>
-        <table tableName="message" domainObjectName="Message"></table>
-        <table tableName="position" domainObjectName="Position"></table>
-        <table tableName="position_interest" domainObjectName="PositionInterest"></table>
-        <table tableName="position_type" domainObjectName="PositionType"></table>
-        <table tableName="see_company" domainObjectName="SeeCompany"></table>
-        <table tableName="send_file" domainObjectName="SendFile"></table>
-        <table tableName="static_data" domainObjectName="StaticData"></table>
+        <table tableName="company" domainObjectName="Company">
+            <generatedKey column="company_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="file" domainObjectName="File">
+            <generatedKey column="file_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="follow_company" domainObjectName="FollowCompany">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="message" domainObjectName="Message">
+            <generatedKey column="message_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="position" domainObjectName="Position">
+            <generatedKey column="position_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="position_interest" domainObjectName="PositionInterest">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="position_type" domainObjectName="PositionType">
+            <generatedKey column="position_type_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="see_company" domainObjectName="SeeCompany">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="send_file" domainObjectName="SendFile">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="static_data" domainObjectName="StaticData">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
         <table tableName="user" domainObjectName="User">
+            <generatedKey column="user_id" sqlStatement="SELECT LAST_INSERT_ID()"/>
             <columnOverride column="my_advantage" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="my_answer" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="practice_experience" javaType="java.lang.String" jdbcType="VARCHAR" />

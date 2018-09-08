@@ -2,6 +2,7 @@ package com.cjw.Controller;
 
 import com.cjw.Pojo.LoginPojo;
 import com.cjw.Pojo.ResultPojo;
+import com.cjw.Pojo.SessionKeyPojo;
 import com.cjw.Pojo.UserPojo;
 import com.cjw.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,25 +118,23 @@ public class UserController {
      * 登录
      *
      * @param loginPojo
-     * @param request
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResultPojo login(LoginPojo loginPojo, HttpServletRequest request) {
+    public ResultPojo login(@RequestBody LoginPojo loginPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        UserPojo userPojo = null;
         try {
-            userPojo = userService.login(loginPojo);
+            SessionKeyPojo sessionKeyPojo = userService.login(loginPojo);
+
+            resultPojo.setSuccess(true);
+            resultPojo.setMessage("success");
+            resultPojo.setData(sessionKeyPojo);
+            return resultPojo;
         } catch (Exception e) {
             resultPojo.setMessage(e.getMessage());
             return resultPojo;
         }
-
-        resultPojo.setSuccess(true);
-        resultPojo.setMessage("success");
-        resultPojo.setData(userPojo);
-        return resultPojo;
     }
 
 }

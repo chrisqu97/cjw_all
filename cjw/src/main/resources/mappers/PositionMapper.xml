@@ -130,6 +130,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.Dao.Entity.Position">
+    <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into position (position_id, user_id, position_name, 
       company_id, position_type, area, 
       educational_requirements, experience_requirements, 
@@ -142,11 +145,12 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.Position">
+    <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into position
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="positionId != null">
-        position_id,
-      </if>
+      position_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -179,9 +183,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="positionId != null">
-        #{positionId,jdbcType=INTEGER},
-      </if>
+      #{positionId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

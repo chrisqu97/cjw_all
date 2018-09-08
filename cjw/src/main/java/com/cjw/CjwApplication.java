@@ -16,4 +16,5 @@ public class CjwApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CjwApplication.class, args);
 	}
+
 }

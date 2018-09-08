@@ -1,18 +1,17 @@
 package com.cjw.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cjw.Dao.Entity.User;
 import com.cjw.Dao.UserDao;
 import com.cjw.Pojo.*;
+import com.cjw.Utils.AESUtils;
 import com.cjw.Utils.WxUtiles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 @Service
 public class UserService {
@@ -52,8 +51,10 @@ public class UserService {
             userPojo = new UserPojo();
             userPojo.setUserName(user.getUserName());
             try {
-                SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-                userPojo.setBirthday(sf.format(user.getBirthday()));
+                if (user.getBirthday() != null) {
+                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+                    userPojo.setBirthday(sf.format(user.getBirthday()));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -100,19 +101,24 @@ public class UserService {
         return userPojo;
     }
 
-    public UserPojo login(LoginPojo loginPojo) throws Exception {
-        String apiUrl = wxUtils.getApiUrl(loginPojo.getCode());
+    public SessionKeyPojo login(LoginPojo loginPojo) throws Exception {
+        String apiUrl = wxUtils.CreateApiUrl(loginPojo.getCode());
 
-        JSONObject jsonObject = restTemplate.getForObject(apiUrl, JSONObject.class);
+        JSONObject jsonObject = JSON.parseObject(restTemplate.getForObject(apiUrl, String.class));
 
-        String openId = jsonObject.getString("openId");
+        String openId = jsonObject.getString("openid");
+        if(openId==null){
+            throw new  Exception("get api failed");
+        }
         User user = userDao.findByOpenId(openId);
         String session_key = jsonObject.getString("session_key");
+
         if (user == null) {
             JSONObject userData = wxUtils.decodeBase64(loginPojo.getEncryptedData(), session_key, loginPojo.getIv());
 
             user = new User();
-            user.setUserName(userData.getString("openId"));
+            user.setOpenId(openId);
+            user.setSessionKey(session_key + "?" + System.currentTimeMillis());
             user.setUserName(userData.getString("nickName"));
             user.setGender(jsonObject.getInteger("gender"));
             PlacePojo placePojo = new PlacePojo();
@@ -122,42 +128,27 @@ public class UserService {
             user.setLivingPlace(JSON.toJSONString(placePojo));
 
             userDao.add(user);
-        } else {
-            if (!user.getSessionKey().equals(session_key)) {
-                JSONObject userData = wxUtils.decodeBase64(loginPojo.getEncryptedData(), session_key, loginPojo.getIv());
-                user.setSessionKey(session_key);
-                user.setUserName(userData.getString("openId"));
-                user.setUserName(userData.getString("nickName"));
-                user.setGender(jsonObject.getInteger("gender"));
-                PlacePojo placePojo = new PlacePojo();
-                placePojo.setCountry(userData.getString("country"));
-                placePojo.setProvince(userData.getString("province"));
-                placePojo.setCity(userData.getString("city"));
-                user.setLivingPlace(JSON.toJSONString(placePojo));
-
-                userDao.update(user);
-            }
         }
-        UserPojo userPojo = new UserPojo();
-        userPojo.setUserId(user.getUserId());
-        userPojo.setUserName(user.getUserName());
+        SessionKeyPojo sessionKeyPojo=new SessionKeyPojo();
+        sessionKeyPojo.setUserId(user.getUserId());
+        sessionKeyPojo.setSessionKey(AESUtils.encrypt(user.getUserId()+"&"+user.getSessionKey()));
 
-        return userPojo;
+        return sessionKeyPojo;
     }
 
     /**
      * 校验openId
      *
      * @param userId
-     * @param openId
+     * @param sessionKey
      * @return
      */
-    public boolean checkOpenId(Integer userId, String openId) {
+    public boolean checkSessionKey(Integer userId, String sessionKey) {
         User user = userDao.findById(userId);
         if (user == null) {
             return false;
         } else {
-            if (user.getOpenId().equals(openId)) {
+            if (user.getSessionKey().equals(sessionKey)) {
                 return true;
             } else {
                 return false;
