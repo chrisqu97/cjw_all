@@ -147,15 +147,15 @@ public class UserService {
      * 校验openId
      *
      * @param userId
-     * @param openId
+     * @param sessionKey
      * @return
      */
-    public boolean checkOpenId(Integer userId, String openId) {
+    public boolean checkOpenId(Integer userId, String sessionKey) {
         User user = userDao.findById(userId);
         if (user == null) {
             return false;
         } else {
-            if (user.getOpenId().equals(openId)) {
+            if (user.getSessionKey().equals(sessionKey)) {
                 return true;
             } else {
                 return false;

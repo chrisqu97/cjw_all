@@ -1,13 +1,17 @@
 package com.cjw.config;
 
-import com.cjw.Pojo.BasePojo;
 import com.cjw.Pojo.ResultPojo;
+import com.cjw.Pojo.SessionKeyPojo;
 import com.cjw.Service.UserService;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Aspect
@@ -21,33 +25,51 @@ public class LoginAspect {
 
     /**
      * 校验权限
+     *
      * @param proceedingJoinPoint
      * @return
      * @throws Exception
      */
     @Around(ExpGetResultDataPonit)
     public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Exception {
-        Object[] obj = proceedingJoinPoint.getArgs();
-        for (Object argItem : obj) {
-            if (argItem instanceof BasePojo) {
-                BasePojo basePojo = (BasePojo) argItem;
-                if (basePojo.getUserId() != null && basePojo.getOpenId() != null && userService.checkOpenId(basePojo.getUserId(), basePojo.getOpenId())) {
-                    try {
-                        Object result = proceedingJoinPoint.proceed();
-                        return result;
-                    } catch (Throwable throwable) {
-                        throwable.printStackTrace();
-                    }
-                } else {
-                    ResultPojo resultPojo = new ResultPojo();
-                    resultPojo.setMessage("permission check failed");
-                    return resultPojo;
-                }
-            }
-        }
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = requestAttributes.getRequest();
+        String sessionKey = request.getHeader("session_key");
 
+        if (sessionKey != null && !sessionKey.trim().equals("")) {
+            SessionKeyPojo sessionKeyPojo = decodeSessionKey(sessionKey);
+            if (sessionKeyPojo != null && userService.checkOpenId(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
+                try {
+                    Object result = proceedingJoinPoint.proceed();
+                    return result;
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+            } else {
+                ResultPojo resultPojo = new ResultPojo();
+                resultPojo.setMessage("permission check failed");
+                return resultPojo;
+            }
+        } else {
+            ResultPojo resultPojo = new ResultPojo();
+            resultPojo.setMessage("session_key is empty");
+            return resultPojo;
+        }
         return null;
     }
 
 
+    public SessionKeyPojo decodeSessionKey(String sessionKey) throws Exception {
+        //临时的解密方法
+        String[] split = sessionKey.split("&");
+        try {
+            SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
+            sessionKeyPojo.setUserId(Integer.parseInt(split[0]));
+            sessionKeyPojo.setSessionKey(split[1]);
+            return sessionKeyPojo;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
 }
