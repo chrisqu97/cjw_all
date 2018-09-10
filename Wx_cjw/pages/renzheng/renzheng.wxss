@@ -1,0 +1,300 @@
+.renzheng-content{
+  margin: 25rpx;
+}
+.renzheng_3 {
+  width: 710rpx;
+  height: 70rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+  line-height: 70rpx;
+}
+
+.renzheng_4 {
+  width: 714rpx;
+  height: 66rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 7rpx;
+  float: left;
+  text-align: left;
+  line-height: 66rpx;
+}
+
+.renzheng_4 .renzheng_5 {
+  width: 80rpx;
+  height: 46rpx;
+  padding: 0rpx;
+  margin-top: 7rpx;
+  margin-left: 9rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 46rpx;
+}
+
+.renzheng_4 .renzheng_6 {
+  width: 511rpx;
+  height: 54rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 11rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 54rpx;
+}
+
+.renzheng_9 {
+  width: 714rpx;
+  height: 85rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 7rpx;
+  float: left;
+  text-align: left;
+  line-height: 85rpx;
+}
+
+.renzheng_9 .renzheng_10 {
+  width: 80rpx;
+  height: 50rpx;
+  padding: 0rpx;
+  margin-top: 19rpx;
+  margin-left: 15rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+
+.renzheng_9 .renzheng_11 {
+  width: 462rpx;
+  height: 56rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 13rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 56rpx;
+}
+
+.renzheng_13 {
+  width: 718rpx;
+  height: 95rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 5rpx;
+  float: left;
+  text-align: left;
+  line-height: 95rpx;
+}
+
+.renzheng_13 .renzheng_14 {
+  width: 89rpx;
+  height: 52rpx;
+  padding: 0rpx;
+  margin-top: 23rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 52rpx;
+}
+
+.renzheng_13 .renzheng_15 {
+  width: 496rpx;
+  height: 76rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 19rpx;
+  margin-left: 23rpx;
+  float: left;
+  text-align: left;
+  line-height: 76rpx;
+}
+
+.renzheng_18 {
+  width: 722rpx;
+  height: 83rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 11rpx;
+  float: left;
+  text-align: left;
+  line-height: 83rpx;
+}
+
+.renzheng_18 .renzheng_19 {
+  width: 99rpx;
+  height: 48rpx;
+  padding: 0rpx;
+  margin-top: 19rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 48rpx;
+}
+
+.renzheng_18 .renzheng_20 {
+  width: 160rpx;
+  height: 52rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 19rpx;
+  margin-left: 9rpx;
+  float: left;
+  text-align: left;
+  line-height: 52rpx;
+}
+
+.renzheng_18 .renzheng_25 {
+  width: 427rpx;
+  position: relative;
+  height: 83rpx;
+  padding: 0rpx;
+  margin-top: 0rpx;
+  margin-left: 11rpx;
+  float: left;
+  text-align: left;
+  line-height: 83rpx;
+}
+
+.renzheng_18 .renzheng_25 .r1 {
+  width: 600rpx;
+  height: positive;
+  padding: 10rpx;
+  margin-top: 5rpx;
+  margin-left: 10rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 66rpx;
+}
+
+.renzheng_26 {
+  width: 726rpx;
+  height: 78rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 11rpx;
+  float: left;
+  text-align: left;
+  line-height: 78rpx;
+}
+
+.renzheng_26 .renzheng_27 {
+  width: 142rpx;
+  height: 58rpx;
+  padding: 0rpx;
+  margin-top: 13rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 58rpx;
+}
+.renzheng_31{
+  line-height: 58rpx;
+}
+.renzheng_26 .renzheng_28 {
+  width: 535rpx;
+  height: 64rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 13rpx;
+  margin-left: 5rpx;
+  float: left;
+  text-align: left;
+  line-height: 64rpx;
+}
+
+.renzheng_29 {
+  width: 708rpx;
+  height: 93rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 13rpx;
+  float: left;
+  text-align: left;
+  line-height: 93rpx;
+}
+
+.renzheng_29 .renzheng_30 {
+  width: 148rpx;
+  height: 64rpx;
+  padding: 0rpx;
+  margin-top: 17rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 64rpx;
+}
+
+.renzheng_29 .renzheng_31 {
+  width: 486rpx;
+  height: 80rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 13rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 80rpx;
+}
+
+.renzheng_32 {
+  width: 708rpx;
+  height: 82rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 13rpx;
+  float: left;
+  text-align: left;
+  line-height: 82rpx;
+}
+
+.renzheng_32 .renzheng_33 {
+  width: 152rpx;
+  height: 58rpx;
+  padding: 0rpx;
+  margin-top: 13rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 26rpx;
+  line-height: 58rpx;
+}
+
+.renzheng_32 .renzheng_34 {
+  width: 517rpx;
+  height: 64rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 13rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  line-height: 64rpx;
+}
+.phcolor, .picker {
+  font-size: 28rpx;
+}
+.picker {
+  text-align: center;
+}

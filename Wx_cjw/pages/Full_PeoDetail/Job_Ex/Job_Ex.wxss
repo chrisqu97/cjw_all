@@ -1,0 +1,44 @@
+/* pages/mine/feedback/feedback.wxss */
+
+.send {
+  /* position: fixed;
+  right: 30px; */
+  border-radius: 1em;
+  background-color: lightblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  width: 80%;
+  /* margin-top: 10px; */
+}
+.submit{
+border-radius: 23rpx;
+font-size: 20px;
+height: 46rpxl;
+text-align: center;
+color: white;
+background: #9BCD9B;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+.test_1 .test_2 {
+  width: 600rpx;
+  height: 300rpx;
+  padding: 0rpx;
+  margin: 46px;
+  float: left;
+  text-align: left;
+  line-height: 81rpx;
+  border: solid;
+  border-width: 1rpx;
+}
+
+
+.picker{
+  font-size: 28rpx;
+  text-indent: 20rpx;
+  text-align: left;
+}

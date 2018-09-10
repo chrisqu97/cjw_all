@@ -1,0 +1,71 @@
+<!--pages/mine/message/message.wxml-->
+<view class="message">
+  <scroll-view scroll-y="true" style="height:100vh;">
+    <navigator url="./msg_detail/msg_detail">
+      <view class="message_block">
+        <view class="msg_left">
+          <image class="message_img" src="../../../images/4.png"/>
+        </view>
+        <view class="msg_right">
+          <view class="msg_title">更新公告 <text style='font-size:28rpx; color:gray;'>系统通知</text></view>
+          <view class="msg_short">短内容</view>
+        </view>
+        <view class="msg_time">2018-03-19</view>
+      </view>
+    </navigator>
+    <navigator url='./communication/communication'>
+    <view class="message_block">
+      <view class="msg_left">
+        <image class="message_img" src="../../../images/5.png"/>
+      </view>
+        <view class="msg_right">
+          <view class="msg_title">来自负责人李</view>
+          <view class="msg_short">短内容</view>
+        </view>
+        <view class="msg_time">2018-03-19</view>
+      </view>
+    </navigator>
+    <view class="message_block">
+      <view class="msg_left">
+        <image class="message_img" src="../../../images/xihuan.png"/>
+      </view>
+      <view class="msg_right">
+        <view class="msg_title">标题</view>
+        <view class="msg_short">短内容</view>
+      </view>
+      <view class="msg_time">2018-03-19</view>
+    </view>
+    <view class="message_block">
+      <view class="msg_left">
+        <image class="message_img" src="../../../images/xihuan.png"/>
+      </view>
+      <view class="msg_right">
+        <view class="msg_title">标题</view>
+        <view class="msg_short">短内容</view>
+      </view>
+      <view class="msg_time">2018-03-19</view>
+    </view>
+    <view class="message_block">
+      <view class="msg_left">
+        <image class="message_img" src="../../../images/xihuan.png"/>
+      </view>
+      <view class="msg_right">
+        <view class="msg_title">标题</view>
+        <view class="msg_short">短内容</view>
+      </view>
+      <view class="msg_time">2018-03-19</view>
+    </view>
+    <view class="message_block">
+      <view class="msg_left">
+        <image class="message_img" src="../../../images/xihuan.png"/>
+      </view>
+      <view class="msg_right">
+        <view class="msg_title">标题</view>
+        <view class="msg_short">短内容</view>
+      </view>
+      <view class="msg_time">2018-03-19</view>
+    </view>
+
+   
+  </scroll-view>
+</view>

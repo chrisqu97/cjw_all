@@ -1,0 +1,60 @@
+/* pages/mine/mine.wxss */
+.head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.avatar{
+  border-radius: 100%;
+  background-color: #cecece;
+  height: 80px;
+  width: 80px;
+}
+.options{
+  border-top: 1px solid;
+  border-color: #cecece;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.option_block{
+  height: auto;
+  min-height: 30px;
+  max-height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+  border-color: #cecece;
+  color: #999;
+  font-size: 18px;
+}
+.option_img{
+  height: 18px;
+  width: 18px;
+  margin-top: 8px;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.Full_PeoDetail_5 {
+  width: 720rpx;
+  height: 60rpx;
+  padding: 0rpx;
+  margin-top: 3rpx;
+  margin-left: 7rpx;
+  float: left;
+  background-color: #8080ff;
+  text-align: center;
+  border-radius: 23rpx;
+  color: #fff;
+  line-height: 43rpx;
+  font-size: 37rpx;
+}
+
+
+
+
+

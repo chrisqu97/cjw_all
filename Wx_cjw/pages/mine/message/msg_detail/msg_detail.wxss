@@ -1,0 +1,11 @@
+/* pages/mine/message/msg_detail/msg_detail.wxss */
+.msg{
+  padding: 10px;
+}
+.time{
+  text-align: right;
+  font-size: 14px;
+}
+.content{
+  font-size: 14px;
+}

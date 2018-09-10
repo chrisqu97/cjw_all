@@ -1,0 +1,27 @@
+<!--pages/search_page/search_res/search_res.wxml-->
+<!-- 顶部 搜索框 -->
+<view class="search">
+  <navigator url='../search_page'>
+    <view class="search_bg">
+      <icon class='search_icon' size='15' type='search'></icon>
+      <view style="margin-left: 5px;font-size: 14px;color:#bbb;width:100%">
+          搜索才聚网
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="res_list">
+  <view class="res_box">
+    结果一
+  </view>
+  <view class="res_box">
+    结果二
+  </view>
+  <view class="res_box">
+    结果三
+  </view>
+  <view class="res_box">
+    结果四
+  </view>
+</view>

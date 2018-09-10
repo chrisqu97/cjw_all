@@ -1,0 +1,64 @@
+/* pages/kind/kind.wxss */
+@import '../../search/search.wxss';
+.kind{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+}
+.kind-left{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border-right: 2px solid;
+  border-color: #cecece;
+}
+.kind-right{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.kind_left_item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-size: 28rpx;
+}
+.kind_left_item_selected{
+  border-left: 3px solid;
+  border-color: green;
+}
+/*隐藏滑动块*/
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.tag{
+  padding:10px;
+  font-size: 14px;
+}
+.tag_title{
+  color: #888888;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.tag_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.tag_item{
+  border:1rpx solid;
+  border-radius: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #cecece;
+  color: #aaaaaa;
+  margin-left: 5px;
+  margin-top: 10px;
+}

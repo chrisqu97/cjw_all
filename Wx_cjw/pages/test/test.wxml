@@ -1,0 +1,7 @@
+
+<view class="test_1" >
+    <textarea  bindinput="test_2_input" class="test_2" placeholder='请输入项目经验' placeholder-class='picker' ></textarea>
+    <text bindtap="test_3_click" class="test_3" >行业类别</text>
+    <view class="test_4" >
+    </view>
+  </view>

@@ -1,0 +1,334 @@
+
+
+.Pub_Job_1 {
+  width: 746rpx;
+  height: 506rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  background-color: #0ccbb1;
+  text-align: left;
+}
+
+.Pub_Job_1 .Pub_Job_2 {
+  width: 203rpx;
+  height: 223rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 136rpx;
+  margin-left: 273rpx;
+  float: left;
+  text-align: left;
+  line-height: 223rpx;
+}
+
+.Pub_Job_1 .Pub_Job_3 {
+  width: 197rpx;
+  height: 85rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 15rpx;
+  margin-left: 279rpx;
+  float: left;
+  text-align: left;
+  color: #fdfffd;
+  line-height: 85rpx;
+}
+
+.Pub_Job_4 {
+  width: 740rpx;
+  height: 971rpx;
+  padding: 0rpx;
+  margin-top: 23rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+}
+
+.Pub_Job_4 .Pub_Job_27 {
+  width: 712rpx;
+  position: relative;
+  clear: both;
+  height: 79rpx;
+  padding: 0rpx;
+  margin-top: 9rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 79rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_27 .Pub_Job_28 {
+  width: 120rpx;
+  height: 61rpx;
+  padding: 0rpx;
+  margin-top: 7rpx;
+  margin-left: 15rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 61rpx;
+}
+
+.Pub_Job_4 .Pub_Job_27 .Pub_Job_29 {
+  width: 542rpx;
+  height: 61rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 7rpx;
+  margin-left: 9rpx;
+  float: left;
+  text-align: center;
+  line-height: 61rpx;
+}
+
+.Pub_Job_4 .Pub_Job_6 {
+  width: 704rpx;
+  height: 67rpx;
+  padding: 0rpx;
+  position: relative;
+  clear: both;
+  margin-top: 23rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 67rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_7 {
+  width: 698rpx;
+  height: 195rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 17rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 195rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_9 {
+  width: 718rpx;
+  height: 93rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 15rpx;
+  margin-left: 3rpx;
+  float: left;
+  text-align: left;
+  line-height: 93rpx;
+}
+
+.Pub_Job_4 .Pub_Job_9 .location {
+  width: 500rpx;
+  height: 73rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 9rpx;
+  margin-left: 200rpx;
+  float: left;
+  text-align: left;
+  border-color: #32c8f9;
+  border-width: 1rpx;
+  border-style: solid;
+  color: #fcfffc;
+  line-height: 73rpx;
+}
+
+.Pub_Job_4 .Pub_Job_10 {
+  width: 722rpx;
+  height: 108rpx;
+  padding: 0rpx;
+  position: relative;
+  clear: both;
+  margin-top: 13rpx;
+  margin-left: 7rpx;
+  float: left;
+  text-align: left;
+  line-height: 108rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_10 .Pub_Job_17 {
+  width: 114rpx;
+  height: 71rpx;
+  padding: 0rpx;
+  margin-top: 23rpx;
+  margin-left: 25rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 71rpx;
+}
+
+.Pub_Job_4 .Pub_Job_10 .Pub_Job_20 {
+  width: 461rpx;
+  height: 65rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 23rpx;
+  margin-left: 27rpx;
+  float: left;
+  text-align: left;
+  line-height: 65rpx;
+}
+
+.Pub_Job_4 .Pub_Job_10 .Pub_Job_21 {
+  width: 67rpx;
+  height: 65rpx;
+  padding: 0rpx;
+  margin-top: 23rpx;
+  margin-left: 19rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 65rpx;
+}
+
+.Pub_Job_4 .Pub_Job_11 {
+  width: 722rpx;
+  height: 98rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 9rpx;
+  margin-left: 7rpx;
+  float: left;
+  text-align: left;
+  line-height: 98rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_11 .Pub_Job_18 {
+  width: 154rpx;
+  height: 69rpx;
+  padding: 0rpx;
+  margin-top: 15rpx;
+  margin-left: 25rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 69rpx;
+}
+
+.Pub_Job_4 .Pub_Job_11 .Pub_Job_24 {
+  width: 417rpx;
+  height: 73rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 11rpx;
+  margin-left: 23rpx;
+  float: left;
+  text-align: left;
+  font-size: 19rpx;
+  line-height: 73rpx;
+}
+
+.Pub_Job_4 .Pub_Job_11 .Pub_Job_22 {
+  width: 73rpx;
+  height: 71rpx;
+  padding: 0rpx;
+  margin-top: 21rpx;
+  margin-left: 19rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 71rpx;
+}
+
+.Pub_Job_4 .Pub_Job_12 {
+  width: 716rpx;
+  height: 120rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 21rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  line-height: 91rpx;
+  border-bottom: 1px solid;
+}
+
+.Pub_Job_4 .Pub_Job_12 .Pub_Job_19 {
+  width: 150rpx;
+  height: 69rpx;
+  padding: 0rpx;
+  margin-top: 15rpx;
+  margin-left: 19rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 69rpx;
+}
+
+.Pub_Job_4 .Pub_Job_12 .Pub_Job_25 {
+  width: 431rpx;
+  height: 79rpx;
+  padding: 0rpx;
+  position: relative;
+  margin-top: 0rpx;
+  margin-left: 9rpx;
+  float: left;
+  text-align: left;
+  font-size: 19rpx;
+  line-height: 79rpx;
+}
+
+.Pub_Job_4 .Pub_Job_12 .Pub_Job_23 {
+  width: 85rpx;
+  height: 75rpx;
+  padding: 0rpx;
+  margin-top: 3rpx;
+  margin-left: 15rpx;
+  float: right;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 75rpx;
+}
+
+.Pub_Job_4 .Pub_Job_13 {
+  width: 708rpx;
+  height: 104rpx;
+  padding: 0rpx;
+  clear: both;
+  padding-top: 20rpx;
+  margin-bottom: 0rpx;
+  margin-left: 13rpx;
+  float: left;
+  text-align: left;
+  line-height: 104rpx;
+}
+
+.Pub_Job_4 .Pub_Job_13 .Pub_Job_14 {
+  width: 668rpx;
+  height: 93rpx;
+  padding: 0rpx;
+  margin-top: 7rpx;
+  margin-left: 13rpx;
+  float: left;
+  background-color: #32c8f9;
+  text-align: left;
+  color: #fdfffd;
+  line-height: 93rpx;
+}
+
+.Pub_Job_4 .Pub_Job_13 .Pub_Job_14 .Pub_Job_15 {
+  width: 61rpx;
+  height: 49rpx;
+  padding: 0rpx;
+  margin-top: 21rpx;
+  margin-left: 245rpx;
+  float: left;
+  text-align: left;
+  line-height: 49rpx;
+}
+
+.phcolor, .picker {
+  font-size: 28rpx;
+}
+
+.picker {
+  text-align: center;
+}

@@ -1,0 +1,46 @@
+
+  <view class="Full_PeoDetail_4" >
+    <text class="Full_PeoDetail_5" >您的简历不够完整哦~
+    丰富简历资料可获得更精准的职位推荐</text>
+  </view>
+
+  <navigator url='./Job_YX/Job_YX'>
+  <view class="Full_PeoDetail_6" style='padding-top:50rpx;' >
+    <text class="Full_PeoDetail_7" >求职意向</text>
+    <text class="Full_PeoDetail_25" >必填</text>
+    <text class="Full_PeoDetail_24" >待完善</text>
+    <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
+  </view>
+  </navigator>
+  <navigator url='./Job_Ex/Job_Ex'>
+  <view class="Full_PeoDetail_6" >
+    <text class="Full_PeoDetail_7" >工作经历</text>
+    <text class="Full_PeoDetail_25" >选填</text>
+    <text class="Full_PeoDetail_24" >待完善</text>
+    <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
+  </view>
+  </navigator>
+  <navigator url='./Pro_Ex/Pro_Ex'>
+  <view class="Full_PeoDetail_6" >
+    <text class="Full_PeoDetail_7" >项目经验</text>
+    <text class="Full_PeoDetail_25" >选填</text>
+    <text class="Full_PeoDetail_24" >待完善</text>
+    <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
+  </view>
+  </navigator>
+  <navigator url='./Self_Value/Self_Value'>
+  <view class="Full_PeoDetail_6" >
+    <text class="Full_PeoDetail_7" >自我评价</text>
+    <text class="Full_PeoDetail_25" >选填</text>
+    <text class="Full_PeoDetail_24" >待完善</text>
+    <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
+  </view>
+  </navigator>
+  <navigator url='./Pre_Peodetail/Pre_Peodetail'>
+    <view class='preview'>
+    <text> 预览简历</text> 
+  </view>
+  </navigator>
+
+ 
+ 

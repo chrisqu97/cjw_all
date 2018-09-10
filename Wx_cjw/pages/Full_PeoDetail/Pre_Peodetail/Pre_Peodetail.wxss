@@ -1,0 +1,51 @@
+/* pages/Full_PeoDetail/Pre_Peodetail/Pre_Peodetail.wxss */
+.name_view{
+  width: 800rpx;
+  margin: 20rpx;
+}
+
+.title{
+  margin: 20rpx;
+}
+.name{
+  margin: 20rpx;
+  font-size: 40rpx;
+  font-weight:bold;
+}
+.school_view{
+   margin: 20rpx;
+}
+.school{
+  margin: 20rpx;
+  font-size: 28rpx;
+}
+.bottom_line{
+ border-bottom: 1px dotted;
+ color: gray;
+ margin: 20rpx;
+}
+.common{
+  margin: 40rpx;
+  width: 100rpx;
+  font-size: 28rpx;
+}
+.age{
+  margin-left: 100rpx;
+  font-size: 28rpx;
+}
+.job{
+  margin: 20rpx;
+  font-size: 40rpx;
+  font-weight:bold;
+}
+.right{
+ margin-left: 200rpx;
+  font-size: 28rpx;
+  color: #9ACD32;
+}
+.userinfo-avatar {
+  margin-left: 200rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}

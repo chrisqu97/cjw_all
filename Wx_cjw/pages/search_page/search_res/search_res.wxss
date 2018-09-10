@@ -1,0 +1,2 @@
+/* pages/search_page/search_res/search_res.wxss */
+@import '../../../search/search.wxss';

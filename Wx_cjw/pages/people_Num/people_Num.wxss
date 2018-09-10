@@ -1,0 +1,210 @@
+.fox2_1 {
+  width: 724rpx;
+  height: 580rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+  line-height: 556rpx;
+}
+
+.fox2_2 {
+  width: 724rpx;
+  height: 190rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 0rpx;
+  float: left;
+  text-align: left;
+  line-height: 175rpx;
+}
+
+.fox2_2 .fox2_3 {
+  width: 475rpx;
+  position: relative;
+  height: 125rpx;
+  padding: 0rpx;
+  margin-top: 25rpx;
+  margin-left: 36rpx;
+  float: left;
+  text-align: left;
+  line-height: 125rpx;
+}
+
+.fox2_2 .fox2_3 .fox2_4 {
+  width: 117rpx;
+  height: 108rpx;
+  padding: 0rpx;
+  margin-top: 13rpx;
+  margin-left: 11rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  line-height: 108rpx;
+}
+
+.fox2_2 .fox2_3 .fox2_5 {
+  width: 201rpx;
+  height: 42rpx;
+  padding: 0rpx;
+  margin-top: 17rpx;
+  margin-left: 141rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #000;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.fox2_2 .fox2_3 .fox2_6 {
+  width: 193rpx;
+  height: 40rpx;
+  padding: 0rpx;
+  margin-top: 71rpx;
+  margin-left: 148rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #b77552;
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+
+.fox2_2 .fox2_3 .fox2_7 {
+  width: 108rpx;
+  height: 36rpx;
+  padding: 0rpx;
+  margin-top: 75rpx;
+  margin-left: 349rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #edb975;
+  font-size: 25rpx;
+  line-height: 36rpx;
+}
+
+.fox2_2 .fox2_8 {
+  width: 115rpx;
+  height: 57rpx;
+  padding: 0rpx;
+  margin-top: 61rpx;
+  margin-left: 32rpx;
+  float: left;
+  text-align: left;
+  color: #79867d;
+  font-size: 40rpx;
+  line-height: 57rpx;
+}
+
+.fox2_9 {
+  width: 724rpx;
+  height: 150rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 0rpx;
+  float: left;
+  text-align: left;
+  line-height: 150rpx;
+}
+
+.fox2_9 .fox2_10 {
+  width: 351rpx;
+  height: 108rpx;
+  padding: 0rpx;
+  margin-top: 23rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 108rpx;
+}
+
+.fox2_9 .fox2_10 .fox2_11 {
+  width: 88rpx;
+  height: 79rpx;
+  padding: 0rpx;
+  margin-top: 15rpx;
+  margin-left: 5rpx;
+  float: left;
+  text-align: left;
+  line-height: 79rpx;
+}
+
+.fox2_9 .fox2_10 .fox2_12 {
+  width: 200rpx;
+  height: 50rpx;
+  padding: 0rpx;
+  margin-top: 25rpx;
+  margin-left: 5rpx;
+  float: left;
+  text-align: left;
+  color: #edb975;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+
+.fox2_9 .fox2_13 {
+  width: 77rpx;
+  height: 67rpx;
+  padding: 0rpx;
+  margin-top: 42rpx;
+  margin-left: 266rpx;
+  float: left;
+  text-align: left;
+  line-height: 67rpx;
+}
+
+.fox2_14 {
+  width: 724rpx;
+  height: 150rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 1rpx;
+  float: left;
+  text-align: left;
+  line-height: 150rpx;
+}
+
+.fox2_14 .fox2_15 {
+  width: 351rpx;
+  height: 112rpx;
+  padding: 0rpx;
+  margin-top: 25rpx;
+  margin-left: 17rpx;
+  float: left;
+  text-align: left;
+  line-height: 112rpx;
+}
+
+.fox2_14 .fox2_15 .fox2_16 {
+  width: 81rpx;
+  height: 69rpx;
+  padding: 0rpx;
+  margin-top: 13rpx;
+  margin-left: 11rpx;
+  float: left;
+  text-align: left;
+  line-height: 69rpx;
+}
+
+.fox2_14 .fox2_15 .fox2_17 {
+  width: 216rpx;
+  height: 50rpx;
+  padding: 0rpx;
+  margin-top: 32rpx;
+  margin-left: 7rpx;
+  float: left;
+  text-align: left;
+  color: #efc7cb;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}

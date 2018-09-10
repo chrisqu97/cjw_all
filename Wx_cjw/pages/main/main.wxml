@@ -1,0 +1,29 @@
+<!-- 职位 -->
+<view class="main_11" >
+    <view class="main_12" >
+      <text class="main_15" >要求：本科以上|长沙</text>
+      <text class="main_13" >软件设计师</text>
+      <text class="main_14" >中专/技校|十年以上</text>
+      <text class="main_16" >执行力强</text>
+      <text class="main_17" >责任心强</text>
+    </view>
+    <view class="main_20" >
+      <text class="main_18" >一天前更新</text>
+      <button bindtap="main_19_click"  class="main_19" >查看</button>
+    </view>
+  </view>
+<!-- 人才 -->
+    <view class="people_2" >
+    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >汤先生</text>
+      <text class="people_7" >29岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >平面设计</text>
+      <text class="people_8" >5-10年</text>
+      <text class="people_9" >南白象</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+    <text class="people_5" >可视化人才</text>
+  </view>

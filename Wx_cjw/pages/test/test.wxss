@@ -1,0 +1,5 @@
+
+.2{background-color: transparent;width:287px;height:81px;border:0px;color:;padding:0px; margin:0px;} .test_1{width:740rpx;height:139rpx;padding:0rpx;clear:both;float:left;text-align:left; line-height:139rpx;}
+ .test_1 .test_2{width:287rpx;height:81rpx;padding:0rpx;margin-top:45rpx;margin-left:21rpx;float:left;text-align:left; line-height:81rpx;}
+ .test_1 .test_3{width:195rpx;height:63rpx;padding:0rpx;margin-top:57rpx;margin-left:145rpx;float:left;text-align:left;font-size:19rpx; line-height:63rpx;}
+ .test_1 .test_4{width:53rpx;height:61rpx;padding:0rpx;margin-top:65rpx;margin-left:9rpx;float:left;text-align:left; line-height:61rpx;}

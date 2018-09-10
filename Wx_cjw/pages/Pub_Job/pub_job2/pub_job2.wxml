@@ -1,0 +1,40 @@
+<view class='pub_job_content'>
+<navigator url='../../people_list/people_list'> 
+  <view class="pub_job_4" >
+    <image src="/pub_job/images/pub_job/pub_job_5_5.jpg" style=" width:57rpx;height:54rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_5_click"  class="pub_job_5" ></image>
+    <text class="pub_job_6" >IT技术人员</text>
+    <text class="pub_job_7" >5人</text>
+  </view>
+  </navigator>
+  <view class="pub_job_8" >
+    <image src="/pub_job/images/pub_job/pub_job_9_9.jpg" style=" width:41rpx;height:61rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_9_click"  class="pub_job_9" ></image>
+    <text class="pub_job_10" >新媒体运营技术总监</text>
+    <text class="pub_job_11" >20人</text>
+  </view>
+  <view class="pub_job_12" >
+    <image src="/pub_job/images/pub_job/pub_job_13_13.jpg" style=" width:41rpx;height:54rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_13_click"  class="pub_job_13" ></image>
+    <text class="pub_job_14" >JAVA开发储备人才</text>
+    <text class="pub_job_15" >30人</text>
+  </view>
+  <view class="pub_job_16" >
+    <view class="pub_job_17" >
+    </view>
+    <text class="pub_job_18" >程序开发技术总监</text>
+    <text class="pub_job_19" >5人</text>
+  </view>
+  <view class="pub_job_20" >
+    <image src="/pub_job/images/pub_job/pub_job_21_21.jpg" style=" width:44rpx;height:44rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_21_click"  class="pub_job_21" ></image>
+    <text class="pub_job_22" >技术部经理</text>
+    <text class="pub_job_23" >10人</text>
+  </view>
+  <view class="pub_job_24" >
+    <image src="/pub_job/images/pub_job/pub_job_25_25.jpg" style=" width:46rpx;height:54rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_25_click"  class="pub_job_25" ></image>
+    <text class="pub_job_26" >物联网和新零售部技术总监</text>
+    <text class="pub_job_27" >10人</text>
+  </view>
+  <view class="pub_job_32" >
+    <image src="/pub_job/images/pub_job/pub_job_29_29.jpg" style=" width:50rpx;height:52rpx;"  mode="scaleToFill" border="0"   bindtap="pub_job_29_click"  class="pub_job_29" ></image>
+    <text class="pub_job_30" >APP研发</text>
+    <text class="pub_job_31" >20人</text>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+
+  <!-- <view class="renzheng_4" >
+   
+    <input  bindinput="renzheng_6_input" class="renzheng_6" ></input>
+  </view> -->
+<view class='renzheng-content'></view>
+  <view class="renzheng_18" >
+    <text class="renzheng_19" >学校：</text>
+    <input  bindinput="renzheng_20_input" class="renzheng_20"  placeholder="输入学校" placeholder-class='phcolor'></input>
+     <view><text class="renzheng_19" >类型：</text></view>
+    
+    <picker  range="{{school}}" bindchange="bindPickerChange" class="r1" placeholder-class='pholder' >{{school[index]}}</picker>
+   
+  </view>
+  <view class="renzheng_26" >
+    <text class="renzheng_27" >专业名称：</text>
+     <input bindinput="renzheng_31_input" placeholder-class='phcolor' class="renzheng_31" 
+placeholder="输入专业名称"></input>
+    <view class="renzheng_28" >
+    </view>
+  </view>
+  <view class="renzheng_29" >
+    <text class="renzheng_30" >入学时间：</text>
+   <picker mode="date" start="2000-09-01" end="2317-09-01" bindchange="DatePickerSelected" > <view class="picker"> <text>{{date}}</text></view></picker>
+  
+  </view>
+  <view class="renzheng_32" >
+    <text class="renzheng_33" >毕业时间：</text>
+    <picker mode="date" start="2015-09-01" end="2317-09-01" bindchange="DatePickerSelected"   > <view class="picker"> <text>{{date}}</text></view></picker>
+  
+  </view>

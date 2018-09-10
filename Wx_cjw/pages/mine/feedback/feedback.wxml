@@ -1,0 +1,4 @@
+<!--pages/mine/feedback/feedback.wxml-->
+<textarea class="suggest" style="width:100%" placeholder="请输入需要反馈的意见" maxlength="10" maxlength="{{ta_maxlength}}" value="{{ta_value}}" bindinput='ta_input'></textarea>
+<view class="word_limit" style='text-align:right;margin-right:30px'>{{ta_length}}/{{ta_maxlength}}</view>
+<view class="send"  bindtap="">发送</view>

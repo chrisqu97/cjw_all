@@ -1,0 +1,30 @@
+
+<view class='peo_num'>
+<canvas class="fox2_1" style=" width:724rpx;height:310rpx;background:#F0FFFF" canvas-id="radarCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+</view>
+
+  <view class="fox2_2">
+    <view class="fox2_3" >
+      <image src="/pages/people_Num/images/people_Num/fox2_4_4.jpg" style=" width:117rpx;height:108rpx;"  mode="scaleToFill" border="0"   bindtap="fox2_4_click"  class="fox2_4" ></image>
+      <text class="fox2_5" >我的个人指数</text>
+      <text class="fox2_6" >收藏的职位数</text>
+      <text class="fox2_7" >10个</text>
+    </view>
+    <text class="fox2_8" >简历</text>
+  </view>
+   <navigator url='../job_recommend/job_recommend'> 
+  <view class="fox2_9" >
+    <view class="fox2_10" >
+      <image src="/pages/people_Num/images/people_Num/fox2_11_11.jpg" style=" width:88rpx;height:79rpx;"  mode="scaleToFill" border="0"   bindtap="fox2_11_click"  class="fox2_11" ></image>
+      <text class="fox2_12" >职位推荐</text>
+    </view>
+    <image src="/pages/people_Num/images/people_Num/fox2_13_13.jpg" style=" width:77rpx;height:67rpx;"  mode="scaleToFill" border="0"   bindtap="fox2_13_click"  class="fox2_13" ></image> 
+  </view>
+  </navigator>
+    <view class="fox2_9" >
+    <view class="fox2_10" >
+      <image src="/pages/people_Num/images/people_Num/fox2_11_11.jpg" style=" width:88rpx;height:79rpx;"  mode="scaleToFill" border="0"   bindtap="fox2_11_click"  class="fox2_11" ></image>
+      <text class="fox2_12" >收藏的职位</text>
+    </view>
+    <image src="/pages/people_Num/images/people_Num/fox2_13_13.jpg" style=" width:77rpx;height:67rpx;"  mode="scaleToFill" border="0"   bindtap="fox2_13_click"  class="fox2_13" ></image>
+  </view>

@@ -1,0 +1,13 @@
+/* pages/mine/feedback/feedback.wxss */
+.send{
+  position:fixed;
+  right:30px;
+  border-radius: 1em;
+  background-color:lightblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  margin-top: 10px;
+}

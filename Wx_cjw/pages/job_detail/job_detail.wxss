@@ -1,0 +1,46 @@
+.title{
+  font-weight: bold;
+  font-size: 35rpx;
+  margin: 20rpx;
+  padding-left: 20rpx;
+  }
+  .right{
+    float: right;
+    color: green;
+  }
+.content{
+ margin: 20rpx;
+ font-size: 26rpx;
+padding-left: 20rpx;
+}
+.bottom_line{
+ border-bottom: 1px dotted;
+ color: gray;
+ margin: 20rpx;
+}
+.Bqview{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.biaoqian{
+  border-style:solid ;
+  border-width:1px;
+  border-color: gray;
+  font-size: 26rpx;
+  margin: 24rpx;
+  float: left;
+}
+.preview{
+border-radius: 23rpx;
+width: 600rpx;
+margin: 40rpx;
+padding-top: 10rpx;
+font-size: 20px;
+text-align: center;
+color: white;
+background: #9BCD9B;
+position:absulote;
+bottom: 0rpx;
+}

@@ -1,0 +1,38 @@
+<view class='title'>软件工程师
+  <text class='right'>#薪资</text>
+</view>
+<view >
+  <text class='content'>地区</text>
+  <text class='content'>经验</text>
+  <text class='content'>学历</text>
+</view>
+
+<!-- 企业福利 -->
+<view class='Bqview'>
+  <text class='biaoqian'>#五险一金</text>
+  <text class='biaoqian'>#五险一金</text>
+  <text class='biaoqian'>#五险一金</text>
+  <text class='biaoqian'>#五险一金</text>
+  <text class='biaoqian'>#五险一金</text>
+  <text class='biaoqian'>#五险一金</text>
+ 
+</view>
+<!-- 职位详情 -->
+  <view class='bottom_line' > </view>
+<view class='title'> 职位详情</view>
+  <view class='content'>岗位职责：</view>
+  <view class='content'>#具体职责 </view>
+  <view class='bottom_line' > </view>
+
+<!-- 技能要求 -->
+<view class='title'> 技能要求</view>
+<view class='Bqview'>
+  <text class='biaoqian'>#后端开发</text>
+</view>
+
+<!-- 立即沟通 -->
+  <navigator url='../mine/message/communication/communication'>
+    <view class='preview'>
+    <text> 立即沟通</text> 
+  </view>
+  </navigator>

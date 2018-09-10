@@ -1,0 +1,82 @@
+{
+  "pages": [
+   
+    "pages/index/index",
+    "pages/test/test",
+    "pages/search_page/search_page",
+    "pages/mine/mine",
+    "pages/kind/kind",
+    "pages/main/main",
+    "pages/tag_interest/tag_interest",
+    "pages/tag_personnel/tag_personnel",
+    "pages/mine/message/message",
+    "pages/mine/message/msg_detail/msg_detail",
+    "pages/mine/feedback/feedback",
+    "pages/mine/message/communication/communication",
+    "pages/search_page/search_res/search_res",
+    "pages/job_detail/job_detail",
+    "pages/people_detail/people_detail",
+    "pages/job_recommend/job_recommend",
+    "pages/Full_PeoDetail/Full_PeoDetail",
+    "pages/Full_PeoDetail/Job_YX/Job_YX",
+    "pages/Full_PeoDetail/Pro_Ex/Pro_Ex",
+    "pages/Full_PeoDetail/Job_Ex/Job_Ex",
+    "pages/Full_PeoDetail/Self_Value/Self_Value",
+    "pages/Pub_Job/Pub_Job",
+    "pages/renzheng/renzheng",
+    "pages/Pub_Job/pub_job2/pub_job2",
+    "pages/Job_Select/Job_Select",
+    "pages/Job_Select3/Job_Select3",
+    "pages/people_Num/people_Num",
+    "pages/people_list/people_list",
+    "pages/jianli/jianli",
+    "pages/organization/organization",
+    "pages/Full_PeoDetail/Pre_Peodetail/Pre_Peodetail",
+    "pages/mine/updateResume/updateResume",
+    "pages/company/company",
+    "pages/company/company_detail/company_detail"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "才聚网",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homefill.png"
+      },
+      {
+        "pagePath": "pages/company/company",
+        "text": "公司",
+        "iconPath": "images/kind.png",
+        "selectedIconPath": "images/kindfill.png"
+      },
+      {
+        "pagePath": "pages/mine/message/message",
+        "text": "消息",
+        "iconPath": "images/community.png",
+        "selectedIconPath": "images/communityfill.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/minefill.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#f7982a",
+    "backgroundColor": "#f6f6f6",
+    "borderStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

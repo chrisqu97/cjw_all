@@ -1,0 +1,49 @@
+<!--pages/kind/kind.wxml-->
+<!-- 顶部 搜索框 -->
+<view class="search">
+  <view class="search_bg">
+    <icon class='search_icon' size='15' type='search'></icon>
+    <view style="margin-left: 5px;font-size: 14px;color:#bbb;width:100%">
+      <navigator url='../search_page/search_page'>
+        搜索才聚网
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="kind">
+  <view class="kind-left">
+    <scroll-view scroll-y="true" style='height:100%;'>
+      <view class="kind_left_item {{current==0?'kind_left_item_selected':''}}" id="0" bindtap='changeCurrent'>金融</view>
+      <view class="kind_left_item {{current==1?'kind_left_item_selected':''}}" id="1" bindtap='changeCurrent'>采购|贸易</view>
+       <view class="kind_left_item {{current==2?'kind_left_item_selected':''}}" id="2" bindtap='changeCurrent'>生产制造</view>
+      <view class="kind_left_item {{current==3?'kind_left_item_selected':''}}" id="3" bindtap='changeCurrent'>传媒|印刷</view>
+       <view class="kind_left_item {{current==4?'kind_left_item_selected':''}}" id="4" bindtap='changeCurrent'>IT|互联网</view>
+      <view class="kind_left_item {{current==5?'kind_left_item_selected':''}}" id="5" bindtap='changeCurrent'>房产|建筑</view>
+       <view class="kind_left_item {{current==6?'kind_left_item_selected':''}}" id="6" bindtap='changeCurrent'>项目|质量</view>
+      <view class="kind_left_item {{current==7?'kind_left_item_selected':''}}" id="7" bindtap='changeCurrent'>采购|贸易</view>
+       <view class="kind_left_item {{current==8?'kind_left_item_selected':''}}" id="8" bindtap='changeCurrent'>财务|人力资源</view>
+      <view class="kind_left_item {{current==9?'kind_left_item_selected':''}}" id="9" bindtap='changeCurrent'>销售|客服</view>
+       <view class="kind_left_item {{current==10?'kind_left_item_selected':''}}" id="10" bindtap='changeCurrent'>咨询|法律</view>
+      <view class="kind_left_item {{current==11?'kind_left_item_selected':''}}" id="11" bindtap='changeCurrent'>服务业
+</view>
+    </scroll-view>
+  </view>
+  <view class="kind-right">
+    <scroll-view scroll-y="true" style='height:100%;'>
+      <!--标签-->
+      <view class="tag" wx:for="{{tagList}}" wx:key="item">
+      
+        <view class="tag_title ">
+          <view style="width:50%">{{item.tag_name2}}></view>
+        </view>
+        <view class="tag_list" >
+          <view wx:for="{{item.tags}}" wx:for-item="items" wx:key="items">
+             <view class='tag_item' id="{{items.tag_id}}" bindtap='tagClick'>{{items.tag_name3}}</view>
+          </view>
+        </view>
+
+      </view>
+    </scroll-view>
+  </view>
+</view>

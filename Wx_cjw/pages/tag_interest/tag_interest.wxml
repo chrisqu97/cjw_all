@@ -1,0 +1,99 @@
+<!--pages/tag_interest/tag_interest.wxml-->
+<view class="tag">
+  <scroll-view scroll-y="true" style="height:90vh;">
+    <view class="title" style="font-size:20px;">选择你喜欢的标签</view>
+    <view class="title" style="color:#aaa">至少选择一个 可以随时调整</view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item tag_item_selected'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>    
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+    <view class="tag_title">
+      <view style="width:50%">搜索历史</view>
+    </view>
+    <view class="tag_list">
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>3dmax</view>
+      <view class='tag_item'>系统</view>
+      <view class='tag_item'>系统</view>
+    </view>
+  </scroll-view>
+  <view class="selected_button">选好了</view>
+</view>

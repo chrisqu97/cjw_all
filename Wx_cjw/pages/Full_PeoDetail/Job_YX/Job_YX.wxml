@@ -1,0 +1,18 @@
+
+
+  
+ <navigator url='../../Job_Select/Job_Select'>
+  <view class="Full_PeoDetail_6" >
+    <text class="Full_PeoDetail_7" >职位类别</text>
+   <text class="Full_PeoDetail_25" >选填</text>
+    <text class="Full_PeoDetail_24" >待完善</text>
+    <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
+  </view>
+</navigator>
+
+  <view class="Full_PeoDetail_6" >
+    <text class="Full_PeoDetail_7" >期望薪资</text>
+    <picker mode="selector" bindchange="bindPickerChange"  range="{{price}}" style='text-align:center'><view class='picker'><text>{{price[index]}}</text></view></picker>
+  </view>
+
+  <button class='submit'>提交</button>

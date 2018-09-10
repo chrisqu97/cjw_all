@@ -1,0 +1,68 @@
+/* pages/mine/feedback/feedback.wxss */
+
+.send {
+  /* position: fixed;
+  right: 30px; */
+  border-radius: 1em;
+  background-color: lightblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  width: 80%;
+  /* margin-top: 10px; */
+}
+.insert{
+text-align: center;
+
+}
+
+.submit{
+border-radius: 23rpx;
+font-size: 20px;
+height: 46rpxl;
+text-align: center;
+color: white;
+background: #9BCD9B;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+.test_1 .test_2 {
+  width: 600rpx;
+  height: 300rpx;
+  padding: 0rpx;
+  margin: 46px;
+  float: left;
+  text-align: left;
+  line-height: 81rpx;
+  border: solid;
+  border-width: 1rpx;
+}
+
+.test_1 .test_3 {
+  width: 195rpx;
+  height: positive;
+  padding: 0rpx;
+  margin-top: 29rpx;
+  margin-left: 145rpx;
+  float: left;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 63rpx;
+}
+
+.test_1 .test_4 {
+  width: 53rpx;
+  height: positive;
+  padding: 0rpx;
+  margin-top: 40rpx;
+  margin-left: 9rpx;
+  float: left;
+  text-align: left;
+  line-height: 61rpx;
+}
+.picker{
+  font-size: 28rpx;
+}

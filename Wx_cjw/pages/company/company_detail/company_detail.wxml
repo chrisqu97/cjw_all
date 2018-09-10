@@ -1,0 +1,54 @@
+<!--pages/company/company_detail/company_detail.wxml-->
+
+<view class='title'>
+    公司名称
+</view>
+<view>
+  <text class='size'>#规模</text>
+  <text class='classify'>#行业分类</text>
+</view>
+
+<view class="swiper">
+    <view class="swiper-tab">
+        <view class="swiper-tab-list {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">企业信息</view>
+        <view class="swiper-tab-list {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">职位列表</view>
+    </view>
+
+     <swiper class="swiper-item" current="{{currentTab}}" duration="300"  bindchange="swiperTab">
+       <swiper-item >
+       <!-- 公司地址 -->
+     <view class='title'>公司地址</view>
+      <view class='content'>#具体地址</view>
+     <view class='bottom_line' > </view>
+    <view class='title'>公司介绍</view>
+      <view class='content'>#具体介绍</view>
+    <view class='bottom_line' > </view>
+<!-- 工商信息 -->
+     <view class='title'>工商信息</view>
+      <view class='content'>成立时间   <text class='right'>#成立时间</text> </view> 
+      <view class='bottom_line' > </view> 
+      <view class='content'>注册资金   <text class='right'>#注册资金</text> </view> 
+      <view class='bottom_line' > </view> 
+      <view class='content'>法人代表   <text class='right'>#法人代表</text> </view> 
+      <view class='bottom_line' > </view> 
+       </swiper-item>
+
+       <swiper-item >
+          <!-- 职位列表 -->
+            <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：专科以上|宁波</text>
+                        <text class="main_13" >.net开发工程师</text>
+                        <text class="main_14" >4K-8K</text>
+                        <text class="main_16" >五险一金</text>
+                        <text class="main_17" >住房补贴</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >三天前更新</text>
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+       </swiper-item>
+
+     </swiper>
+</view>

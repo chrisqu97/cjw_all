@@ -1,0 +1,76 @@
+<navigator url='../../pages/jianli/jianli'>
+<view class="people_2" >
+    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >汤先生</text>
+      <text class="people_7" >26岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >IOS前端开发</text>
+   
+      <text class="people_9" >南白象</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+    <text class="people_5" >可视化人才</text>
+  </view>
+</navigator>
+  <view class="people_2" >
+    <image src="/pages/main/images/main/timg1.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >杨先生</text>
+      <text class="people_7" >25岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >平面设计</text>
+  
+      <text class="people_9" >茶山</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+ 
+  </view>
+
+  <view class="people_2" >
+    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >刘先生</text>
+      <text class="people_7" >24岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >Java工程师</text>
+    
+      <text class="people_9" >下吕浦</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+
+  </view>
+
+
+  <view class="people_2" >
+    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >李先生</text>
+      <text class="people_7" >23岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >Python工程师</text>
+    
+      <text class="people_9" >鹿城区</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+    <text class="people_5" >可视化人才</text>
+  </view>
+
+  <view class="people_2" >
+    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+    <view class="people_4" >
+      <text class="people_6" >顾先生</text>
+      <text class="people_7" >24岁</text>
+      <text class="people_10" >在线</text>
+      <text class="people_11" >数据分析</text>
+   
+      <text class="people_9" >大学城</text>
+      <text class="people_12" >薪资</text>
+      <text class="people_13" >面议</text>
+    </view>
+ 
+  </view>

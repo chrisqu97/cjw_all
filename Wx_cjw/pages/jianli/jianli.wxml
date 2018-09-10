@@ -1,0 +1,61 @@
+<view class="peopledetail_1" >
+    <view class="peopledetail_2" >
+      <image src="/pages/jianli/images/jianli/peopledetail_5_5.jpg" style=" width:151rpx;height:158rpx;"  mode="scaleToFill" border="0"   bindtap="peopledetail_5_click"  class="peopledetail_5" ></image>
+      <text class="peopledetail_6" >田晓东</text>
+      <text class="peopledetail_7" >出生日：</text>
+      <text class="peopledetail_9" >所属学校：</text>
+      <text class="peopledetail_8" >1997-12</text>
+      <text class="peopledetail_10" >温州大学</text>
+      <text class="peopledetail_4" >可视化人才</text>
+    </view>
+    <image src="/pages/jianli/images/jianli/peopledetail_3_3.jpg" style=" width:32rpx;height:193rpx;"  mode="scaleToFill" border="0"   bindtap="peopledetail_3_click"  class="peopledetail_3" ></image>
+  </view>
+  <view class="peopledetail_11" >
+    <view class="peopledetail_12" >
+      <text class="peopledetail_17" >6</text>
+      <text class="peopledetail_18" >校内活动（个）</text>
+    </view>
+    <image src="/pages/jianli/images/jianli/peopledetail_13_13.jpg" style=" width:37rpx;height:138rpx;"  mode="scaleToFill" border="0"   bindtap="peopledetail_13_click"  class="peopledetail_13" ></image>
+    <view class="peopledetail_14" >
+      <text class="peopledetail_19" >19</text>
+      <text class="peopledetail_20" >与企业对接（天）</text>
+    </view>
+    <image src="/pages/jianli/images/jianli/peopledetail_15_15.jpg" style=" width:43rpx;height:134rpx;"  mode="scaleToFill" border="0"   bindtap="peopledetail_15_click"  class="peopledetail_15" ></image>
+    <view class="peopledetail_16" >
+      <text class="peopledetail_21" >5</text>
+      <text class="peopledetail_22" >校外实习（次）</text>
+    </view>
+  </view>
+  <view class="peopledetail_23" >
+    <text class="peopledetail_24" >指导老师</text>
+    <text class="peopledetail_25" >数学逻辑清晰</text>
+  </view>
+  <view class="peopledetail_26" >
+    <text class="peopledetail_27" >简历信息</text>
+  </view>
+  <view class="peopledetail_28" >
+    <text class="peopledetail_33" >求职意向：</text>
+    <text class="peopledetail_34" >文本</text>
+  </view>
+  <view class="peopledetail_28" >
+    <text class="peopledetail_33" >工作经历</text>
+    <text class="peopledetail_34" >文本</text>
+  </view>
+    <view class="peopledetail_28" >
+    <text class="peopledetail_33" >项目经验</text>
+    <text class="peopledetail_34" >文本</text>
+  </view>
+    <view class="peopledetail_28" >
+    <text class="peopledetail_33" >期望薪资：</text>
+    <text class="peopledetail_34" >文本</text>
+  </view>
+  <!-- 控制高度！别删！ -->
+   <view class="peopledetail_28" >
+    <text class="peopledetail_33" ></text>
+    <text class="peopledetail_34" ></text>
+  </view>
+  <view class="peopledetail_29" >
+    <button src="/pages/peopledetail/images/peopledetail/peopledetail_30_30.jpg" style=" width:90rpx;height:94rpx;"  mode="scaleToFill" border="0"   bindtap="peopledetail_30_click"  bindtap="peopledetail_30_click" class="peopledetail_30" >收藏</button>
+    <button bindtap="peopledetail_31_click" class="peopledetail_31" >与TA联系</button>
+    <button bindtap="peopledetail_32_click" class="peopledetail_32" >查看外部评价</button>
+  </view>

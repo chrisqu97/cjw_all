@@ -1,0 +1,55 @@
+<view class="Pub_Job_1" >
+    <image src="/pages/Pub_Job/images/Pub_Job/Pub_Job_2_2.jpg" style=" width:203rpx;height:223rpx;"  mode="scaleToFill" border="0"   bindtap="Pub_Job_2_click"  class="Pub_Job_2" ></image>
+    <text class="Pub_Job_3" >工作环境</text>
+  </view>
+  <view class="Pub_Job_4" >
+    <view class="Pub_Job_27" >
+      <text class="Pub_Job_28" >工作标题</text>
+      <input bindinput="Pub_Job_29_input" class="Pub_Job_29" placeholder-class='phcolor' placeholder='填写具体标题更容易被推荐' ></input>
+    </view>
+
+    <view class="Pub_Job_27" >
+      <text class="Pub_Job_28" >详情介绍</text>
+      <!-- <input bindinput="Pub_Job_7_input" class="Pub_Job_29" placeholder-class='phcolor' placeholder='输入职位描述' ></input> -->
+       <textarea  bindinput="Pub_Job_7_input" class="Pub_Job_29" placeholder-class='phcolor' placeholder='描述任职要求、岗位职责、工作时间'>
+    </textarea> 
+    </view>
+    <view class="Pub_Job_11" >
+ <text class="Pub_Job_18" >选择地址</text>
+    <picker mode="region" value="{{location}}" bindchange="location_Change" class="location" ><view class="picker">{{location[0]}}，{{location[1]}}，{{location[2]}}</view></picker>
+    </view>
+    
+    <view class="Pub_Job_11" >
+      <text class="Pub_Job_18" >薪资范围</text>
+      <picker mode="selector"  range="{{price}}" bindchange="Pub_Job_24_Change" class="Pub_Job_24" style='text-align:center;font-size:25rpx'>{{price[index]}}</picker>
+      <text class="Pub_Job_22" >元</text>
+    </view>
+    <view class="Pub_Job_12" >
+      <text class="Pub_Job_19" >需要人数</text>
+      <picker  mode="selector" range="{{people_number}}" bindchange="Pub_Job_25_Change" class="Pub_Job_25" style='text-align:center;;font-size:25rpx' >{{people_number[index_n]}}</picker>
+      <text class="Pub_Job_23" >人</text>
+    </view>
+    <view class="Pub_Job_12" >
+      <text class="Pub_Job_19" >任职资格</text>
+      <slider max="100" step="10" show-value="true" bindchange="listenerSlider" style='width:95%; '/>
+
+    </view>
+     <view class="Pub_Job_12" >
+      <text class="Pub_Job_19" >技能能力</text>
+        <slider max="100" step="10" show-value="true" bindchange="listenerSlider" style='width:95%;'/>
+
+    </view>
+     <view class="Pub_Job_12" >
+      <text class="Pub_Job_19" >实践能力</text>
+        <slider max="100" step="10" show-value="true" bindchange="listenerSlider" style='width:95%;'/>
+ 
+    </view>
+     <view class="Pub_Job_12" >
+      <text class="Pub_Job_19" >管理能力</text>
+       <slider max="100" step="10" show-value="true" bindchange="listenerSlider" style='width:95%;'/>
+    </view>
+    <view class="Pub_Job_13" >
+      <button bindtap="Pub_Job_14_click" class="Pub_Job_14" >确认<image src="/pages/Pub_Job/images/Pub_Job/Pub_Job_15_15.jpg" style=" width:61rpx;height:49rpx;"  mode="scaleToFill" border="0"   bindtap="Pub_Job_15_click"  class="Pub_Job_15" ></image>
+</button>
+    </view>
+  </view>

@@ -1,0 +1,8 @@
+<!--search/search.wxml-->
+<view class="search {{search_selected==1?'search_selector':''}}">
+  <view class="search_bg {{search_selected==1?'search_bg_selector':''}}">
+    <icon class='search_icon' size='15' type='search'></icon>
+    <input class='search_input' placeholder="搜索才聚网" value='{{search_value}}' bindinput='search_input' bindfocus='search_focus' bindblur='search_blur'/>
+  </view>
+  <view class="search_cancel {{search_selected==1?'search_cancel_selector':''}}" bindtap='search_cabcel'>取消</view>
+</view>

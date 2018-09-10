@@ -1,0 +1,130 @@
+
+.Full_PeoDetail_1 {
+  width: 672rpx;
+  height: 202rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+}
+
+.Full_PeoDetail_1 .Full_PeoDetail_2 {
+  width: 300rpx;
+  height: 139rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 7rpx;
+  margin-left: 240rpx;
+  float: left;
+  text-align: left;
+  line-height: 139rpx;
+}
+
+.Full_PeoDetail_1 .Full_PeoDetail_3 {
+  width: 300rpx;
+  height: 40rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 5rpx;
+  margin-left: 244rpx;
+  float: left;
+  text-align: left;
+  line-height: 40rpx;
+}
+
+.Full_PeoDetail_4 {
+  width: 750rpx;
+  height: 75rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 0rpx;
+  float: left;
+  background-color: #fff;
+  text-align: left;
+  line-height: 79rpx;
+}
+
+.Full_PeoDetail_4 .Full_PeoDetail_5 {
+  width: 720rpx;
+  height: 90rpx;
+  padding: 0rpx;
+  margin-top: 3rpx;
+  margin-left: 7rpx;
+  float: left;
+  background-color: #8080ff;
+  text-align: center;
+  border-radius: 23rpx;
+  color: #fff;
+  line-height: 43rpx;
+  font-size: 37rpx;
+}
+
+.Full_PeoDetail_6 {
+  width: 687rpx;
+  height: 66rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 50rpx;
+  text-align: left;
+  line-height: 66rpx;
+  border-bottom: 1px solid;
+}
+
+.Full_PeoDetail_6 .Full_PeoDetail_7 {
+  width: 147rpx;
+  height: 47rpx;
+  padding: 0rpx;
+  margin-top: 11rpx;
+  margin-left: 55rpx;
+  float: left;
+  text-align: left;
+  line-height: 47rpx;
+  font-size: 28rpx;
+}
+
+.Full_PeoDetail_6 .Full_PeoDetail_25 {
+  width: 93rpx;
+  height: 40rpx;
+  padding: 0rpx;
+  margin-top: 18rpx;
+  margin-left: 49rpx;
+  float: left;
+  text-align: left;
+  color: #ffce31;
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+
+.Full_PeoDetail_6 .Full_PeoDetail_24 {
+  width: 101rpx;
+  height: 44rpx;
+  padding: 0rpx;
+  margin-top: 11rpx;
+  margin-left: 158rpx;
+  float: left;
+  text-align: left;
+  color: #ffc300;
+  line-height: 44rpx;
+  font-size: 28rpx;
+}
+
+.Full_PeoDetail_6 .Full_PeoDetail_8 {
+  width: 34rpx;
+  height: 33rpx;
+  padding: 0rpx;
+  margin-top: 18rpx;
+  margin-left: 23rpx;
+  float: left;
+  text-align: left;
+  line-height: 33rpx;
+}
+.preview{
+border-radius: 23rpx;
+width: 600rpx;
+margin: 40rpx;
+padding-top: 10rpx;
+font-size: 20px;
+text-align: center;
+color: white;
+background: #9BCD9B;
+}

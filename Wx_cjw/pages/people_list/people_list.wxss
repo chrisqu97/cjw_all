@@ -1,0 +1,192 @@
+
+.people_1 {
+  width: 750rpx;
+  height: 23rpx;
+  font-size: 1rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+  line-height: 23rpx;
+}
+
+.people_2 {
+  width: 750rpx;
+  height: 181rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 8rpx;
+  float: left;
+  text-align: left;
+  text-decoration: underline;
+  line-height: 181rpx;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.people_2 .people_3 {
+  width: 149rpx;
+  height: 149rpx;
+  padding: 0rpx;
+  margin-top: 12rpx;
+  margin-left: 10rpx;
+  float: left;
+  text-align: left;
+  line-height: 149rpx;
+}
+
+.people_2 .people_4 {
+  width: 375rpx;
+  position: relative;
+  height: 149rpx;
+  padding: 0rpx;
+  margin-top: 12rpx;
+  margin-left: 10rpx;
+  float: left;
+  text-align: left;
+  line-height: 149rpx;
+}
+
+.people_2 .people_4 .people_6 {
+  width: 144rpx;
+  height: 44rpx;
+  padding: 0rpx;
+  margin-top: 8rpx;
+  margin-left: 4rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #656865;
+  font-size: 31rpx;
+  line-height: 44rpx;
+}
+
+.people_2 .people_4 .people_7 {
+  width: 61rpx;
+  height: 25rpx;
+  padding: 0rpx;
+  margin-top: 63rpx;
+  margin-left: 10rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  line-height: 25rpx;
+  font-size: 27rpx;
+  color: #656865;
+  background-color: #eef3f2;
+}
+
+.people_2 .people_4 .people_10 {
+  width: 55rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 108rpx;
+  margin-left: 10rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #e6e6e6;
+  font-size: 27rpx;
+  line-height: 29rpx;
+}
+
+.people_2 .people_4 .people_11 {
+  width: 104rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 108rpx;
+  margin-left: 76rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #656865;
+  font-size: 27rpx;
+  line-height: 29rpx;
+}
+
+.people_2 .people_4 .people_8 {
+  width: 120rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 63rpx;
+  margin-left: 83rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  font-size: 29rpx;
+  line-height: 29rpx;
+  color: #656865;
+  background-color: #eef3f2;
+}
+
+.people_2 .people_4 .people_9 {
+  width: 120rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 63rpx;
+  margin-left: 220rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  font-size: 29rpx;
+  line-height: 29rpx;
+  color: #656865;
+  background-color: #eef3f2;
+}
+
+.people_2 .people_4 .people_12 {
+  width: 74rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 108rpx;
+  margin-left: 208rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #e0e0e2;
+  font-size: 27rpx;
+  line-height: 29rpx;
+}
+
+.people_2 .people_4 .people_13 {
+  width: 53rpx;
+  height: 29rpx;
+  padding: 0rpx;
+  margin-top: 108rpx;
+  margin-left: 291rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #656865;
+  font-size: 27rpx;
+  line-height: 29rpx;
+}
+
+.people_2 .people_5 {
+  width: 170rpx;
+  height: 53rpx;
+  padding: 0rpx;
+  margin-top: 12rpx;
+  margin-left: 27rpx;
+  float: left;
+  text-align: left;
+  color: #80ca04;
+  font-size: 31rpx;
+  line-height: 53rpx;
+  font-weight: bold;
+}

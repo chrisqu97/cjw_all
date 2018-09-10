@@ -1,0 +1,215 @@
+<!--index.wxml--> 
+<!-- 顶部 搜索框 -->
+<view class="search">
+  <navigator url='../search_page/search_page'>
+    <view class="search_bg">
+      <icon class='search_icon' size='15' type='search'></icon>
+      <view style="margin-left: 5px;font-size: 14px;color:#bbb;width:100%">
+          搜索才聚网
+      </view>
+    </view>
+  </navigator>
+</view>
+<!--顶部 二项-->
+<view class="swiper">
+    <view class="swiper-tab">
+        <view class="swiper-tab-list {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">推荐职位</view>
+        <view class="swiper-tab-list {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">我是人才</view>
+    </view>
+    <!-- 职位 -->
+ 
+    <swiper class="swiper-item" current="{{currentTab}}" duration="300"  bindchange="swiperTab">
+      <swiper-item ><view>
+          <!--轮播图--> 
+          <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
+              <block wx:for="{{imgList}}" wx:for-index="index">    
+                <swiper-item>    
+                  <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
+                </swiper-item>    
+              </block>    
+          </swiper>    
+          <!--轮播图 end--> 
+          <view class="interest">
+            <navigator url='../tag_interest/tag_interest'>
+              点击选择兴趣标签
+            </navigator>
+          </view>
+
+          <view class="list">
+            <scroll-view scroll-y="true" style="height:100vh;">
+                                <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：本科以上|杭州</text>
+                        <text class="main_13" >软件设计师</text>
+                        <text class="main_14" >5k-7k</text>
+                        <text class="main_16" >执行力强</text>
+                        <text class="main_17" >责任心强</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >一天前更新</text>
+                      
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+
+                             <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：专科以上|宁波</text>
+                        <text class="main_13" >.net开发工程师</text>
+                        <text class="main_14" >4K-8K</text>
+                        <text class="main_16" >五险一金</text>
+                        <text class="main_17" >住房补贴</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >三天前更新</text>
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+
+                             <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：本科以上|温州</text>
+                        <text class="main_13" >前端开发若干</text>
+                        <text class="main_14" >5K-8K</text>
+                        <text class="main_16" >执行力强</text>
+                        <text class="main_17" >五险一金</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >一天前更新</text>
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+
+                             <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：本科以上|杭州</text>
+                        <text class="main_13" >javaEE大数据软件工程师定岗</text>
+                        <text class="main_14" >6K-8K</text>
+                        <text class="main_16" >逻辑能力</text>
+                        <text class="main_17" >学习能力</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >一天前更新</text>
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+
+                             <view class="main_11" >
+                      <view class="main_12" >
+                        <text class="main_15" >要求：本科以上|宁波</text>
+                        <text class="main_13" >APP开发/界面设计实习生</text>
+                        <text class="main_14" >5k-7k</text>
+                        <text class="main_16" >餐补</text>
+                        <text class="main_17" >五险一金</text>
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >一天前更新</text>
+                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                      </view>
+                    </view>
+                <view class="list-box" style='text-align:center;'>更多...</view>
+              </scroll-view>
+            </view>
+              
+      </view></swiper-item>
+      <swiper-item ><view>
+          <!--轮播图--> 
+          <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
+              <block wx:for="{{imgList}}" wx:for-index="index">    
+                <swiper-item>    
+                  <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
+                </swiper-item>    
+              </block>    
+          </swiper>    
+          <!--轮播图 end--> 
+          <view class="interest">
+            <navigator url='../tag_personnel/tag_personnel'>
+              点击选择人才标签
+            </navigator>
+          </view>
+
+          <view class="list">
+            <scroll-view scroll-y="true" style="height:90vh;">
+                                <view class="people_2" >
+                    <image src="/pages/main/images/main/people_3_3.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+                    <view class="people_4" >
+                      <text class="people_6" >汤先生</text>
+                      <text class="people_7" >29岁</text>
+                      <text class="people_10" >在线</text>
+                      <text class="people_11" >平面设计</text>
+                      <text class="people_8" >5-10年</text>
+                      <text class="people_9" >南白象</text>
+                      <text class="people_12" >薪资</text>
+                      <text class="people_13" >面议</text>
+                    </view>
+                    <text class="people_5" >可视化人才</text>
+                  </view>
+                  
+                                  <view class="people_2" >
+                    <image src="/pages/main/images/main/1.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+                    <view class="people_4" >
+                      <text class="people_6" >杨先生</text>
+                      <text class="people_7" >25岁</text>
+                      <text class="people_10" >在线</text>
+                      <text class="people_11" >前端开发</text>
+                      <text class="people_8" >应届毕业生</text>
+                      <text class="people_9" >鹿城区</text>
+                      <text class="people_12" >薪资</text>
+                      <text class="people_13" >面议</text>
+                    </view>
+                    
+                  </view>
+
+                                  <view class="people_2" >
+                    <image src="/pages/main/images/main/2.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+                    <view class="people_4" >
+                      <text class="people_6" >顾女士</text>
+                      <text class="people_7" >22岁</text>
+                      <text class="people_10" >在线</text>
+                      <text class="people_11" >iu设计</text>
+                      <text class="people_8" >应届毕业生</text>
+                      <text class="people_9" >大学城</text>
+                      <text class="people_12" >薪资</text>
+                      <text class="people_13" >面议</text>
+                    </view>
+                    <text class="people_5" >可视化人才</text>
+                  </view>
+
+                  <view class="people_2" >
+                    <image src="/pages/main/images/main/5.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+                    <view class="people_4" >
+                      <text class="people_6" >刘先生</text>
+                      <text class="people_7" >22岁</text>
+                      <text class="people_10" >在线</text>
+                      <text class="people_11" >平面设计</text>
+                      <text class="people_8" >工作2年</text>
+                      <text class="people_9" >大学城</text>
+                      <text class="people_12" >薪资</text>
+                      <text class="people_13" >面议</text>
+                    </view>
+                
+                  </view>
+
+                      <view class="people_2" >
+                                          <image src="/pages/main/images/main/4.jpg" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
+                                          <view class="people_4" >
+                                            <text class="people_6" >李先生</text>
+                                            <text class="people_7" >29岁</text>
+                                            <text class="people_10" >在线</text>
+                                            <text class="people_11" >后台开发</text>
+                                            <text class="people_8" >工作3年</text>
+                                            <text class="people_9" >鹿城区</text>
+                                            <text class="people_12" >薪资</text>
+                                            <text class="people_13" >面议</text>
+                                          </view>
+                                          <text class="people_5" >可视化人才</text>
+                       </view>
+
+
+                <view class="list-box" style='text-align:center;'>更多...</view>
+              </scroll-view>
+            </view>
+      </view></swiper-item>
+  </swiper>
+</view>
+

@@ -1,0 +1,135 @@
+<!--pages/mine/message/communication/communication.wxml-->
+<view class="head">负责人李</view>
+<view class="cmt">
+  <scroll-view scroll-y="true" style="height:100vh;">
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>sadoahsodihiohioho
+              adfasfofaofnjiopmn</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>asdjaspdjsi</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>sadoahsodihiohioho
+              adfasfofaofnjiopmn</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>asdjaspdjsi</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>sadoahsodihiohioho
+              adfasfofaofnjiopmn</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>asdjaspdjsi</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>sadoahsodihiohioho
+              adfasfofaofnjiopmn</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>asdjaspdjsi</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>你好！</text>
+      </view>
+    </view>
+    <view class="cmt_item_left">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>sadoahsodihiohioho
+              adfasfofaofnjiopmn</text>
+      </view>
+    </view>
+    <view class="cmt_item_right">
+      <view class="avatar"></view>
+      <view class="content">
+        <text>asdjaspdjsi</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="cmt_input">
+  <input class="input_content" placeholder="请输入"/>
+  <view class="send">发送</view>
+</view>

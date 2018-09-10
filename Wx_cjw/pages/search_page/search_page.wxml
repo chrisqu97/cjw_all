@@ -1,0 +1,44 @@
+<!--pages/search_page/search_page.wxml-->
+<include src="../../search/search.wxml"/>
+<!--标签-->
+<view class="tag {{tag_selected==1?'':'none_display'}}">
+  <view class="tag_title">
+    <view style="width:50%">搜索历史</view>
+    <view style="width:50%;text-align:right;">清除记录</view>
+  </view>
+  <view class="tag_list">
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>系统</view>
+  </view>
+  <view class="tag_title">
+    <view style="width:50%">热门搜索</view>
+  </view>
+  <view class="tag_list">
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>3dmax</view>
+    <view class='tag_item'>系统</view>
+    <view class='tag_item'>系统</view>
+  </view>
+</view>
+
+<!--搜索项-->
+<view class="option">
+  <navigator url="search_res/search_res">
+    <view class="option_item">{{search_value}}</view>
+  </navigator>
+  <view class="option_item">{{search_value}}</view>
+  <view class="option_item">{{search_value}}</view>
+  <view class="option_item">{{search_value}}</view>
+  <view class="option_item">{{search_value}}</view>
+  <view class="option_item">{{search_value}}</view>
+</view>

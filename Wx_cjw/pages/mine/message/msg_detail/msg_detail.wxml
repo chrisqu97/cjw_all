@@ -1,0 +1,14 @@
+<!--pages/mine/message/msg_detail/msg_detail.wxml-->
+<view class="msg">
+  <view class="title">才聚网更新版本</view>
+  <view class="time">2018-03-19</view>
+  <view class="content">
+    <text>
+      •月卡使用期间不限次数畅骑
+      •月卡使用期间每次行程前120分钟免费，超出部分按正常计费规则收费
+      •月卡免费骑行天数从购买当天开始计算，至月卡失效日期的24小时结束
+      •购卡/续费成功后，相应费用不予退还
+      •退押金后将无法再骑车，且已购买的月卡剩余时长不变，阿紫月卡有效期内您仍可以通过充值押金恢复月卡权益
+    </text>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+/* pages/tag_interest/tag_interest.wxss */
+.title{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.tag{
+  padding:10px;
+  font-size: 14px;
+}
+.tag_title{
+  color: #888888;
+  display: flex;
+  flex-direction: row;
+}
+.tag_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+
+}
+.tag_item{
+  border:1rpx solid;
+  border-radius: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #cecece;
+  color: #aaaaaa;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.tag_item_selected{
+  background-color: lightblue;
+  color: #fff;
+}
+.selected_button{
+  border:1rpx solid;
+  border-radius: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #cecece;
+  position: fixed;
+  top:60vh;
+  left: 30%;
+  font-size: 20px;
+  height: 30px;
+  width: 100px;
+  background-color: lightblue;
+  text-align: center;
+  color: #fff;
+}
+/*隐藏滑动块*/
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

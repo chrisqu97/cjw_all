@@ -1,0 +1,86 @@
+
+<view class="head">
+   <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+   <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+</view>
+<view class="option_block">  <text class="Full_PeoDetail_5" >完善简历后 可以获取到更精准的职位匹配哦</text>
+</view>
+<view class="options">
+<navigator url='../people_detail/people_detail'>
+  <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    个人资料
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  </navigator>
+  <navigator url='../Full_PeoDetail/Full_PeoDetail'>
+   <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    完善简历
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  </navigator >
+  <navigator url='../people_Num/people_Num'>
+  <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    竞争力分析
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  </navigator>
+  
+  <navigator url="../tag_interest/tag_interest">
+    <view class="option_block">
+      <image class="option_img" src='../../images/xihuan.png'/>
+      收藏职位
+      <image class="option_img" style='float:right;' src='../../images/right.png'/>
+    </view>
+  </navigator>
+  <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    收藏企业
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  <navigator url="./updateResume/updateResume">
+  <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    上传简历附件
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  </navigator>
+  <navigator url="./feedback/feedback">
+    <view class="option_block">
+      <image class="option_img" src='../../images/xihuan.png'/>
+      意见反馈
+      <image class="option_img" style='float:right;' src='../../images/right.png'/>
+    </view>
+  </navigator>
+  
+  <navigator url="../../pages/Pub_Job/Pub_Job">
+    <view class="option_block">
+      <image class="option_img" src='../../images/xihuan.png'/>
+      发布职位
+      <image class="option_img" style='float:right;' src='../../images/right.png'/>
+    </view>
+  </navigator>
+
+    <navigator url="../../pages/Pub_Job/pub_job2/pub_job2">
+    <view class="option_block">
+      <image class="option_img" src='../../images/xihuan.png'/>
+      已发布的职位
+      <image class="option_img" style='float:right;' src='../../images/right.png'/>
+    </view>
+  </navigator>
+
+  
+
+  <navigator url='../renzheng/renzheng'>
+  <view class="option_block">
+    <image class="option_img" src='../../images/xihuan.png'/>
+    企业/学生信息认证
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+    <text style="float:right;font-size:13px;margin-top:8px;margin-right:3px;">未认证</text>
+    <image class="option_img" style='float:right;' src='../../images/right.png'/>
+  </view>
+  </navigator>
+</view>
+

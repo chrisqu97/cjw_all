@@ -1,0 +1,54 @@
+/* pages/mine/message/communication/communication.wxss */
+.head{
+  text-align: center;
+}
+.cmt{
+  margin-bottom: 60px;
+}
+.cmt_item_right{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
+.cmt_item_left{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.avatar{
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  background-color: #cecece;
+}
+.content{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.cmt_input{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0px;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+}
+.input_content{
+  border-bottom: 1px solid;
+  border-color: gray;
+  width: 80%;
+}
+.send{
+  border-radius: 1em;
+  background-color: lightblue;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+}
+/*隐藏滑动块*/
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

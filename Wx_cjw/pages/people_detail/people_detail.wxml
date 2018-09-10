@@ -1,0 +1,39 @@
+
+  <view class="people_detail_8" >
+    <view class="people_detail_9" >
+      <text class="people_detail_14" > 姓 名 </text>
+      <input placeholder="请输入姓名"  placeholder-class='phcolor' bindinput="people_detail_15_input" class="people_detail_15" ></input>
+    </view>
+    <view class="people_detail_10" >
+      <text class="people_detail_16"  >出生年份</text>
+    <picker mode="date"  start="1990-09-01" end="2317-09-01" bindchange="DatePickerSelected"  ><view class="picker"><text>{{date}}</text></view> </picker>
+    </view>
+     <view class="people_detail_11" >
+      <text class="people_detail_17" >毕业院校</text>
+      <input  bindinput="people_detail_25_input" class="people_detail_25" placeholder="填写毕业院校" placeholder-class='phcolor' ></input>
+    </view>
+    <view class="people_detail_11" >
+      <text class="people_detail_17" >最高学历</text>
+      <input  bindinput="people_detail_25_input" class="people_detail_25" placeholder="填写最高学历" placeholder-class='phcolor' ></input>
+    </view>
+    <view class="people_detail_12" >
+      <text class="people_detail_18" >工作经验</text>
+      <input  bindinput="people_detail_26_input" class="people_detail_26" placeholder="填写工作经验" placeholder-class='phcolor'></input>
+    </view>
+    <view class="people_detail_13" >
+      <text class="people_detail_19" >手机号码</text>
+      <input bindinput="people_detail_27_input" class="people_detail_27" placeholder="填写手机号码" placeholder-class='phcolor'></input>
+    </view>
+    <view class="people_detail_20" >
+      <text class="people_detail_21" >求职区域</text>
+      <picker mode="region" value="{{location}}" bindchange="location_Change" class="location" ><view class="picker"><text>{{location[0]}}，{{location[1]}}，{{location[2]}}</text></view></picker>
+    </view>
+    <view class="people_detail_22" >
+      <text class="people_detail_23" >自我介绍</text>
+      <textarea  bindinput="people_detail_29_input" class="people_detail_29" placeholder="填写自我介绍..." placeholder-class='phcolor'></textarea>
+    </view>
+   <view class="people_detail_submit" >
+      <button bindtap="submit" class='submit'>确认
+</button>
+    </view>
+  </view>
