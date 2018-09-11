@@ -6,8 +6,11 @@ import com.cjw.Dao.Entity.Company;
 import com.cjw.Pojo.CompanyPojo;
 import com.cjw.Pojo.CompanySearchPojo;
 import com.cjw.Pojo.PlacePojo;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,23 +22,28 @@ public class CompanyService {
     @Autowired
     private CompanyDao companyDao;
 
-    public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String,String> companyType){
-
+    public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String, String> companyType) {
+        PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Company> companies = companyDao.findByCondition(searchPojo);
-        List<CompanyPojo> companyPojos=new ArrayList<>();
-        for(Company company :companies){
-            CompanyPojo companyPojo=new CompanyPojo();
-            if(company.getArea()!=null){
-                companyPojo.setPlacePojo(JSON.parseObject(company.getArea(), PlacePojo.class));
+        List<CompanyPojo> companyPojos = new ArrayList<>();
+        if (!CollectionUtils.isEmpty(companies)) {
+            PageInfo pageInfo = new PageInfo(companies, searchPojo.getPageSize());
+            for (Company company : companies) {
+                CompanyPojo companyPojo = new CompanyPojo();
+                if (company.getArea() != null) {
+                    companyPojo.setPlacePojo(JSON.parseObject(company.getArea(), PlacePojo.class));
+                }
+                if (company.getSize() != null) {
+                    companyPojo.setSize(company.getSize());
+                }
+                if (company.getCompanyType() != null) {
+                    companyPojo.setCompanyType(company.getCompanyType());
+                    companyPojo.setCompanyTypeName(companyType.get(company.getCompanyType() + ""));
+                }
+                companyPojos.add(companyPojo);
             }
-            if(company.getSize()!=null){
-                companyPojo.setSize(company.getSize());
-            }
-            if(company.getCompanyType()!=null){
-                companyPojo.setCompanyType(company.getCompanyType());
-                companyPojo.setCompanyTypeName(companyType.get(company.getCompanyType()+""));
-            }
-            companyPojos.add(companyPojo);
+            searchPojo.setTotalCount((int) pageInfo.getTotal());
+            searchPojo.setTotalPage(pageInfo.getPages());
         }
         searchPojo.setCompanyPojos(companyPojos);
         return searchPojo;
