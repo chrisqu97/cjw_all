@@ -19,7 +19,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResultPojo errorHandler(HttpServletRequest request, Exception e) throws Exception {
         ResultPojo resultPojo=new ResultPojo();
         resultPojo.setMessage(e.getMessage());
-
+        logger.trace(e.getMessage());
         return resultPojo;
     }
 
