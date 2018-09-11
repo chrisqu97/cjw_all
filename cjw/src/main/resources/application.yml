@@ -30,6 +30,11 @@ mybatis:
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: com.cjw.Dao.Entity
 
+# 打印sql
+logging:
+  level:
+    com.cjw.Dao.Mapper: DEBUG
+
 #pagehelper
 pagehelper:
   helperDialect: mysql
