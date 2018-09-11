@@ -14,6 +14,18 @@ spring:
     minIdle: 5
     maxIdle: 20
     maxWait: 50000
+#    测试数据库
+#    datasource:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://111.231.120.239:3306/cjw_test?useUnicode=true&characterEncoding=utf8
+#      username: cjw_test
+#      password: cjw_test2018
+#      initialSize: 10
+#      maxActive: 100
+#      minIdle: 5
+#      maxIdle: 20
+#      maxWait: 50000
+
 #    生产数据库
 #    datasource:
 #      driver-class-name: com.mysql.jdbc.Driver
