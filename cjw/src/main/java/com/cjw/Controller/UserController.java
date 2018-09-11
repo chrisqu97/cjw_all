@@ -103,6 +103,7 @@ public class UserController {
      * @param userPojo
      * @return
      */
+    @RequestMapping(value = "/addMyAdvantage",method = RequestMethod.POST)
     public ResultPojo addMyAdvantage(UserPojo userPojo){
         ResultPojo resultPojo = new ResultPojo();
 

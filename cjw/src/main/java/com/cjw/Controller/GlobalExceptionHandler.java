@@ -1,7 +1,6 @@
 package com.cjw.Controller;
 
 import com.cjw.Pojo.ResultPojo;
-import com.cjw.common.PermissionException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ControllerAdvice;

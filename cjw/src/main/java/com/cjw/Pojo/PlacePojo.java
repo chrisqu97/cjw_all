@@ -10,4 +10,5 @@ public class PlacePojo {
     private String city;
     private String province;
     private String country;
+    private String detail;
 }

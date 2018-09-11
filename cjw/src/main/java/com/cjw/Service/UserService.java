@@ -25,20 +25,35 @@ public class UserService {
     public UserPojo update(UserPojo userPojo) {
         User user = userDao.findById(userPojo.getUserId());
         if (user == null) {
-            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                user.setBirthday(sf.parse(userPojo.getBirthday()));
+                if (userPojo.getBirthday() != null) {
+                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+                    user.setBirthday(sf.parse(userPojo.getBirthday()));
+                }
+                if (userPojo.getDesiredWorkingPlace() != null) {
+                    user.setDesiredWorkingPlace(JSON.toJSONString(userPojo.getDesiredWorkingPlace()));
+                }
+                if (userPojo.getEducation() != null) {
+                    user.setEducation(userPojo.getEducation());
+                }
+                if (userPojo.getMyAdvantage() != null) {
+                    user.setMyAdvantage(userPojo.getMyAdvantage());
+                }
+                if (userPojo.getPhone() != null) {
+                    user.setPhone(userPojo.getPhone());
+                }
+                if (userPojo.getUserName() != null) {
+                    user.setUserName(userPojo.getUserName());
+                }
+                if (userPojo.getWorkExperiences() != null) {
+                    user.setWorkExperience(JSON.toJSONString(userPojo.getWorkExperiences()));
+                }
+                userDao.update(user);
+                return userPojo;
             } catch (Exception e) {
                 e.printStackTrace();
+                return null;
             }
-            user.setDesiredWorkingPlace(JSON.toJSONString(userPojo.getDesiredWorkingPlace()));
-            user.setEducation(userPojo.getEducation());
-            user.setMyAdvantage(userPojo.getMyAdvantage());
-            user.setPhone(userPojo.getPhone());
-            user.setUserName(userPojo.getUserName());
-            user.setWorkExperience(JSON.toJSONString(userPojo.getWorkExperiences()));
-            userDao.update(user);
-            return userPojo;
         } else {
             return null;
         }
@@ -107,18 +122,18 @@ public class UserService {
         JSONObject jsonObject = JSON.parseObject(restTemplate.getForObject(apiUrl, String.class));
 
         String openId = jsonObject.getString("openid");
-        if(openId==null){
-            throw new  Exception("get api failed");
+        if (openId == null) {
+            throw new Exception("get api failed");
         }
         User user = userDao.findByOpenId(openId);
-        String session_key = jsonObject.getString("session_key");
+        String sessionKey = jsonObject.getString("session_key");
 
         if (user == null) {
-            JSONObject userData = wxUtils.decodeBase64(loginPojo.getEncryptedData(), session_key, loginPojo.getIv());
+            JSONObject userData = wxUtils.decodeBase64(loginPojo.getEncryptedData(), sessionKey, loginPojo.getIv());
 
             user = new User();
             user.setOpenId(openId);
-            user.setSessionKey(session_key + "?" + System.currentTimeMillis());
+            user.setSessionKey(sessionKey + "?" + System.currentTimeMillis());
             user.setUserName(userData.getString("nickName"));
             user.setGender(jsonObject.getInteger("gender"));
             PlacePojo placePojo = new PlacePojo();
@@ -129,9 +144,9 @@ public class UserService {
 
             userDao.add(user);
         }
-        SessionKeyPojo sessionKeyPojo=new SessionKeyPojo();
+        SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
         sessionKeyPojo.setUserId(user.getUserId());
-        sessionKeyPojo.setSessionKey(AESUtils.encrypt(user.getUserId()+"&"+user.getSessionKey()));
+        sessionKeyPojo.setSessionKey(AESUtils.encrypt(user.getUserId() + "&" + user.getSessionKey()));
 
         return sessionKeyPojo;
     }
