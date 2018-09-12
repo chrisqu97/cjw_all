@@ -143,6 +143,10 @@ public class UserService {
             user.setLivingPlace(JSON.toJSONString(placePojo));
 
             userDao.add(user);
+        }else{
+            user.setSessionKey(sessionKey + "?" + System.currentTimeMillis());
+
+            userDao.update(user);
         }
         SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
         sessionKeyPojo.setUserId(user.getUserId());
