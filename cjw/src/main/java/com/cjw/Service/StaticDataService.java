@@ -1,7 +1,7 @@
-package com.cjw.Service;
+package com.cjw.service;
 
-import com.cjw.Dao.Entity.StaticData;
-import com.cjw.Dao.StaticDataDao;
+import com.cjw.dao.entity.StaticData;
+import com.cjw.dao.StaticDataDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +14,11 @@ public class StaticDataService {
     @Autowired
     private StaticDataDao staticDataDao;
 
-    public Map<String,String> findByTypeCode(String typeCode){
+    public Map<String, String> findByTypeCode(String typeCode) {
         List<StaticData> staticDatas = staticDataDao.findByTypeCode(typeCode);
-        Map<String,String> map=new HashMap<>();
-        for(StaticData data:staticDatas){
-            map.put(data.getTypeName(),data.getTypeValue());
+        Map<String, String> map = new HashMap(staticDatas.size());
+        for (StaticData data : staticDatas) {
+            map.put(data.getTypeName(), data.getTypeValue());
         }
         return map;
     }

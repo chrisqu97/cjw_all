@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cjw.Dao.Mapper.PositionMapper">
-  <resultMap id="BaseResultMap" type="com.cjw.Dao.Entity.Position">
+<mapper namespace="com.cjw.dao.mapper.PositionMapper">
+  <resultMap id="BaseResultMap" type="com.cjw.dao.entity.Position">
     <id column="position_id" jdbcType="INTEGER" property="positionId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="position_name" jdbcType="VARCHAR" property="positionName" />
@@ -13,7 +13,7 @@
     <result column="salary" jdbcType="VARCHAR" property="salary" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.Dao.Entity.Position">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.Position">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -81,7 +81,7 @@
   <sql id="Blob_Column_List">
     description
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.Dao.Entity.PositionExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.PositionExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -97,7 +97,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.cjw.Dao.Entity.PositionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cjw.dao.entity.PositionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -123,13 +123,13 @@
     delete from position
     where position_id = #{positionId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjw.Dao.Entity.PositionExample">
+  <delete id="deleteByExample" parameterType="com.cjw.dao.entity.PositionExample">
     delete from position
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjw.Dao.Entity.Position">
+  <insert id="insert" parameterType="com.cjw.dao.entity.Position">
     <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -144,7 +144,7 @@
       #{salary,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.Position">
+  <insert id="insertSelective" parameterType="com.cjw.dao.entity.Position">
     <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -216,7 +216,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjw.Dao.Entity.PositionExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cjw.dao.entity.PositionExample" resultType="java.lang.Integer">
     select count(*) from position
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -296,7 +296,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.Dao.Entity.Position">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.dao.entity.Position">
     update position
     <set>
       <if test="userId != null">
@@ -332,7 +332,7 @@
     </set>
     where position_id = #{positionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.Dao.Entity.Position">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.Position">
     update position
     set user_id = #{userId,jdbcType=INTEGER},
       position_name = #{positionName,jdbcType=VARCHAR},
@@ -346,7 +346,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where position_id = #{positionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjw.Dao.Entity.Position">
+  <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.Position">
     update position
     set user_id = #{userId,jdbcType=INTEGER},
       position_name = #{positionName,jdbcType=VARCHAR},

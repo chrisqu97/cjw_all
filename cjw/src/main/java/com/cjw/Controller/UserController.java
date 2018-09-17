@@ -1,14 +1,12 @@
-package com.cjw.Controller;
+package com.cjw.controller;
 
-import com.cjw.Pojo.LoginPojo;
-import com.cjw.Pojo.ResultPojo;
-import com.cjw.Pojo.SessionKeyPojo;
-import com.cjw.Pojo.UserPojo;
-import com.cjw.Service.UserService;
+import com.cjw.pojo.LoginPojo;
+import com.cjw.pojo.ResultPojo;
+import com.cjw.pojo.SessionKeyPojo;
+import com.cjw.pojo.UserPojo;
+import com.cjw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/User")
@@ -83,11 +81,12 @@ public class UserController {
 
     /**
      * 添加项目经验
+     *
      * @param userPojo
      * @return
      */
-    @RequestMapping(value = "/addProjectExperience",method = RequestMethod.POST)
-    public ResultPojo addProjectExperience(@RequestBody UserPojo userPojo){
+    @RequestMapping(value = "/addProjectExperience", method = RequestMethod.POST)
+    public ResultPojo addProjectExperience(@RequestBody UserPojo userPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
         userService.addProjectExperience(userPojo);
@@ -100,11 +99,12 @@ public class UserController {
 
     /**
      * 添加我的优势
+     *
      * @param userPojo
      * @return
      */
-    @RequestMapping(value = "/addMyAdvantage",method = RequestMethod.POST)
-    public ResultPojo addMyAdvantage(UserPojo userPojo){
+    @RequestMapping(value = "/addMyAdvantage", method = RequestMethod.POST)
+    public ResultPojo addMyAdvantage(UserPojo userPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
         userService.addMyAdvantage(userPojo);

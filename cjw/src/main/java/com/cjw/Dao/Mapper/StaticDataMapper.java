@@ -1,7 +1,7 @@
-package com.cjw.Dao.Mapper;
+package com.cjw.dao.mapper;
 
-import com.cjw.Dao.Entity.StaticData;
-import com.cjw.Dao.Entity.StaticDataExample;
+import com.cjw.dao.entity.StaticData;
+import com.cjw.dao.entity.StaticDataExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
-package com.cjw.Dao.Mapper;
+package com.cjw.dao.mapper;
 
-import com.cjw.Dao.Entity.FollowCompany;
-import com.cjw.Dao.Entity.FollowCompanyExample;
+import com.cjw.dao.entity.FollowCompany;
+import com.cjw.dao.entity.FollowCompanyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

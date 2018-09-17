@@ -1,9 +1,9 @@
-package com.cjw.Dao;
+package com.cjw.dao;
 
-import com.cjw.Dao.Entity.Company;
-import com.cjw.Dao.Entity.CompanyExample;
-import com.cjw.Dao.Mapper.CompanyMapper;
-import com.cjw.Pojo.CompanySearchPojo;
+import com.cjw.dao.entity.Company;
+import com.cjw.dao.entity.CompanyExample;
+import com.cjw.dao.mapper.CompanyMapper;
+import com.cjw.pojo.CompanySearchPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

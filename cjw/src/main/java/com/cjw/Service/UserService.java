@@ -1,10 +1,10 @@
-package com.cjw.Service;
+package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.cjw.Dao.Entity.User;
-import com.cjw.Dao.UserDao;
-import com.cjw.Pojo.*;
+import com.cjw.dao.entity.User;
+import com.cjw.dao.UserDao;
+import com.cjw.pojo.*;
 import com.cjw.Utils.AESUtils;
 import com.cjw.Utils.WxUtiles;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,7 +117,7 @@ public class UserService {
     }
 
     public SessionKeyPojo login(LoginPojo loginPojo) throws Exception {
-        String apiUrl = wxUtils.CreateApiUrl(loginPojo.getCode());
+        String apiUrl = wxUtils.createApiUrl(loginPojo.getCode());
 
         JSONObject jsonObject = JSON.parseObject(restTemplate.getForObject(apiUrl, String.class));
 
@@ -143,7 +143,7 @@ public class UserService {
             user.setLivingPlace(JSON.toJSONString(placePojo));
 
             userDao.add(user);
-        }else{
+        } else {
             user.setSessionKey(sessionKey + "?" + System.currentTimeMillis());
 
             userDao.update(user);

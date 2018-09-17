@@ -1,4 +1,4 @@
-package com.cjw.Dao.Entity;
+package com.cjw.dao.entity;
 
 import java.io.Serializable;
 import java.util.Date;

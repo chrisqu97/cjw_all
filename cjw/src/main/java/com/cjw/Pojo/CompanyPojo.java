@@ -1,4 +1,4 @@
-package com.cjw.Pojo;
+package com.cjw.pojo;
 
 import lombok.Data;
 
@@ -9,5 +9,5 @@ public class CompanyPojo {
     private Integer companyType;
     private String companyTypeName;
     private String size;
-    private PlacePojo placePojo;
+    private com.cjw.pojo.PlacePojo placePojo;
 }

@@ -1,6 +1,6 @@
-package com.cjw.Controller;
+package com.cjw.controller;
 
-import com.cjw.Pojo.ResultPojo;
+import com.cjw.pojo.ResultPojo;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,7 +1,7 @@
-package com.cjw.Dao.Mapper;
+package com.cjw.dao.mapper;
 
-import com.cjw.Dao.Entity.PositionType;
-import com.cjw.Dao.Entity.PositionTypeExample;
+import com.cjw.dao.entity.PositionType;
+import com.cjw.dao.entity.PositionTypeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,4 @@
-package com.cjw.Controller;
+package com.cjw.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

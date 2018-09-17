@@ -1,7 +1,7 @@
-package com.cjw.Dao.Mapper;
+package com.cjw.dao.mapper;
 
-import com.cjw.Dao.Entity.Company;
-import com.cjw.Dao.Entity.CompanyExample;
+import com.cjw.dao.entity.Company;
+import com.cjw.dao.entity.CompanyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

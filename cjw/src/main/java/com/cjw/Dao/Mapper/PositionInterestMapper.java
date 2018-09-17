@@ -1,7 +1,7 @@
-package com.cjw.Dao.Mapper;
+package com.cjw.dao.mapper;
 
-import com.cjw.Dao.Entity.PositionInterest;
-import com.cjw.Dao.Entity.PositionInterestExample;
+import com.cjw.dao.entity.PositionInterest;
+import com.cjw.dao.entity.PositionInterestExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

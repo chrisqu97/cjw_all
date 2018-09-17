@@ -1,5 +1,6 @@
-package com.cjw.Pojo;
+package com.cjw.pojo;
 
+import com.cjw.pojo.CompanyPojo;
 import lombok.Data;
 
 import java.util.List;

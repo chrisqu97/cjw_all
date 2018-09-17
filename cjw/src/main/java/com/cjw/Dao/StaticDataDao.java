@@ -1,8 +1,8 @@
-package com.cjw.Dao;
+package com.cjw.dao;
 
-import com.cjw.Dao.Entity.StaticData;
-import com.cjw.Dao.Entity.StaticDataExample;
-import com.cjw.Dao.Mapper.StaticDataMapper;
+import com.cjw.dao.entity.StaticData;
+import com.cjw.dao.entity.StaticDataExample;
+import com.cjw.dao.mapper.StaticDataMapper;
 import com.cjw.common.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,15 +19,15 @@ public class StaticDataDao {
 //        return staticDataMapper.selectByPrimaryKey(id);
 //    }
 
-    public List<StaticData> findByTypeCode(String typeCode){
-        StaticDataExample example=new StaticDataExample();
+    public List<StaticData> findByTypeCode(String typeCode) {
+        StaticDataExample example = new StaticDataExample();
         example.createCriteria()
                 .andTypeCodeEqualTo(typeCode)
                 .andStateEqualTo(Constant.STATE.VALUE);
         List<StaticData> staticDatas = staticDataMapper.selectByExample(example);
-        if(!CollectionUtils.isEmpty(staticDatas)){
+        if (!CollectionUtils.isEmpty(staticDatas)) {
             return staticDatas;
-        }else{
+        } else {
             return null;
         }
     }

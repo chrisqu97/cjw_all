@@ -1,6 +1,9 @@
-package com.cjw.Utils;
+package com.cjw.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cjw.common.Constant;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,16 +11,18 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 
 @Component
 public class HttpUtils {
     /**
      * get请求
+     *
      * @param url
      * @return
      * @throws Exception
      */
-    public String get(String url) throws Exception{
+    public String get(String url) throws Exception {
         BufferedReader in = null;
         try {
             URL realUrl = new URL(url);
@@ -56,37 +61,43 @@ public class HttpUtils {
 
     /**
      * post请求
+     *
      * @param strURL
      * @param params
      * @return
      */
     public String postWithJson(String strURL, JSONObject params) {
         try {
-            URL url = new URL(strURL);// 创建连接
+            // 创建连接
+            URL url = new URL(strURL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
-            connection.setRequestMethod("POST"); // 设置请求方式
-            connection.setRequestProperty("Accept", "application/json"); // 设置接收数据的格式
-            connection.setRequestProperty("Content-Type", "application/json"); // 设置发送数据的格式
+            // 设置请求方式
+            connection.setRequestMethod("POST");
+            // 设置接收数据的格式
+            connection.setRequestProperty("Accept", "application/json");
+            // 设置发送数据的格式
+            connection.setRequestProperty("Content-Type", "application/json");
             connection.connect();
-            OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8"); // utf-8编码
+            // utf-8编码
+            OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), StandardCharsets.UTF_8);
             out.append(params.toString());
             out.flush();
             out.close();
 
             int code = connection.getResponseCode();
             InputStream is = null;
-            if (code == 200) {
+            if (code == HttpStatus.OK.value()) {
                 is = connection.getInputStream();
             } else {
                 is = connection.getErrorStream();
             }
 
             // 读取响应
-            int length = (int) connection.getContentLength();// 获取长度
+            int length = (int) connection.getContentLength();
             if (length != -1) {
                 byte[] data = new byte[length];
                 byte[] temp = new byte[512];
@@ -96,20 +107,21 @@ public class HttpUtils {
                     System.arraycopy(temp, 0, data, destPos, readLen);
                     destPos += readLen;
                 }
-                String result = new String(data, "UTF-8"); // utf-8编码
+                String result = new String(data, StandardCharsets.UTF_8);
                 return result;
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "error"; // 自定义错误信息
+        return Constant.HTTP_MESSAGE.ERROR;
     }
 
     public JSONObject getRequestJsonObject(HttpServletRequest request) throws IOException {
         String json = getRequestJsonString(request);
         return JSONObject.parseObject(json);
     }
+
     /***
      * 获取 request 中 json 字符串的内容
      *
@@ -121,8 +133,8 @@ public class HttpUtils {
             throws IOException {
         String submitMehtod = request.getMethod();
         // GET
-        if (submitMehtod.equals("GET")) {
-            return new String(request.getQueryString().getBytes("iso-8859-1"),"utf-8").replaceAll("%22", "\"");
+        if (HttpMethod.GET.equals(submitMehtod)) {
+            return new String(request.getQueryString().getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8).replaceAll("%22", "\"");
             // POST
         } else {
             return getRequestPostStr(request);
@@ -139,11 +151,11 @@ public class HttpUtils {
     private byte[] getRequestPostBytes(HttpServletRequest request)
             throws IOException {
         int contentLength = request.getContentLength();
-        if(contentLength<0){
+        if (contentLength < 0) {
             return null;
         }
-        byte buffer[] = new byte[contentLength];
-        for (int i = 0; i < contentLength;) {
+        byte[] buffer = new byte[contentLength];
+        for (int i = 0; i < contentLength; ) {
 
             int readlen = request.getInputStream().read(buffer, i,
                     contentLength - i);
@@ -164,12 +176,16 @@ public class HttpUtils {
      */
     private String getRequestPostStr(HttpServletRequest request)
             throws IOException {
-        byte buffer[] = getRequestPostBytes(request);
-        String charEncoding = request.getCharacterEncoding();
-        if (charEncoding == null) {
-            charEncoding = "UTF-8";
+        byte[] buffer = getRequestPostBytes(request);
+        if (buffer != null) {
+            String charEncoding = request.getCharacterEncoding();
+            if (charEncoding == null) {
+                charEncoding = "UTF-8";
+            }
+            return new String(buffer, charEncoding);
+        } else {
+            return null;
         }
-        return new String(buffer, charEncoding);
     }
 
 }

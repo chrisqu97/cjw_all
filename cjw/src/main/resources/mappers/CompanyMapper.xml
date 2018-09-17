@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cjw.Dao.Mapper.CompanyMapper">
-  <resultMap id="BaseResultMap" type="com.cjw.Dao.Entity.Company">
+<mapper namespace="com.cjw.dao.mapper.CompanyMapper">
+  <resultMap id="BaseResultMap" type="com.cjw.dao.entity.Company">
     <id column="company_id" jdbcType="INTEGER" property="companyId" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="area" jdbcType="VARCHAR" property="area" />
@@ -10,7 +10,7 @@
     <result column="size" jdbcType="VARCHAR" property="size" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.Dao.Entity.Company">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.Company">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -77,7 +77,7 @@
   <sql id="Blob_Column_List">
     description
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.Dao.Entity.CompanyExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.CompanyExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -93,7 +93,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.cjw.Dao.Entity.CompanyExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cjw.dao.entity.CompanyExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -119,13 +119,13 @@
     delete from company
     where company_id = #{companyId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjw.Dao.Entity.CompanyExample">
+  <delete id="deleteByExample" parameterType="com.cjw.dao.entity.CompanyExample">
     delete from company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjw.Dao.Entity.Company">
+  <insert id="insert" parameterType="com.cjw.dao.entity.Company">
     <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -136,7 +136,7 @@
       #{homePageLink,jdbcType=VARCHAR}, #{companyType,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.Company">
+  <insert id="insertSelective" parameterType="com.cjw.dao.entity.Company">
     <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -190,7 +190,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjw.Dao.Entity.CompanyExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cjw.dao.entity.CompanyExample" resultType="java.lang.Integer">
     select count(*) from company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -255,7 +255,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.Dao.Entity.Company">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.dao.entity.Company">
     update company
     <set>
       <if test="companyName != null">
@@ -282,7 +282,7 @@
     </set>
     where company_id = #{companyId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.Dao.Entity.Company">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.Company">
     update company
     set company_name = #{companyName,jdbcType=VARCHAR},
       area = #{area,jdbcType=VARCHAR},
@@ -293,7 +293,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where company_id = #{companyId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjw.Dao.Entity.Company">
+  <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.Company">
     update company
     set company_name = #{companyName,jdbcType=VARCHAR},
       area = #{area,jdbcType=VARCHAR},

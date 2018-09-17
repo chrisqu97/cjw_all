@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cjw.Dao.Mapper.FileMapper">
-  <resultMap id="BaseResultMap" type="com.cjw.Dao.Entity.File">
+<mapper namespace="com.cjw.dao.mapper.FileMapper">
+  <resultMap id="BaseResultMap" type="com.cjw.dao.entity.File">
     <id column="file_id" jdbcType="INTEGER" property="fileId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="file_name" jdbcType="VARCHAR" property="fileName" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.Dao.Entity.File">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.File">
     <result column="path" jdbcType="VARBINARY" property="path" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -74,7 +74,7 @@
   <sql id="Blob_Column_List">
     path
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.Dao.Entity.FileExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.FileExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -90,7 +90,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.cjw.Dao.Entity.FileExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cjw.dao.entity.FileExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -116,13 +116,13 @@
     delete from file
     where file_id = #{fileId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjw.Dao.Entity.FileExample">
+  <delete id="deleteByExample" parameterType="com.cjw.dao.entity.FileExample">
     delete from file
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjw.Dao.Entity.File">
+  <insert id="insert" parameterType="com.cjw.dao.entity.File">
     <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -131,7 +131,7 @@
     values (#{fileId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{path,jdbcType=VARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjw.Dao.Entity.File">
+  <insert id="insertSelective" parameterType="com.cjw.dao.entity.File">
     <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -167,7 +167,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjw.Dao.Entity.FileExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cjw.dao.entity.FileExample" resultType="java.lang.Integer">
     select count(*) from file
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -217,7 +217,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.Dao.Entity.File">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjw.dao.entity.File">
     update file
     <set>
       <if test="userId != null">
@@ -235,7 +235,7 @@
     </set>
     where file_id = #{fileId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.Dao.Entity.File">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.File">
     update file
     set user_id = #{userId,jdbcType=INTEGER},
       file_name = #{fileName,jdbcType=VARCHAR},
@@ -243,7 +243,7 @@
       path = #{path,jdbcType=VARBINARY}
     where file_id = #{fileId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjw.Dao.Entity.File">
+  <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.File">
     update file
     set user_id = #{userId,jdbcType=INTEGER},
       file_name = #{fileName,jdbcType=VARCHAR},

@@ -9,12 +9,14 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-// 扫描MyBatis的Mapper接口所在的包
-@MapperScan("com.cjw.Dao.Mapper")
+/**
+ * 扫描mapper所在包
+ */
+@MapperScan("com.cjw.dao.mapper")
 public class MyBatisConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         return new DruidDataSource();
     }
 }

@@ -1,8 +1,8 @@
-package com.cjw.Dao;
+package com.cjw.dao;
 
-import com.cjw.Dao.Entity.User;
-import com.cjw.Dao.Entity.UserExample;
-import com.cjw.Dao.Mapper.UserMapper;
+import com.cjw.dao.entity.User;
+import com.cjw.dao.entity.UserExample;
+import com.cjw.dao.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

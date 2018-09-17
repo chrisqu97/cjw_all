@@ -1,9 +1,10 @@
-package com.cjw.Controller;
+package com.cjw.controller;
 
-import com.cjw.Pojo.CompanySearchPojo;
-import com.cjw.Pojo.ResultPojo;
-import com.cjw.Service.CompanyService;
-import com.cjw.Service.StaticDataService;
+import com.cjw.pojo.CompanyPojo;
+import com.cjw.pojo.CompanySearchPojo;
+import com.cjw.pojo.ResultPojo;
+import com.cjw.service.CompanyService;
+import com.cjw.service.StaticDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +31,25 @@ public class CompanyController {
     public ResultPojo findByCondition(@RequestBody CompanySearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String,String> map=staticDataService.findByTypeCode("COMPANY_TYPE");
-        searchPojo = companyService.findByCondition(searchPojo,map);
+        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
+        searchPojo = companyService.findByCondition(searchPojo, map);
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);
         return resultPojo;
     }
 
+    /**
+     * 根据id查询
+     *
+     * @param companyPojo
+     * @return
+     */
+    @RequestMapping(value = "/findById", method = RequestMethod.POST)
+    public ResultPojo findById(@RequestBody CompanyPojo companyPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+        return resultPojo;
+    }
 
 
 }

@@ -1,8 +1,8 @@
-package com.cjw.Dao;
+package com.cjw.dao;
 
-import com.cjw.Dao.Entity.Position;
-import com.cjw.Dao.Entity.PositionExample;
-import com.cjw.Dao.Mapper.PositionMapper;
+import com.cjw.dao.entity.Position;
+import com.cjw.dao.entity.PositionExample;
+import com.cjw.dao.mapper.PositionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

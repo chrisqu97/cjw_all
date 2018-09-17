@@ -1,4 +1,4 @@
-package com.cjw.Pojo;
+package com.cjw.pojo;
 
 import lombok.Data;
 

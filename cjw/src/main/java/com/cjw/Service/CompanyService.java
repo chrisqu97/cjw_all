@@ -1,11 +1,11 @@
-package com.cjw.Service;
+package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
-import com.cjw.Dao.CompanyDao;
-import com.cjw.Dao.Entity.Company;
-import com.cjw.Pojo.CompanyPojo;
-import com.cjw.Pojo.CompanySearchPojo;
-import com.cjw.Pojo.PlacePojo;
+import com.cjw.dao.CompanyDao;
+import com.cjw.dao.entity.Company;
+import com.cjw.pojo.CompanyPojo;
+import com.cjw.pojo.CompanySearchPojo;
+import com.cjw.pojo.PlacePojo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

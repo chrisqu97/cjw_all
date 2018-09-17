@@ -1,4 +1,4 @@
-package com.cjw.Service;
+package com.cjw.service;
 
 import org.springframework.stereotype.Service;
 

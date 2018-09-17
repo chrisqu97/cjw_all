@@ -1,4 +1,4 @@
-package com.cjw.Dao.Entity;
+package com.cjw.dao.entity;
 
 import java.util.ArrayList;
 import java.util.List;
