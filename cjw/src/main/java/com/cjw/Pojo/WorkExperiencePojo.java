@@ -8,4 +8,5 @@ import lombok.Data;
  */
 @Data
 public class WorkExperiencePojo {
+    private String content;
 }
