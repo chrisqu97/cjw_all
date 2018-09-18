@@ -45,7 +45,7 @@ mybatis:
 # 打印sql
 logging:
   level:
-    com.cjw.Dao.Mapper: DEBUG
+    com.cjw.dao.mapper: DEBUG
 
 #pagehelper
 pagehelper:

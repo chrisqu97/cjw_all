@@ -1,9 +1,9 @@
 package com.cjw.controller;
 
-import com.cjw.Pojo.PositionPojo;
-import com.cjw.Pojo.PositionSearchPojo;
+import com.cjw.pojo.PositionPojo;
+import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.pojo.ResultPojo;
-import com.cjw.Service.PositionService;
+import com.cjw.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

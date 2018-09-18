@@ -3,7 +3,7 @@ package com.cjw;
 
 import com.cjw.dao.CompanyDao;
 import com.cjw.dao.entity.Company;
-import com.cjw.Utils.WxUtiles;
+import com.cjw.utils.WxUtiles;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

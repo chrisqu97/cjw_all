@@ -3,7 +3,7 @@ package com.cjw.config;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.pojo.SessionKeyPojo;
 import com.cjw.service.UserService;
-import com.cjw.Utils.AESUtils;
+import com.cjw.utils.AESUtils;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -26,7 +26,7 @@ public class LoginAspect {
 
     private Logger logger = Logger.getLogger(getClass());
 
-    private static final String POINT = "!execution(* com.cjw.Controller.UserController.login (..)) && execution(* com.cjw.Controller.*.*(..)) ";
+    private static final String POINT = "!execution(* com.cjw.controller.UserController.login (..)) && execution(* com.cjw.controller.*.*(..)) ";
 
     /**
      * 校验权限
