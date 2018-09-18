@@ -24,7 +24,7 @@ public class UserService {
 
     public UserPojo update(UserPojo userPojo) {
         User user = userDao.findById(userPojo.getUserId());
-        if (user == null) {
+        if (user != null) {
             try {
                 if (userPojo.getBirthday() != null) {
                     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,6 +64,7 @@ public class UserService {
 
         if (user != null) {
             userPojo = new UserPojo();
+            userPojo.setUserId(user.getUserId());
             userPojo.setUserName(user.getUserName());
             try {
                 if (user.getBirthday() != null) {
