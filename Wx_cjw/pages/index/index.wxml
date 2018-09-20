@@ -37,7 +37,9 @@
 
           <view class="list">
             <scroll-view scroll-y="true" style="height:100vh;">
+           
                                 <view class="main_11" >
+                               
                       <view class="main_12" >
                         <text class="main_15" >要求：本科以上|杭州</text>
                         <text class="main_13" >软件设计师</text>
@@ -48,7 +50,7 @@
                       <view class="main_20" >
                         <text class="main_18" >一天前更新</text>
                       
-                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                        <button bindtap="check_click"  class="main_19" >查看</button>
                       </view>
                     </view>
 
@@ -107,7 +109,7 @@
                         <button bindtap="main_19_click"  class="main_19" >查看</button>
                       </view>
                     </view>
-                <view class="list-box" style='text-align:center;'>更多...</view>
+               
               </scroll-view>
             </view>
               

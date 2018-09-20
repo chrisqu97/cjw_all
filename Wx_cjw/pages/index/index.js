@@ -15,10 +15,13 @@ Page({
 
     jobs: []
   },
-  main_19_click: function (e) {
+
+  check_click: function (e) {
     wx.navigateTo({
       url: '../job_detail/job_detail',
+      
     })
+    console.log(1);
   },
 
   getjob: function () {

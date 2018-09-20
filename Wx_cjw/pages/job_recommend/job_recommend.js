@@ -21,8 +21,6 @@ Page({
 wx.navigateTo({
   url: '../job_detail/job_detail',
 })
-
-
   },
   //滑动切换
   swiperTab: function (e) {
