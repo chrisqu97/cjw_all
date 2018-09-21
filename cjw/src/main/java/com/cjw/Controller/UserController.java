@@ -25,6 +25,10 @@ public class UserController {
     public ResultPojo updateUser(@RequestBody UserPojo userPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
+        if(userPojo.getUserId()==null){
+            resultPojo.setMessage("userId is empty");
+            return resultPojo;
+        }
         userPojo = userService.update(userPojo);
 
         if (userPojo == null) {
