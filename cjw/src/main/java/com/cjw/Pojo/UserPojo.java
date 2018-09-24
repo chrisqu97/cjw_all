@@ -14,7 +14,7 @@ public class UserPojo {
     private List<com.cjw.pojo.WorkExperiencePojo> workExperiences;
     private List<ProjectExperiencePojo> projectExperiencePojos;
     private List<EducationalExperiencePojo> educationalExperiencePojos;
-    private PlacePojo desiredWorkingPlace;
+    private List<String> desiredWorkingPlace;
     private String myAdvantage;
     private JobIntensionPojo jobIntension;
 }
