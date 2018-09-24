@@ -14,6 +14,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.ConsoleHandler;
 
 @Service
@@ -141,9 +142,10 @@ public class UserService {
             user.setUserName(userData.getString("nickName"));
             user.setGender(jsonObject.getInteger("gender"));
             PlacePojo placePojo = new PlacePojo();
+            placePojo.setValue(new ArrayList<>());
             placePojo.setCountry(userData.getString("country"));
-            placePojo.setProvince(userData.getString("province"));
-            placePojo.setCity(userData.getString("city"));
+            placePojo.getValue().add(userData.getString("province"));
+            placePojo.getValue().add(userData.getString("city"));
             user.setLivingPlace(JSON.toJSONString(placePojo));
             user.setState(Constant.STATE.VALUE);
 

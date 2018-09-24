@@ -9,6 +9,7 @@ import java.util.List;
  */
 @Data
 public class PlacePojo {
+    private String country;
     /**
      * [省，市，区]
      */
