@@ -19,4 +19,5 @@ public class PositionPojo {
     private String companyName;
     private Integer userId;
     private String userName;
+    private String createTime;
 }

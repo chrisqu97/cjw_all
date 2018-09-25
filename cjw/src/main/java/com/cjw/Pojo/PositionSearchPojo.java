@@ -8,5 +8,8 @@ import java.util.List;
 public class PositionSearchPojo {
     private Integer pageNum;
     private Integer pageSize;
+    private Integer totalCount;
+    private Integer totalPage;
     private List<PositionPojo> positionPojos;
+    private Integer companyId;
 }

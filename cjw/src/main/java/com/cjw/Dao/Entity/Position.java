@@ -1,6 +1,7 @@
 package com.cjw.dao.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Position implements Serializable {
     private Integer positionId;
@@ -22,6 +23,10 @@ public class Position implements Serializable {
     private String salary;
 
     private Integer state;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     private String description;
 
@@ -105,6 +110,22 @@ public class Position implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getDescription() {
