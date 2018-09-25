@@ -101,23 +101,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.StaticData">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into static_data (id, type_code, type_value, 
-      type_name, state, parent
-      )
-    values (#{id,jdbcType=INTEGER}, #{typeCode,jdbcType=VARCHAR}, #{typeValue,jdbcType=VARCHAR}, 
-      #{typeName,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{parent,jdbcType=INTEGER}
-      )
+    insert into static_data (type_code, type_value, type_name, 
+      state, parent)
+    values (#{typeCode,jdbcType=VARCHAR}, #{typeValue,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{parent,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.StaticData">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into static_data
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="typeCode != null">
         type_code,
       </if>
@@ -135,7 +132,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="typeCode != null">
         #{typeCode,jdbcType=VARCHAR},
       </if>

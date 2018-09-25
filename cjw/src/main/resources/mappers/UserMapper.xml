@@ -142,33 +142,32 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.User">
-    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (user_id, user_type, user_name, 
-      user_email, gender, join_work, 
-      birthday, open_id, session_key, 
-      my_advantage, my_answer, practice_experience, 
-      project_experience, educational_experience, 
-      job_intension, user_setting, state, 
-      education, phone, desired_working_place, 
-      living_place, work_experience)
-    values (#{userId,jdbcType=INTEGER}, #{userType,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
-      #{userEmail,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{joinWork,jdbcType=DATE}, 
-      #{birthday,jdbcType=DATE}, #{openId,jdbcType=VARCHAR}, #{sessionKey,jdbcType=VARCHAR}, 
-      #{myAdvantage,jdbcType=VARCHAR}, #{myAnswer,jdbcType=VARCHAR}, #{practiceExperience,jdbcType=VARCHAR}, 
-      #{projectExperience,jdbcType=VARCHAR}, #{educationalExperience,jdbcType=VARCHAR}, 
-      #{jobIntension,jdbcType=VARCHAR}, #{userSetting,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
-      #{education,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{desiredWorkingPlace,jdbcType=VARCHAR}, 
-      #{livingPlace,jdbcType=VARCHAR}, #{workExperience,jdbcType=LONGVARCHAR})
+    insert into user (user_type, user_name, user_email, 
+      gender, join_work, birthday, 
+      open_id, session_key, my_advantage, 
+      my_answer, practice_experience, project_experience, 
+      educational_experience, job_intension, user_setting, 
+      state, education, phone, 
+      desired_working_place, living_place, work_experience
+      )
+    values (#{userType,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{joinWork,jdbcType=DATE}, #{birthday,jdbcType=DATE}, 
+      #{openId,jdbcType=VARCHAR}, #{sessionKey,jdbcType=VARCHAR}, #{myAdvantage,jdbcType=VARCHAR}, 
+      #{myAnswer,jdbcType=VARCHAR}, #{practiceExperience,jdbcType=VARCHAR}, #{projectExperience,jdbcType=VARCHAR}, 
+      #{educationalExperience,jdbcType=VARCHAR}, #{jobIntension,jdbcType=VARCHAR}, #{userSetting,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{education,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
+      #{desiredWorkingPlace,jdbcType=VARCHAR}, #{livingPlace,jdbcType=VARCHAR}, #{workExperience,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.User">
-    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      user_id,
       <if test="userType != null">
         user_type,
       </if>
@@ -234,7 +233,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{userId,jdbcType=INTEGER},
       <if test="userType != null">
         #{userType,jdbcType=INTEGER},
       </if>

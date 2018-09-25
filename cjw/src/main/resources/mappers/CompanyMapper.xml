@@ -126,23 +126,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.Company">
-    <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="companyId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into company (company_id, company_name, place, 
-      home_page_link, company_type, size, 
-      state, description)
-    values (#{companyId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
-      #{homePageLink,jdbcType=VARCHAR}, #{companyType,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
+    insert into company (company_name, place, home_page_link, 
+      company_type, size, state, 
+      description)
+    values (#{companyName,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, #{homePageLink,jdbcType=VARCHAR}, 
+      #{companyType,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{description,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.Company">
-    <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="companyId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      company_id,
       <if test="companyName != null">
         company_name,
       </if>
@@ -166,7 +165,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{companyId,jdbcType=INTEGER},
       <if test="companyName != null">
         #{companyName,jdbcType=VARCHAR},
       </if>

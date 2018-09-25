@@ -102,23 +102,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.SendFile">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into send_file (id, user_id, accept_id, 
-      file_id, create_time, done_time, 
-      state)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{acceptId,jdbcType=INTEGER}, 
-      #{fileId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{doneTime,jdbcType=TIMESTAMP}, 
-      #{state,jdbcType=INTEGER})
+    insert into send_file (user_id, accept_id, file_id, 
+      create_time, done_time, state
+      )
+    values (#{userId,jdbcType=INTEGER}, #{acceptId,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{doneTime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.SendFile">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into send_file
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="userId != null">
         user_id,
       </if>
@@ -139,7 +138,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

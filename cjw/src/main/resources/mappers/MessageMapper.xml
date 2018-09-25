@@ -128,25 +128,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.Message">
-    <selectKey keyProperty="messageId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="messageId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into message (message_id, user_id, accepter_id, 
-      message_type, position_id, create_time, 
-      if_read, state, content
-      )
-    values (#{messageId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{accepterId,jdbcType=INTEGER}, 
-      #{messageType,jdbcType=INTEGER}, #{positionId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{ifRead,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
-      )
+    insert into message (user_id, accepter_id, message_type, 
+      position_id, create_time, if_read, 
+      state, content)
+    values (#{userId,jdbcType=INTEGER}, #{accepterId,jdbcType=INTEGER}, #{messageType,jdbcType=INTEGER}, 
+      #{positionId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{ifRead,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.Message">
-    <selectKey keyProperty="messageId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="messageId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      message_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -173,7 +170,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{messageId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

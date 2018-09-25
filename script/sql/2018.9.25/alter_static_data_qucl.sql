@@ -1,1 +1,0 @@
-alter table static_data add parent int DEFAULT null;

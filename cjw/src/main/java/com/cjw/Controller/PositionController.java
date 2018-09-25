@@ -25,6 +25,8 @@ public class PositionController {
     @RequestMapping(value = "/findById", method = RequestMethod.POST)
     public ResultPojo findById(@RequestBody PositionPojo positionPojo) {
         ResultPojo resultPojo = new ResultPojo();
+
+
         return resultPojo;
     }
 
@@ -37,6 +39,20 @@ public class PositionController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResultPojo add(@RequestBody PositionPojo positionPojo) {
         ResultPojo resultPojo = new ResultPojo();
+
+        if (positionPojo.getCompanyId() == null) {
+            resultPojo.setMessage("公司id为空");
+            return resultPojo;
+        }
+        if (positionPojo.getUserId() == null) {
+            resultPojo.setMessage("用户id为空");
+            return resultPojo;
+        }
+
+        positionPojo = positionService.add(positionPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(positionPojo);
         return resultPojo;
     }
 

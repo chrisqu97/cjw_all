@@ -123,21 +123,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.File">
-    <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="fileId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into file (file_id, user_id, file_name, 
-      state, path)
-    values (#{fileId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{path,jdbcType=VARBINARY})
+    insert into file (user_id, file_name, state, 
+      path)
+    values (#{userId,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{path,jdbcType=VARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.File">
-    <selectKey keyProperty="fileId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="fileId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into file
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      file_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -152,7 +151,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{fileId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

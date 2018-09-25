@@ -1,1 +1,0 @@
-alter table company change area place varchar(255);

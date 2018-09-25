@@ -100,21 +100,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cjw.dao.entity.SeeCompany">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into see_company (id, company_id, user_id, 
-      create_time, state)
-    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER})
+    insert into see_company (company_id, user_id, create_time, 
+      state)
+    values (#{companyId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.SeeCompany">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into see_company
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="companyId != null">
         company_id,
       </if>
@@ -129,7 +128,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="companyId != null">
         #{companyId,jdbcType=INTEGER},
       </if>

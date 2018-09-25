@@ -13,7 +13,7 @@ public class Position implements Serializable {
 
     private Integer positionType;
 
-    private String area;
+    private String place;
 
     private String educationalRequirements;
 
@@ -67,12 +67,12 @@ public class Position implements Serializable {
         this.positionType = positionType;
     }
 
-    public String getArea() {
-        return area;
+    public String getPlace() {
+        return place;
     }
 
-    public void setArea(String area) {
-        this.area = area == null ? null : area.trim();
+    public void setPlace(String place) {
+        this.place = place == null ? null : place.trim();
     }
 
     public String getEducationalRequirements() {

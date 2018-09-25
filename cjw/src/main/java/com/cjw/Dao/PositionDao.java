@@ -33,4 +33,16 @@ public class PositionDao {
         }
         return null;
     }
+
+    public List<Position> findByCompanyId(Integer companyId){
+        PositionExample example = new PositionExample();
+        example.createCriteria()
+                .andCompanyIdEqualTo(companyId);
+        example.setOrderByClause("position_id desc");
+        List<Position> positions = positionMapper.selectByExample(example);
+        if (!CollectionUtils.isEmpty(positions)) {
+            return positions;
+        }
+        return null;
+    }
 }
