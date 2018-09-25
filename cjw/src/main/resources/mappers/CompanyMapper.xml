@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.cjw.dao.entity.Company">
     <id column="company_id" jdbcType="INTEGER" property="companyId" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
-    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
     <result column="home_page_link" jdbcType="VARCHAR" property="homePageLink" />
     <result column="company_type" jdbcType="INTEGER" property="companyType" />
     <result column="size" jdbcType="VARCHAR" property="size" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    company_id, company_name, area, home_page_link, company_type, size, state
+    company_id, company_name, place, home_page_link, company_type, size, state
   </sql>
   <sql id="Blob_Column_List">
     description
@@ -129,10 +129,10 @@
     <selectKey keyProperty="companyId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into company (company_id, company_name, area, 
+    insert into company (company_id, company_name, place, 
       home_page_link, company_type, size, 
       state, description)
-    values (#{companyId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+    values (#{companyId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
       #{homePageLink,jdbcType=VARCHAR}, #{companyType,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, 
       #{state,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
   </insert>
@@ -146,8 +146,8 @@
       <if test="companyName != null">
         company_name,
       </if>
-      <if test="area != null">
-        area,
+      <if test="place != null">
+        place,
       </if>
       <if test="homePageLink != null">
         home_page_link,
@@ -170,8 +170,8 @@
       <if test="companyName != null">
         #{companyName,jdbcType=VARCHAR},
       </if>
-      <if test="area != null">
-        #{area,jdbcType=VARCHAR},
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
       </if>
       <if test="homePageLink != null">
         #{homePageLink,jdbcType=VARCHAR},
@@ -205,8 +205,8 @@
       <if test="record.companyName != null">
         company_name = #{record.companyName,jdbcType=VARCHAR},
       </if>
-      <if test="record.area != null">
-        area = #{record.area,jdbcType=VARCHAR},
+      <if test="record.place != null">
+        place = #{record.place,jdbcType=VARCHAR},
       </if>
       <if test="record.homePageLink != null">
         home_page_link = #{record.homePageLink,jdbcType=VARCHAR},
@@ -232,7 +232,7 @@
     update company
     set company_id = #{record.companyId,jdbcType=INTEGER},
       company_name = #{record.companyName,jdbcType=VARCHAR},
-      area = #{record.area,jdbcType=VARCHAR},
+      place = #{record.place,jdbcType=VARCHAR},
       home_page_link = #{record.homePageLink,jdbcType=VARCHAR},
       company_type = #{record.companyType,jdbcType=INTEGER},
       size = #{record.size,jdbcType=VARCHAR},
@@ -246,7 +246,7 @@
     update company
     set company_id = #{record.companyId,jdbcType=INTEGER},
       company_name = #{record.companyName,jdbcType=VARCHAR},
-      area = #{record.area,jdbcType=VARCHAR},
+      place = #{record.place,jdbcType=VARCHAR},
       home_page_link = #{record.homePageLink,jdbcType=VARCHAR},
       company_type = #{record.companyType,jdbcType=INTEGER},
       size = #{record.size,jdbcType=VARCHAR},
@@ -261,8 +261,8 @@
       <if test="companyName != null">
         company_name = #{companyName,jdbcType=VARCHAR},
       </if>
-      <if test="area != null">
-        area = #{area,jdbcType=VARCHAR},
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
       </if>
       <if test="homePageLink != null">
         home_page_link = #{homePageLink,jdbcType=VARCHAR},
@@ -285,7 +285,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.Company">
     update company
     set company_name = #{companyName,jdbcType=VARCHAR},
-      area = #{area,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
       home_page_link = #{homePageLink,jdbcType=VARCHAR},
       company_type = #{companyType,jdbcType=INTEGER},
       size = #{size,jdbcType=VARCHAR},
@@ -296,7 +296,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.Company">
     update company
     set company_name = #{companyName,jdbcType=VARCHAR},
-      area = #{area,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
       home_page_link = #{homePageLink,jdbcType=VARCHAR},
       company_type = #{companyType,jdbcType=INTEGER},
       size = #{size,jdbcType=VARCHAR},

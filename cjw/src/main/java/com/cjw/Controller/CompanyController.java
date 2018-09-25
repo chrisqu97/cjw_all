@@ -48,6 +48,16 @@ public class CompanyController {
     @RequestMapping(value = "/findById", method = RequestMethod.POST)
     public ResultPojo findById(@RequestBody CompanyPojo companyPojo) {
         ResultPojo resultPojo = new ResultPojo();
+
+        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
+        companyPojo = companyService.findById(companyPojo.getCompanyId(), map);
+
+        if (companyPojo == null) {
+            resultPojo.setMessage("不存在该id的公司");
+            return resultPojo;
+        }
+        resultPojo.setSuccess(true);
+        resultPojo.setData(companyPojo);
         return resultPojo;
     }
 

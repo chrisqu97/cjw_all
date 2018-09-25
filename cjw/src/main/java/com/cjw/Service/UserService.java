@@ -3,8 +3,8 @@ package com.cjw.service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.cjw.common.Constant;
-import com.cjw.dao.entity.User;
 import com.cjw.dao.UserDao;
+import com.cjw.dao.entity.User;
 import com.cjw.pojo.*;
 import com.cjw.utils.AESUtils;
 import com.cjw.utils.WxUtiles;
@@ -15,8 +15,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.ConsoleHandler;
 
 @Service
 public class UserService {
@@ -93,8 +91,8 @@ public class UserService {
                 userPojo.setDesiredWorkingPlace(new ArrayList<>());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getProvince());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getCity());
-                if(!StringUtils.isEmpty(placePojo.getDetail())){
-                    userPojo.getDesiredWorkingPlace().add(placePojo.getDetail());
+                if(!StringUtils.isEmpty(placePojo.getArea())){
+                    userPojo.getDesiredWorkingPlace().add(placePojo.getArea());
                 }
             }
         }

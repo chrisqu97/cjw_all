@@ -7,7 +7,7 @@ public class Company implements Serializable {
 
     private String companyName;
 
-    private String area;
+    private String place;
 
     private String homePageLink;
 
@@ -37,12 +37,12 @@ public class Company implements Serializable {
         this.companyName = companyName == null ? null : companyName.trim();
     }
 
-    public String getArea() {
-        return area;
+    public String getPlace() {
+        return place;
     }
 
-    public void setArea(String area) {
-        this.area = area == null ? null : area.trim();
+    public void setPlace(String place) {
+        this.place = place == null ? null : place.trim();
     }
 
     public String getHomePageLink() {

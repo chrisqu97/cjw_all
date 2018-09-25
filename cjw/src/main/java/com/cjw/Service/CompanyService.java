@@ -1,6 +1,7 @@
 package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
+import com.cjw.common.Constant;
 import com.cjw.dao.CompanyDao;
 import com.cjw.dao.entity.Company;
 import com.cjw.pojo.CompanyPojo;
@@ -30,8 +31,12 @@ public class CompanyService {
             PageInfo pageInfo = new PageInfo(companies, searchPojo.getPageSize());
             for (Company company : companies) {
                 CompanyPojo companyPojo = new CompanyPojo();
-                if (company.getArea() != null) {
-                    companyPojo.setPlacePojo(JSON.parseObject(company.getArea(), PlacePojo.class));
+                if (company.getPlace() != null) {
+                    PlacePojo placePojo = JSON.parseObject(company.getPlace(), PlacePojo.class);
+                    companyPojo.setPlace(new ArrayList<>());
+                    companyPojo.getPlace().add(placePojo.getProvince());
+                    companyPojo.getPlace().add(placePojo.getCity());
+                    companyPojo.getPlace().add(placePojo.getArea());
                 }
                 if (company.getSize() != null) {
                     companyPojo.setSize(company.getSize());
@@ -47,5 +52,40 @@ public class CompanyService {
         }
         searchPojo.setCompanyPojos(companyPojos);
         return searchPojo;
+    }
+
+    public CompanyPojo findById(Integer id, Map<String, String> companyType) {
+        Company company = companyDao.findById(id);
+        if (company != null) {
+            CompanyPojo companyPojo = new CompanyPojo();
+            companyPojo.setCompanyId(company.getCompanyId());
+            companyPojo.setCompanyName(company.getCompanyName());
+            companyPojo.setCompanyType(company.getCompanyType());
+            companyPojo.setCompanyTypeName(companyType.get(company.getCompanyType() + ""));
+            companyPojo.setSize(company.getSize());
+            PlacePojo placePojo = JSON.parseObject(company.getPlace(), PlacePojo.class);
+            companyPojo.setPlace(new ArrayList<>());
+            companyPojo.getPlace().add(placePojo.getProvince());
+            companyPojo.getPlace().add(placePojo.getCity());
+            companyPojo.getPlace().add(placePojo.getArea());
+            return companyPojo;
+        } else {
+            return null;
+        }
+    }
+
+    public CompanyPojo add(CompanyPojo companyPojo) {
+        Company company = new Company();
+        company.setCompanyName(companyPojo.getCompanyName());
+        company.setCompanyType(companyPojo.getCompanyType());
+        company.setSize(companyPojo.getSize());
+        company.setState(Constant.STATE.VALUE);
+        PlacePojo placePojo = new PlacePojo();
+        placePojo.setProvince(companyPojo.getPlace().get(0));
+        placePojo.setCity(companyPojo.getPlace().get(1));
+        placePojo.setArea(companyPojo.getPlace().get(2));
+        company.setPlace(JSON.toJSONString(placePojo));
+        companyDao.add(company);
+        return companyPojo;
     }
 }

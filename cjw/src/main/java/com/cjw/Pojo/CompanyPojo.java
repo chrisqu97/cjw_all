@@ -2,6 +2,8 @@ package com.cjw.pojo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CompanyPojo {
     private Integer companyId;
@@ -9,5 +11,5 @@ public class CompanyPojo {
     private Integer companyType;
     private String companyTypeName;
     private String size;
-    private com.cjw.pojo.PlacePojo placePojo;
+    private List<String> place;
 }

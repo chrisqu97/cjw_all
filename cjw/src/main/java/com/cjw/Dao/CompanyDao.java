@@ -54,9 +54,14 @@ public class CompanyDao {
 
     public List<Company> findByCondition(CompanySearchPojo searchPojo) {
         CompanyExample example = new CompanyExample();
-        example.createCriteria()
-                .andSizeEqualTo(searchPojo.getSize())
-                .andCompanyTypeEqualTo(searchPojo.getCompanyType());
+        CompanyExample.Criteria criteria = example.createCriteria();
+        if(searchPojo.getSize()!=null){
+            criteria.andSizeEqualTo(searchPojo.getSize());
+        }
+        if(searchPojo.getCompanyType()!=null){
+            criteria.andCompanyTypeEqualTo(searchPojo.getCompanyType());
+        }
+        example.setOrderByClause("company_id desc");
         List<Company> companies = companyMapper.selectByExample(example);
         if (!CollectionUtils.isEmpty(companies)) {
             return companies;

@@ -7,8 +7,8 @@ import lombok.Data;
  */
 @Data
 public class PlacePojo {
-    private String city;
-    private String province;
     private String country;
-    private String detail;
+    private String province;
+    private String city;
+    private String area;
 }

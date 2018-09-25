@@ -13,6 +13,8 @@ public class StaticData implements Serializable {
 
     private Integer state;
 
+    private Integer parent;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -53,5 +55,13 @@ public class StaticData implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getParent() {
+        return parent;
+    }
+
+    public void setParent(Integer parent) {
+        this.parent = parent;
     }
 }
