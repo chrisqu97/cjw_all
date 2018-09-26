@@ -7,6 +7,7 @@ import com.cjw.dao.UserDao;
 import com.cjw.dao.entity.User;
 import com.cjw.pojo.*;
 import com.cjw.utils.AESUtils;
+import com.cjw.utils.DateUtils;
 import com.cjw.utils.StringUtils;
 import com.cjw.utils.WxUtiles;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserService {
         if (user != null) {
             try {
                 if (StringUtils.isNotEmpty(userPojo.getBirthday())) {
-                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sf = DateUtils.getDateFormat();
                     user.setBirthday(sf.parse(userPojo.getBirthday()));
                 }
                 if (userPojo.getDesiredWorkingPlace() != null) {
@@ -71,7 +72,7 @@ public class UserService {
             userPojo.setUserName(user.getUserName());
             try {
                 if (user.getBirthday() != null) {
-                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sf = DateUtils.getDateFormat();
                     userPojo.setBirthday(sf.format(user.getBirthday()));
                 }
             } catch (Exception e) {
@@ -91,7 +92,7 @@ public class UserService {
                 userPojo.setDesiredWorkingPlace(new ArrayList<>());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getProvince());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getCity());
-                if(StringUtils.isNotEmpty(placePojo.getArea())){
+                if (StringUtils.isNotEmpty(placePojo.getArea())) {
                     userPojo.getDesiredWorkingPlace().add(placePojo.getArea());
                 }
             }

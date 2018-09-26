@@ -12,6 +12,7 @@ import com.cjw.pojo.PlacePojo;
 import com.cjw.pojo.PositionPojo;
 import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.utils.CollectionUtils;
+import com.cjw.utils.DateUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +82,7 @@ public class PositionService {
                 positionPojo.setUserName(user.getUserName());
             }
             try {
-                SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                SimpleDateFormat sf = DateUtils.getDateTimeFormat();
                 positionPojo.setCreateTime(sf.format(position.getCreateTime()));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -103,7 +104,7 @@ public class PositionService {
                 }
             }
             Company company = companyDao.findById(searchPojo.getCompanyId());
-            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sf = DateUtils.getDateTimeFormat();
             List<PositionPojo> positionPojos = new ArrayList<>();
             PageInfo pageInfo = new PageInfo(positions, searchPojo.getPageSize());
             for (Position position : positions) {
