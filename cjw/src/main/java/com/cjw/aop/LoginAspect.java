@@ -1,12 +1,13 @@
-package com.cjw.config;
+package com.cjw.aop;
 
 import com.cjw.pojo.ResultPojo;
 import com.cjw.pojo.SessionKeyPojo;
 import com.cjw.service.UserService;
-import com.cjw.utils.AESUtils;
+import com.cjw.utils.WxUtiles;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -23,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginAspect {
     @Autowired
     private UserService userService;
+    @Autowired
+    private WxUtiles wxUtiles;
 
     private Logger logger = Logger.getLogger(getClass());
 
@@ -42,7 +45,7 @@ public class LoginAspect {
         String sessionKey = request.getHeader("session_key");
 
         if (!StringUtils.isEmpty(sessionKey)) {
-            SessionKeyPojo sessionKeyPojo = decodeSessionKey(sessionKey);
+            SessionKeyPojo sessionKeyPojo = wxUtiles.decodeSessionKey(sessionKey);
             if (sessionKeyPojo != null && userService.checkSessionKey(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
                 try {
                     Object result = proceedingJoinPoint.proceed();
@@ -63,17 +66,4 @@ public class LoginAspect {
         return null;
     }
 
-
-    public SessionKeyPojo decodeSessionKey(String sessionKey) {
-        try {
-            String[] split = AESUtils.decrypt(sessionKey).split("&");
-            SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
-            sessionKeyPojo.setUserId(Integer.parseInt(split[0]));
-            sessionKeyPojo.setSessionKey(split[1]);
-            return sessionKeyPojo;
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
 }

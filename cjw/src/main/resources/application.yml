@@ -11,9 +11,8 @@ spring:
       username: cjw_test
       password: cjw_test2018
       initialSize: 10
-      maxActive: 100
+      maxActive: 20
       minIdle: 5
-      maxIdle: 20
       maxWait: 50000
 
 #    生产数据库

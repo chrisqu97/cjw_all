@@ -2,6 +2,7 @@ package com.cjw.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.cjw.pojo.SessionKeyPojo;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.beans.factory.annotation.Value;
@@ -73,6 +74,19 @@ public class WxUtiles {
             System.out.println(wxUtiles.decodeBase64(e, s, iv));
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+
+    }
+
+    public SessionKeyPojo decodeSessionKey(String sessionKey) {
+        try {
+            String[] split = AESUtils.decrypt(sessionKey).split("&");
+            SessionKeyPojo sessionKeyPojo = new SessionKeyPojo();
+            sessionKeyPojo.setUserId(Integer.parseInt(split[0]));
+            sessionKeyPojo.setSessionKey(split[1]);
+            return sessionKeyPojo;
+        } catch (Exception e) {
+            return null;
         }
 
     }

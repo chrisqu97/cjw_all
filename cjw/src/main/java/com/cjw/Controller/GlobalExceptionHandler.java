@@ -16,8 +16,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public ResultPojo errorHandler(HttpServletRequest request, Exception e) throws Exception {
-        ResultPojo resultPojo=new ResultPojo();
+    public ResultPojo errorHandler(HttpServletRequest request, Exception e) {
+        ResultPojo resultPojo = new ResultPojo();
         resultPojo.setMessage(e.getMessage());
         logger.trace(e.getMessage());
         return resultPojo;
