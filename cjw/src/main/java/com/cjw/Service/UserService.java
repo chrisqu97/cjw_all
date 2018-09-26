@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -88,13 +88,7 @@ public class UserService {
                 userPojo.setEducationalExperiencePojos(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
             }
             if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
-                PlacePojo placePojo = JSON.parseObject(user.getDesiredWorkingPlace(), PlacePojo.class);
-                userPojo.setDesiredWorkingPlace(new ArrayList<>());
-                userPojo.getDesiredWorkingPlace().add(placePojo.getProvince());
-                userPojo.getDesiredWorkingPlace().add(placePojo.getCity());
-                if (StringUtils.isNotEmpty(placePojo.getArea())) {
-                    userPojo.getDesiredWorkingPlace().add(placePojo.getArea());
-                }
+                userPojo.setDesiredWorkingPlace(JSON.parseObject(user.getDesiredWorkingPlace(), List.class));
             }
         }
         return userPojo;
