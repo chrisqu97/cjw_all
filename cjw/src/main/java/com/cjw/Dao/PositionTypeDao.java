@@ -5,9 +5,9 @@ import com.cjw.dao.entity.PositionType;
 import com.cjw.dao.entity.PositionTypeExample;
 import com.cjw.dao.mapper.PositionTypeMapper;
 import com.cjw.pojo.PositionTypePojo;
+import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class PositionTypeDao {
                 .andPositionTypeIdEqualTo(id)
                 .andStateEqualTo(Constant.STATE.VALUE);
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
-        if (CollectionUtils.isEmpty(positionTypes)) {
+        if (CollectionUtils.isNotEmpty(positionTypes)) {
             return positionTypes.get(0);
         }
         return null;
@@ -37,7 +37,7 @@ public class PositionTypeDao {
         PositionTypeExample example = new PositionTypeExample();
         example.setOrderByClause("position_type_id desc");
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
-        if (CollectionUtils.isEmpty(positionTypes)) {
+        if (CollectionUtils.isNotEmpty(positionTypes)) {
             return positionTypes;
         }
         return null;
@@ -45,7 +45,7 @@ public class PositionTypeDao {
 
     public List<PositionTypePojo> findAllType() {
         List<PositionTypePojo> allType = positionTypeMapper.findAllType();
-        if (!CollectionUtils.isEmpty(allType)) {
+        if (CollectionUtils.isNotEmpty(allType)) {
             return allType;
         }
         return null;
@@ -59,4 +59,19 @@ public class PositionTypeDao {
         return null;
     }
 
+    public List<PositionType> findByParentId(Integer parentId) {
+        PositionTypeExample example = new PositionTypeExample();
+        PositionTypeExample.Criteria criteria = example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
+        if (parentId == 0) {
+            criteria.andParentIsNull();
+        } else {
+            criteria.andParentEqualTo(parentId);
+        }
+        example.setOrderByClause("position_type_id desc");
+        List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
+        if (CollectionUtils.isNotEmpty(positionTypes)) {
+            return positionTypes;
+        }
+        return null;
+    }
 }

@@ -3,6 +3,7 @@ package com.cjw.aop;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.pojo.SessionKeyPojo;
 import com.cjw.service.UserService;
+import com.cjw.utils.StringUtils;
 import com.cjw.utils.WxUtiles;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -10,7 +11,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -44,7 +44,7 @@ public class LoginAspect {
         HttpServletRequest request = requestAttributes.getRequest();
         String sessionKey = request.getHeader("session_key");
 
-        if (!StringUtils.isEmpty(sessionKey)) {
+        if (StringUtils.isNotEmpty(sessionKey)) {
             SessionKeyPojo sessionKeyPojo = wxUtiles.decodeSessionKey(sessionKey);
             if (sessionKeyPojo != null && userService.checkSessionKey(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
                 try {

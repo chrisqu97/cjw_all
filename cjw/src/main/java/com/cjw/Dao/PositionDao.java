@@ -3,9 +3,9 @@ package com.cjw.dao;
 import com.cjw.dao.entity.Position;
 import com.cjw.dao.entity.PositionExample;
 import com.cjw.dao.mapper.PositionMapper;
+import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class PositionDao {
         example.createCriteria()
                 .andPositionIdEqualTo(id);
         List<Position> positions = positionMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(positions)) {
+        if (CollectionUtils.isNotEmpty(positions)) {
             return positions.get(0);
         }
         return null;
@@ -40,7 +40,7 @@ public class PositionDao {
                 .andCompanyIdEqualTo(companyId);
         example.setOrderByClause("position_id desc");
         List<Position> positions = positionMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(positions)) {
+        if (CollectionUtils.isNotEmpty(positions)) {
             return positions;
         }
         return null;

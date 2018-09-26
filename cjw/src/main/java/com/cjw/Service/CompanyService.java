@@ -7,11 +7,11 @@ import com.cjw.dao.entity.Company;
 import com.cjw.pojo.CompanyPojo;
 import com.cjw.pojo.CompanySearchPojo;
 import com.cjw.pojo.PlacePojo;
+import com.cjw.utils.CollectionUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class CompanyService {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Company> companies = companyDao.findByCondition(searchPojo);
         List<CompanyPojo> companyPojos = new ArrayList<>();
-        if (!CollectionUtils.isEmpty(companies)) {
+        if (CollectionUtils.isNotEmpty(companies)) {
             PageInfo pageInfo = new PageInfo(companies, searchPojo.getPageSize());
             for (Company company : companies) {
                 CompanyPojo companyPojo = new CompanyPojo();

@@ -3,9 +3,9 @@ package com.cjw.dao;
 import com.cjw.dao.entity.User;
 import com.cjw.dao.entity.UserExample;
 import com.cjw.dao.mapper.UserMapper;
+import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class UserDao {
         example.createCriteria()
                 .andUserIdEqualTo(id);
         List<User> users = userMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(users)) {
+        if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
         }
         return null;
@@ -39,7 +39,7 @@ public class UserDao {
         example.createCriteria()
                 .andOpenIdEqualTo(openId);
         List<User> users = userMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(users)) {
+        if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
         }
         return null;
@@ -49,7 +49,7 @@ public class UserDao {
         UserExample example = new UserExample();
         example.createCriteria();
         List<User> users = userMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(users)) {
+        if (CollectionUtils.isNotEmpty(users)) {
             return users;
         }
         return null;

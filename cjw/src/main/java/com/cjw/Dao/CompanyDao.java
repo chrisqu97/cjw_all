@@ -4,9 +4,9 @@ import com.cjw.dao.entity.Company;
 import com.cjw.dao.entity.CompanyExample;
 import com.cjw.dao.mapper.CompanyMapper;
 import com.cjw.pojo.CompanySearchPojo;
+import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class CompanyDao {
         example.createCriteria()
                 .andCompanyIdEqualTo(id);
         List<Company> companies = companyMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(companies)) {
+        if (CollectionUtils.isNotEmpty(companies)) {
             return companies.get(0);
         }
         return null;
@@ -40,7 +40,7 @@ public class CompanyDao {
         CompanyExample example = new CompanyExample();
         example.createCriteria();
         List<Company> companies = companyMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(companies)) {
+        if (CollectionUtils.isNotEmpty(companies)) {
             return companies;
         }
         return null;
@@ -63,7 +63,7 @@ public class CompanyDao {
         }
         example.setOrderByClause("company_id desc");
         List<Company> companies = companyMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(companies)) {
+        if (CollectionUtils.isNotEmpty(companies)) {
             return companies;
         }
         return null;

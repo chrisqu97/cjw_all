@@ -11,11 +11,11 @@ import com.cjw.dao.entity.User;
 import com.cjw.pojo.PlacePojo;
 import com.cjw.pojo.PositionPojo;
 import com.cjw.pojo.PositionSearchPojo;
+import com.cjw.utils.CollectionUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -94,10 +94,10 @@ public class PositionService {
     public PositionSearchPojo findByCompanyId(PositionSearchPojo searchPojo) {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Position> positions = positionDao.findByCompanyId(searchPojo.getCompanyId());
-        if (!CollectionUtils.isEmpty(positions)) {
+        if (CollectionUtils.isNotEmpty(positions)) {
             List<User> allUser = userDao.findAll();
             Map<String, String> users = new HashMap<>();
-            if (!CollectionUtils.isEmpty(allUser)) {
+            if (CollectionUtils.isNotEmpty(allUser)) {
                 for (User user : allUser) {
                     users.put(user.getUserId() + "", user.getUserName());
                 }

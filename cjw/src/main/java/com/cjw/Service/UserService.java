@@ -7,10 +7,10 @@ import com.cjw.dao.UserDao;
 import com.cjw.dao.entity.User;
 import com.cjw.pojo.*;
 import com.cjw.utils.AESUtils;
+import com.cjw.utils.StringUtils;
 import com.cjw.utils.WxUtiles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
@@ -29,7 +29,7 @@ public class UserService {
         User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
             try {
-                if (!StringUtils.isEmpty(userPojo.getBirthday())) {
+                if (StringUtils.isNotEmpty(userPojo.getBirthday())) {
                     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
                     user.setBirthday(sf.parse(userPojo.getBirthday()));
                 }
@@ -39,13 +39,13 @@ public class UserService {
                 if (userPojo.getEducation() != null) {
                     user.setEducation(userPojo.getEducation());
                 }
-                if (!StringUtils.isEmpty(userPojo.getMyAdvantage())) {
+                if (StringUtils.isNotEmpty(userPojo.getMyAdvantage())) {
                     user.setMyAdvantage(userPojo.getMyAdvantage());
                 }
-                if (!StringUtils.isEmpty(userPojo.getPhone())) {
+                if (StringUtils.isNotEmpty(userPojo.getPhone())) {
                     user.setPhone(userPojo.getPhone());
                 }
-                if (!StringUtils.isEmpty(userPojo.getUserName())) {
+                if (StringUtils.isNotEmpty(userPojo.getUserName())) {
                     user.setUserName(userPojo.getUserName());
                 }
                 if (userPojo.getWorkExperiences() != null) {
@@ -77,21 +77,21 @@ public class UserService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (!StringUtils.isEmpty(user.getWorkExperience())) {
+            if (StringUtils.isNotEmpty(user.getWorkExperience())) {
                 userPojo.setWorkExperiences(JSONObject.parseArray(user.getWorkExperience(), WorkExperiencePojo.class));
             }
             if (user.getEducation() != null) {
                 userPojo.setEducation(user.getEducation());
             }
-            if (!StringUtils.isEmpty(user.getEducationalExperience())) {
+            if (StringUtils.isNotEmpty(user.getEducationalExperience())) {
                 userPojo.setEducationalExperiencePojos(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
             }
-            if (!StringUtils.isEmpty(user.getDesiredWorkingPlace())) {
+            if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
                 PlacePojo placePojo = JSON.parseObject(user.getDesiredWorkingPlace(), PlacePojo.class);
                 userPojo.setDesiredWorkingPlace(new ArrayList<>());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getProvince());
                 userPojo.getDesiredWorkingPlace().add(placePojo.getCity());
-                if(!StringUtils.isEmpty(placePojo.getArea())){
+                if(StringUtils.isNotEmpty(placePojo.getArea())){
                     userPojo.getDesiredWorkingPlace().add(placePojo.getArea());
                 }
             }
