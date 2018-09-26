@@ -6,7 +6,6 @@ Page({
   data: {  
     date:'2018-01-01',//
      location:['四川省', '成都市', '锦江区'],
-  
   }, 
   formSubmit: function (e) {
     var that = this;
@@ -18,17 +17,21 @@ Page({
       url: app.globalData.host + req_url,
       data: formData,
       header: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "session_key": "VTERSv7f1ANeWlG5/iViO2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL"
       },
+      method: "POST",
       success: function (res) {
-        console.log("成功")
+        console.log(res)
+      
        wx.showToast({
          title: '成功',
          icon: 'succes',
          duration: 1000,
          mask: true
        })
-     
+
+       
       }
     })
   },
@@ -41,16 +44,6 @@ date_time_Change:function(e){
     })  
     console.log(e.detail.value)  
 },
-
-  onLoad: function (options) {
-    // / 默认联动显示北京
-    var id = address.provinces[0].id
-    this.setData({
-      provinces: address.provinces,
-      citys: address.citys[id],
-      areas: address.areas[address.citys[id][0].id],
-    })
-  },
 
 
 /**

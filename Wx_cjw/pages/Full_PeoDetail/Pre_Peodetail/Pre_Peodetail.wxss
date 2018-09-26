@@ -49,3 +49,7 @@
   height: 128rpx;
   border-radius: 50%;
 }
+.price{
+   font-size: 28rpx;
+    color: #9ACD32;
+}

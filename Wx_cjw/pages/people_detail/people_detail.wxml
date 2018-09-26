@@ -2,7 +2,8 @@
   <view class="people_detail_8">
     <view class="people_detail_9">
       <text class="people_detail_14"> 姓 名 </text>
-      <input name='username' placeholder="请输入姓名" placeholder-class='phcolor' bindinput="bindnametap" class="people_detail_15"></input>
+      <input name='userId' hidden='userId' value='1'></input>
+      <input name='userName' placeholder="请输入姓名" placeholder-class='phcolor' bindinput="bindnametap" class="people_detail_15"></input>
     </view>
     <view class="people_detail_10">
       <text class="people_detail_16">出生年份</text>
@@ -18,7 +19,7 @@
     </view>
     <view class="people_detail_11">
       <text class="people_detail_17">最高学历</text>
-      <input name='degree' bindinput="binddegreetap" class="people_detail_25" placeholder="填写最高学历" placeholder-class='phcolor'></input>
+      <input name='education' bindinput="binddegreetap" class="people_detail_25" placeholder="填写最高学历" placeholder-class='phcolor'></input>
     </view>
 
     <view class="people_detail_13">
@@ -27,7 +28,7 @@
     </view>
     <view class="people_detail_20">
       <text class="people_detail_21">求职区域</text>
-      <picker name='region' mode="region" value="{{location}}" bindchange="location_Change" class="location">
+      <picker name='desiredWorkingPlace' mode="region" value="{{location}}" bindchange="location_Change" class="location">
         <view class="picker">
           <text>{{location[0]}}，{{location[1]}}，{{location[2]}}</text>
         </view>
@@ -35,7 +36,7 @@
     </view>
     <view class="people_detail_22">
       <text class="people_detail_23">自我介绍</text>
-      <textarea name='selfintro' bindinput="people_detail_29_input" class="people_detail_29" placeholder="填写自我介绍..." placeholder-class='phcolor'></textarea>
+      <textarea name='myAdvantage' bindinput="people_detail_29_input" class="people_detail_29" placeholder="填写自我介绍..." placeholder-class='phcolor'></textarea>
     </view>
     <view class="people_detail_submit">
       <button formType="submit" class='submit'>提交</button>

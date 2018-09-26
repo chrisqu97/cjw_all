@@ -6,10 +6,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}  
+    userInfo: {},
+    userdata:[]
+
+  },
+ 
+  onLoad: function () {
+   this.getusrInfo(),
+   this.getjianli()
   },
 
-  onLoad: function () {
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+  getjianli: function () {
+    var that = this
+    var req_url = 'User/findByUserId'
+    var userdata=this.data.userdata
+
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: {
+        userId: 1
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json', // 默认值
+        "session_key": "VTERSv7f1ANeWlG5/iViO2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL"
+      },
+      method: "POST",
+      success: function (res) {
+        console.log("请求简历成功");
+        that.setData({
+          userdata: res.data.userdata
+        })
+        console.log(that.data.userdata)
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
+  },
+  getusrInfo: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -37,14 +78,6 @@ Page({
       })
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */

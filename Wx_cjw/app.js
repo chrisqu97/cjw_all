@@ -91,13 +91,13 @@ App({
   
   globalData: {
     userInfo: null,
-    host: "http://localhost:8080/cjw",
-    // host:"http://115.159.209.104:8080/cjw",
+    host: "http://localhost:8080/",
+    // host:"http://115.159.209.104:8080/",
     //小程序appid
     projectId: "wxe12df03a91262d60center",
     //临时用户id
-    userid: 'lisi2',
-    session_key:''
+    // userid: 'lisi2',
+    session_key: "G5RZfJLF7R/dJ1rrqjU1p2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL"
   }
 
 })

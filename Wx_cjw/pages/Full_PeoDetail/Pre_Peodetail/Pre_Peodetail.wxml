@@ -1,18 +1,23 @@
 <view class='name_view'>
-  <text class='name'>姓名姓名</text>
+  <text class='name'>用户名:</text>
+  <text class='name'>{{userdata.username}}</text>
   <image   class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
 </view>
 
 <view class='bottom_line' > </view>
 <view>
-  <text class='common'>学历</text>
-  <text class='age'>出生年月</text>
+  <text class='common'>学历：</text>
+  <text class='common'>{{userdata.education}}</text>
+  <text class='age'>出生年月：</text>
+   <text class='age'>{{userdata.birthday}}</text>
 </view>
 <view>
-  <text class='common'> 工作经验 </text>
+  <text class='common'> 工作经验： </text>
+   <text class='common'> {{userdata.work_experience}} </text>
 </view>
 <view>
   <text class='common'> 自我评价  </text>
+   <text class='common'> {{userdata.advantage}}  </text>
 </view>
 
 <view class='bottom_line' > </view>
@@ -20,11 +25,12 @@
   <text class='job'> 求职期望  </text>
 </view>
 <view >
-  <text class='common'> 职位名称  </text>
-  <text class='right'>期望薪资</text>
+  <text class='common'> 行业名称  </text>
+   <text class='common'> {{userdata.jobIntension}}  </text>
+ 
 </view>
 <view >
-  <text class='common'> 行业名称 </text>
+ 
 </view>
 
 <view class='bottom_line' > </view>
@@ -33,9 +39,9 @@
 </view>
 <view >
   <text class='common'> 大学名称 </text>
-  <text class='right'> 毕业时间 </text>
+    <text class='common'> {{user.school}} </text>
 </view>
 <view >
-  <text class='common'> 专业 </text>
-  <text class='right'> 学位 </text>
+  <text class='common'> 专业:</text>
+  <text class='common'> {{}} </text>
 </view>
