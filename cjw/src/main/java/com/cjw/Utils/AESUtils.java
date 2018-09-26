@@ -67,10 +67,9 @@ public class AESUtils {
             byte[] result = cipher.doFinal(Base64.decodeBase64(content));
             return new String(result, StandardCharsets.UTF_8);
         } catch (Exception ex) {
-            Logger.getLogger(AESUtils.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(AESUtils.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-
-        return null;
     }
 
     /**

@@ -31,8 +31,7 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
             user.setSessionKey(sessionKeyPojo.getSessionKey());
             return user;
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
