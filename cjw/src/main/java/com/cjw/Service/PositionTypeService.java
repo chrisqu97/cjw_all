@@ -45,7 +45,7 @@ public class PositionTypeService {
             for (PositionType type : types) {
                 PositionTypePojo typePojo = new PositionTypePojo();
                 typePojo.setPositionTypeId(type.getPositionTypeId());
-                typePojo.setPositionName3(type.getPositionTypeName());
+                typePojo.setPositionName1(type.getPositionTypeName());
                 typePojos.add(typePojo);
             }
         }
