@@ -82,13 +82,6 @@
         </table>
         <table tableName="user" domainObjectName="User">
             <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="my_advantage" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="my_answer" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="practice_experience" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="project_experience" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="educational_experience" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="job_intension" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="user_setting" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>
     </context>
 </generatorConfiguration>

@@ -32,10 +32,11 @@ public class MessageDao {
         return null;
     }
 
-    public List<Message> findByAcceptId(Integer accepterId) {
+    public List<Message> findByAcceptId(Integer accepterId, Integer positionId) {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andAccepterIdEqualTo(accepterId)
+                .andPositionIdEqualTo(positionId)
                 .andStateEqualTo(Constant.STATE.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
@@ -44,10 +45,11 @@ public class MessageDao {
         return null;
     }
 
-    public List<Message> findByUserId(Integer userId) {
+    public List<Message> findByUserId(Integer userId, Integer positionId) {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andUserIdEqualTo(userId)
+                .andPositionIdEqualTo(positionId)
                 .andStateEqualTo(Constant.STATE.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {

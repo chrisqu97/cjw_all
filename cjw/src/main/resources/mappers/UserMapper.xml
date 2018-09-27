@@ -13,6 +13,7 @@
     <result column="session_key" jdbcType="VARCHAR" property="sessionKey" />
     <result column="my_advantage" jdbcType="VARCHAR" property="myAdvantage" />
     <result column="my_answer" jdbcType="VARCHAR" property="myAnswer" />
+    <result column="work_experience" jdbcType="VARCHAR" property="workExperience" />
     <result column="practice_experience" jdbcType="VARCHAR" property="practiceExperience" />
     <result column="project_experience" jdbcType="VARCHAR" property="projectExperience" />
     <result column="educational_experience" jdbcType="VARCHAR" property="educationalExperience" />
@@ -23,9 +24,6 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="desired_working_place" jdbcType="VARCHAR" property="desiredWorkingPlace" />
     <result column="living_place" jdbcType="VARCHAR" property="livingPlace" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.User">
-    <result column="work_experience" jdbcType="LONGVARCHAR" property="workExperience" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -87,28 +85,10 @@
   </sql>
   <sql id="Base_Column_List">
     user_id, user_type, user_name, user_email, gender, join_work, birthday, open_id, 
-    session_key, my_advantage, my_answer, practice_experience, project_experience, educational_experience, 
-    job_intension, user_setting, state, education, phone, desired_working_place, living_place
+    session_key, my_advantage, my_answer, work_experience, practice_experience, project_experience, 
+    educational_experience, job_intension, user_setting, state, education, phone, desired_working_place, 
+    living_place
   </sql>
-  <sql id="Blob_Column_List">
-    work_experience
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.UserExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from user
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.cjw.dao.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -123,11 +103,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
@@ -148,19 +126,19 @@
     insert into user (user_type, user_name, user_email, 
       gender, join_work, birthday, 
       open_id, session_key, my_advantage, 
-      my_answer, practice_experience, project_experience, 
-      educational_experience, job_intension, user_setting, 
-      state, education, phone, 
-      desired_working_place, living_place, work_experience
-      )
+      my_answer, work_experience, practice_experience, 
+      project_experience, educational_experience, 
+      job_intension, user_setting, state, 
+      education, phone, desired_working_place, 
+      living_place)
     values (#{userType,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
       #{gender,jdbcType=INTEGER}, #{joinWork,jdbcType=DATE}, #{birthday,jdbcType=DATE}, 
       #{openId,jdbcType=VARCHAR}, #{sessionKey,jdbcType=VARCHAR}, #{myAdvantage,jdbcType=VARCHAR}, 
-      #{myAnswer,jdbcType=VARCHAR}, #{practiceExperience,jdbcType=VARCHAR}, #{projectExperience,jdbcType=VARCHAR}, 
-      #{educationalExperience,jdbcType=VARCHAR}, #{jobIntension,jdbcType=VARCHAR}, #{userSetting,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{education,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
-      #{desiredWorkingPlace,jdbcType=VARCHAR}, #{livingPlace,jdbcType=VARCHAR}, #{workExperience,jdbcType=LONGVARCHAR}
-      )
+      #{myAnswer,jdbcType=VARCHAR}, #{workExperience,jdbcType=VARCHAR}, #{practiceExperience,jdbcType=VARCHAR}, 
+      #{projectExperience,jdbcType=VARCHAR}, #{educationalExperience,jdbcType=VARCHAR}, 
+      #{jobIntension,jdbcType=VARCHAR}, #{userSetting,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{education,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{desiredWorkingPlace,jdbcType=VARCHAR}, 
+      #{livingPlace,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.User">
     <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
@@ -198,6 +176,9 @@
       <if test="myAnswer != null">
         my_answer,
       </if>
+      <if test="workExperience != null">
+        work_experience,
+      </if>
       <if test="practiceExperience != null">
         practice_experience,
       </if>
@@ -227,9 +208,6 @@
       </if>
       <if test="livingPlace != null">
         living_place,
-      </if>
-      <if test="workExperience != null">
-        work_experience,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -263,6 +241,9 @@
       <if test="myAnswer != null">
         #{myAnswer,jdbcType=VARCHAR},
       </if>
+      <if test="workExperience != null">
+        #{workExperience,jdbcType=VARCHAR},
+      </if>
       <if test="practiceExperience != null">
         #{practiceExperience,jdbcType=VARCHAR},
       </if>
@@ -292,9 +273,6 @@
       </if>
       <if test="livingPlace != null">
         #{livingPlace,jdbcType=VARCHAR},
-      </if>
-      <if test="workExperience != null">
-        #{workExperience,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -340,6 +318,9 @@
       <if test="record.myAnswer != null">
         my_answer = #{record.myAnswer,jdbcType=VARCHAR},
       </if>
+      <if test="record.workExperience != null">
+        work_experience = #{record.workExperience,jdbcType=VARCHAR},
+      </if>
       <if test="record.practiceExperience != null">
         practice_experience = #{record.practiceExperience,jdbcType=VARCHAR},
       </if>
@@ -370,38 +351,7 @@
       <if test="record.livingPlace != null">
         living_place = #{record.livingPlace,jdbcType=VARCHAR},
       </if>
-      <if test="record.workExperience != null">
-        work_experience = #{record.workExperience,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update user
-    set user_id = #{record.userId,jdbcType=INTEGER},
-      user_type = #{record.userType,jdbcType=INTEGER},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      user_email = #{record.userEmail,jdbcType=VARCHAR},
-      gender = #{record.gender,jdbcType=INTEGER},
-      join_work = #{record.joinWork,jdbcType=DATE},
-      birthday = #{record.birthday,jdbcType=DATE},
-      open_id = #{record.openId,jdbcType=VARCHAR},
-      session_key = #{record.sessionKey,jdbcType=VARCHAR},
-      my_advantage = #{record.myAdvantage,jdbcType=VARCHAR},
-      my_answer = #{record.myAnswer,jdbcType=VARCHAR},
-      practice_experience = #{record.practiceExperience,jdbcType=VARCHAR},
-      project_experience = #{record.projectExperience,jdbcType=VARCHAR},
-      educational_experience = #{record.educationalExperience,jdbcType=VARCHAR},
-      job_intension = #{record.jobIntension,jdbcType=VARCHAR},
-      user_setting = #{record.userSetting,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=INTEGER},
-      education = #{record.education,jdbcType=INTEGER},
-      phone = #{record.phone,jdbcType=VARCHAR},
-      desired_working_place = #{record.desiredWorkingPlace,jdbcType=VARCHAR},
-      living_place = #{record.livingPlace,jdbcType=VARCHAR},
-      work_experience = #{record.workExperience,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -419,6 +369,7 @@
       session_key = #{record.sessionKey,jdbcType=VARCHAR},
       my_advantage = #{record.myAdvantage,jdbcType=VARCHAR},
       my_answer = #{record.myAnswer,jdbcType=VARCHAR},
+      work_experience = #{record.workExperience,jdbcType=VARCHAR},
       practice_experience = #{record.practiceExperience,jdbcType=VARCHAR},
       project_experience = #{record.projectExperience,jdbcType=VARCHAR},
       educational_experience = #{record.educationalExperience,jdbcType=VARCHAR},
@@ -466,6 +417,9 @@
       <if test="myAnswer != null">
         my_answer = #{myAnswer,jdbcType=VARCHAR},
       </if>
+      <if test="workExperience != null">
+        work_experience = #{workExperience,jdbcType=VARCHAR},
+      </if>
       <if test="practiceExperience != null">
         practice_experience = #{practiceExperience,jdbcType=VARCHAR},
       </if>
@@ -496,35 +450,7 @@
       <if test="livingPlace != null">
         living_place = #{livingPlace,jdbcType=VARCHAR},
       </if>
-      <if test="workExperience != null">
-        work_experience = #{workExperience,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where user_id = #{userId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.User">
-    update user
-    set user_type = #{userType,jdbcType=INTEGER},
-      user_name = #{userName,jdbcType=VARCHAR},
-      user_email = #{userEmail,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=INTEGER},
-      join_work = #{joinWork,jdbcType=DATE},
-      birthday = #{birthday,jdbcType=DATE},
-      open_id = #{openId,jdbcType=VARCHAR},
-      session_key = #{sessionKey,jdbcType=VARCHAR},
-      my_advantage = #{myAdvantage,jdbcType=VARCHAR},
-      my_answer = #{myAnswer,jdbcType=VARCHAR},
-      practice_experience = #{practiceExperience,jdbcType=VARCHAR},
-      project_experience = #{projectExperience,jdbcType=VARCHAR},
-      educational_experience = #{educationalExperience,jdbcType=VARCHAR},
-      job_intension = #{jobIntension,jdbcType=VARCHAR},
-      user_setting = #{userSetting,jdbcType=VARCHAR},
-      state = #{state,jdbcType=INTEGER},
-      education = #{education,jdbcType=INTEGER},
-      phone = #{phone,jdbcType=VARCHAR},
-      desired_working_place = #{desiredWorkingPlace,jdbcType=VARCHAR},
-      living_place = #{livingPlace,jdbcType=VARCHAR},
-      work_experience = #{workExperience,jdbcType=LONGVARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.User">
@@ -539,6 +465,7 @@
       session_key = #{sessionKey,jdbcType=VARCHAR},
       my_advantage = #{myAdvantage,jdbcType=VARCHAR},
       my_answer = #{myAnswer,jdbcType=VARCHAR},
+      work_experience = #{workExperience,jdbcType=VARCHAR},
       practice_experience = #{practiceExperience,jdbcType=VARCHAR},
       project_experience = #{projectExperience,jdbcType=VARCHAR},
       educational_experience = #{educationalExperience,jdbcType=VARCHAR},

@@ -12,6 +12,8 @@ public class Message implements Serializable {
 
     private Integer messageType;
 
+    private String content;
+
     private Integer positionId;
 
     private Date createTime;
@@ -19,8 +21,6 @@ public class Message implements Serializable {
     private Integer ifRead;
 
     private Integer state;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -56,6 +56,14 @@ public class Message implements Serializable {
         this.messageType = messageType;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public Integer getPositionId() {
         return positionId;
     }
@@ -86,13 +94,5 @@ public class Message implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 }

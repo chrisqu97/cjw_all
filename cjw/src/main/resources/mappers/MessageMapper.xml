@@ -6,13 +6,11 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="accepter_id" jdbcType="INTEGER" property="accepterId" />
     <result column="message_type" jdbcType="INTEGER" property="messageType" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="position_id" jdbcType="INTEGER" property="positionId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="if_read" jdbcType="INTEGER" property="ifRead" />
     <result column="state" jdbcType="INTEGER" property="state" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.Message">
-    <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,28 +71,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    message_id, user_id, accepter_id, message_type, position_id, create_time, if_read, 
-    state
+    message_id, user_id, accepter_id, message_type, content, position_id, create_time, 
+    if_read, state
   </sql>
-  <sql id="Blob_Column_List">
-    content
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.MessageExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from message
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.cjw.dao.entity.MessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -109,11 +88,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from message
     where message_id = #{messageId,jdbcType=INTEGER}
   </select>
@@ -132,11 +109,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into message (user_id, accepter_id, message_type, 
-      position_id, create_time, if_read, 
-      state, content)
+      content, position_id, create_time, 
+      if_read, state)
     values (#{userId,jdbcType=INTEGER}, #{accepterId,jdbcType=INTEGER}, #{messageType,jdbcType=INTEGER}, 
-      #{positionId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{ifRead,jdbcType=INTEGER}, 
-      #{state,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+      #{content,jdbcType=VARCHAR}, #{positionId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{ifRead,jdbcType=INTEGER}, #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.Message">
     <selectKey keyProperty="messageId" order="AFTER" resultType="java.lang.Integer">
@@ -153,6 +130,9 @@
       <if test="messageType != null">
         message_type,
       </if>
+      <if test="content != null">
+        content,
+      </if>
       <if test="positionId != null">
         position_id,
       </if>
@@ -165,9 +145,6 @@
       <if test="state != null">
         state,
       </if>
-      <if test="content != null">
-        content,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -178,6 +155,9 @@
       </if>
       <if test="messageType != null">
         #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
       </if>
       <if test="positionId != null">
         #{positionId,jdbcType=INTEGER},
@@ -190,9 +170,6 @@
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -217,6 +194,9 @@
       <if test="record.messageType != null">
         message_type = #{record.messageType,jdbcType=INTEGER},
       </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
       <if test="record.positionId != null">
         position_id = #{record.positionId,jdbcType=INTEGER},
       </if>
@@ -229,25 +209,7 @@
       <if test="record.state != null">
         state = #{record.state,jdbcType=INTEGER},
       </if>
-      <if test="record.content != null">
-        content = #{record.content,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update message
-    set message_id = #{record.messageId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      accepter_id = #{record.accepterId,jdbcType=INTEGER},
-      message_type = #{record.messageType,jdbcType=INTEGER},
-      position_id = #{record.positionId,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      if_read = #{record.ifRead,jdbcType=INTEGER},
-      state = #{record.state,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,6 +220,7 @@
       user_id = #{record.userId,jdbcType=INTEGER},
       accepter_id = #{record.accepterId,jdbcType=INTEGER},
       message_type = #{record.messageType,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=VARCHAR},
       position_id = #{record.positionId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       if_read = #{record.ifRead,jdbcType=INTEGER},
@@ -278,6 +241,9 @@
       <if test="messageType != null">
         message_type = #{messageType,jdbcType=INTEGER},
       </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
       <if test="positionId != null">
         position_id = #{positionId,jdbcType=INTEGER},
       </if>
@@ -290,22 +256,7 @@
       <if test="state != null">
         state = #{state,jdbcType=INTEGER},
       </if>
-      <if test="content != null">
-        content = #{content,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where message_id = #{messageId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.Message">
-    update message
-    set user_id = #{userId,jdbcType=INTEGER},
-      accepter_id = #{accepterId,jdbcType=INTEGER},
-      message_type = #{messageType,jdbcType=INTEGER},
-      position_id = #{positionId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      if_read = #{ifRead,jdbcType=INTEGER},
-      state = #{state,jdbcType=INTEGER},
-      content = #{content,jdbcType=LONGVARCHAR}
     where message_id = #{messageId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.Message">
@@ -313,6 +264,7 @@
     set user_id = #{userId,jdbcType=INTEGER},
       accepter_id = #{accepterId,jdbcType=INTEGER},
       message_type = #{messageType,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
       position_id = #{positionId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       if_read = #{ifRead,jdbcType=INTEGER},

@@ -11,12 +11,10 @@
     <result column="educational_requirements" jdbcType="VARCHAR" property="educationalRequirements" />
     <result column="experience_requirements" jdbcType="VARCHAR" property="experienceRequirements" />
     <result column="salary" jdbcType="VARCHAR" property="salary" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cjw.dao.entity.Position">
-    <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -78,27 +76,8 @@
   </sql>
   <sql id="Base_Column_List">
     position_id, user_id, position_name, company_id, position_type, place, educational_requirements, 
-    experience_requirements, salary, state, create_time, update_time
+    experience_requirements, salary, description, state, create_time, update_time
   </sql>
-  <sql id="Blob_Column_List">
-    description
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cjw.dao.entity.PositionExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from position
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.cjw.dao.entity.PositionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -113,11 +92,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from position
     where position_id = #{positionId,jdbcType=INTEGER}
   </select>
@@ -137,13 +114,13 @@
     </selectKey>
     insert into position (user_id, position_name, company_id, 
       position_type, place, educational_requirements, 
-      experience_requirements, salary, state, 
-      create_time, update_time, description
+      experience_requirements, salary, description, 
+      state, create_time, update_time
       )
     values (#{userId,jdbcType=INTEGER}, #{positionName,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, 
       #{positionType,jdbcType=INTEGER}, #{place,jdbcType=VARCHAR}, #{educationalRequirements,jdbcType=VARCHAR}, 
-      #{experienceRequirements,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR}
+      #{experienceRequirements,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.Position">
@@ -176,6 +153,9 @@
       <if test="salary != null">
         salary,
       </if>
+      <if test="description != null">
+        description,
+      </if>
       <if test="state != null">
         state,
       </if>
@@ -184,9 +164,6 @@
       </if>
       <if test="updateTime != null">
         update_time,
-      </if>
-      <if test="description != null">
-        description,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -214,6 +191,9 @@
       <if test="salary != null">
         #{salary,jdbcType=VARCHAR},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
       </if>
@@ -222,9 +202,6 @@
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="description != null">
-        #{description,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -264,6 +241,9 @@
       <if test="record.salary != null">
         salary = #{record.salary,jdbcType=VARCHAR},
       </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
       <if test="record.state != null">
         state = #{record.state,jdbcType=INTEGER},
       </if>
@@ -273,29 +253,7 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.description != null">
-        description = #{record.description,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update position
-    set position_id = #{record.positionId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      position_name = #{record.positionName,jdbcType=VARCHAR},
-      company_id = #{record.companyId,jdbcType=INTEGER},
-      position_type = #{record.positionType,jdbcType=INTEGER},
-      place = #{record.place,jdbcType=VARCHAR},
-      educational_requirements = #{record.educationalRequirements,jdbcType=VARCHAR},
-      experience_requirements = #{record.experienceRequirements,jdbcType=VARCHAR},
-      salary = #{record.salary,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      description = #{record.description,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -311,6 +269,7 @@
       educational_requirements = #{record.educationalRequirements,jdbcType=VARCHAR},
       experience_requirements = #{record.experienceRequirements,jdbcType=VARCHAR},
       salary = #{record.salary,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -345,6 +304,9 @@
       <if test="salary != null">
         salary = #{salary,jdbcType=VARCHAR},
       </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
       <if test="state != null">
         state = #{state,jdbcType=INTEGER},
       </if>
@@ -354,26 +316,7 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="description != null">
-        description = #{description,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where position_id = #{positionId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cjw.dao.entity.Position">
-    update position
-    set user_id = #{userId,jdbcType=INTEGER},
-      position_name = #{positionName,jdbcType=VARCHAR},
-      company_id = #{companyId,jdbcType=INTEGER},
-      position_type = #{positionType,jdbcType=INTEGER},
-      place = #{place,jdbcType=VARCHAR},
-      educational_requirements = #{educationalRequirements,jdbcType=VARCHAR},
-      experience_requirements = #{experienceRequirements,jdbcType=VARCHAR},
-      salary = #{salary,jdbcType=VARCHAR},
-      state = #{state,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      description = #{description,jdbcType=LONGVARCHAR}
     where position_id = #{positionId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cjw.dao.entity.Position">
@@ -386,6 +329,7 @@
       educational_requirements = #{educationalRequirements,jdbcType=VARCHAR},
       experience_requirements = #{experienceRequirements,jdbcType=VARCHAR},
       salary = #{salary,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

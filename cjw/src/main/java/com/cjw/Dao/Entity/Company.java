@@ -7,6 +7,8 @@ public class Company implements Serializable {
 
     private String companyName;
 
+    private String description;
+
     private String place;
 
     private String homePageLink;
@@ -16,8 +18,6 @@ public class Company implements Serializable {
     private String size;
 
     private Integer state;
-
-    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -35,6 +35,14 @@ public class Company implements Serializable {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName == null ? null : companyName.trim();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     public String getPlace() {
@@ -75,13 +83,5 @@ public class Company implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
     }
 }

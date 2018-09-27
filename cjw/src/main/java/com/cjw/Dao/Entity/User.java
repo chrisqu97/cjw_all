@@ -26,6 +26,8 @@ public class User implements Serializable {
 
     private String myAnswer;
 
+    private String workExperience;
+
     private String practiceExperience;
 
     private String projectExperience;
@@ -45,8 +47,6 @@ public class User implements Serializable {
     private String desiredWorkingPlace;
 
     private String livingPlace;
-
-    private String workExperience;
 
     private static final long serialVersionUID = 1L;
 
@@ -138,6 +138,14 @@ public class User implements Serializable {
         this.myAnswer = myAnswer == null ? null : myAnswer.trim();
     }
 
+    public String getWorkExperience() {
+        return workExperience;
+    }
+
+    public void setWorkExperience(String workExperience) {
+        this.workExperience = workExperience == null ? null : workExperience.trim();
+    }
+
     public String getPracticeExperience() {
         return practiceExperience;
     }
@@ -216,13 +224,5 @@ public class User implements Serializable {
 
     public void setLivingPlace(String livingPlace) {
         this.livingPlace = livingPlace == null ? null : livingPlace.trim();
-    }
-
-    public String getWorkExperience() {
-        return workExperience;
-    }
-
-    public void setWorkExperience(String workExperience) {
-        this.workExperience = workExperience == null ? null : workExperience.trim();
     }
 }

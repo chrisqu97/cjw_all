@@ -852,6 +852,76 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andWorkExperienceIsNull() {
+            addCriterion("work_experience is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceIsNotNull() {
+            addCriterion("work_experience is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceEqualTo(String value) {
+            addCriterion("work_experience =", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceNotEqualTo(String value) {
+            addCriterion("work_experience <>", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceGreaterThan(String value) {
+            addCriterion("work_experience >", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceGreaterThanOrEqualTo(String value) {
+            addCriterion("work_experience >=", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceLessThan(String value) {
+            addCriterion("work_experience <", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceLessThanOrEqualTo(String value) {
+            addCriterion("work_experience <=", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceLike(String value) {
+            addCriterion("work_experience like", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceNotLike(String value) {
+            addCriterion("work_experience not like", value, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceIn(List<String> values) {
+            addCriterion("work_experience in", values, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceNotIn(List<String> values) {
+            addCriterion("work_experience not in", values, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceBetween(String value1, String value2) {
+            addCriterion("work_experience between", value1, value2, "workExperience");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkExperienceNotBetween(String value1, String value2) {
+            addCriterion("work_experience not between", value1, value2, "workExperience");
+            return (Criteria) this;
+        }
+
         public Criteria andPracticeExperienceIsNull() {
             addCriterion("practice_experience is null");
             return (Criteria) this;

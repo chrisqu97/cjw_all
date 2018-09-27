@@ -9,9 +9,9 @@ public class File implements Serializable {
 
     private String fileName;
 
-    private Integer state;
+    private String path;
 
-    private byte[] path;
+    private Integer state;
 
     private static final long serialVersionUID = 1L;
 
@@ -39,19 +39,19 @@ public class File implements Serializable {
         this.fileName = fileName == null ? null : fileName.trim();
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path == null ? null : path.trim();
+    }
+
     public Integer getState() {
         return state;
     }
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public byte[] getPath() {
-        return path;
-    }
-
-    public void setPath(byte[] path) {
-        this.path = path;
     }
 }

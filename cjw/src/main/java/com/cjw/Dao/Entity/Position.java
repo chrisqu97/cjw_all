@@ -22,13 +22,13 @@ public class Position implements Serializable {
 
     private String salary;
 
+    private String description;
+
     private Integer state;
 
     private Date createTime;
 
     private Date updateTime;
-
-    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -104,6 +104,14 @@ public class Position implements Serializable {
         this.salary = salary == null ? null : salary.trim();
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
     public Integer getState() {
         return state;
     }
@@ -126,13 +134,5 @@ public class Position implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
     }
 }
