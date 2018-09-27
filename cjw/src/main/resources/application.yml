@@ -48,3 +48,6 @@ wx:
   api: https://api.weixin.qq.com/sns/jscode2session
   appId: wxe12df03a91262d60
   secret: 92c30f6fc262872bbfa88ad66f452b20
+
+webSocket:
+  url: "/webSocketServer"
