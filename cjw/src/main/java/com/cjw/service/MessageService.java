@@ -42,7 +42,7 @@ public class MessageService {
 
     public MessageSearchPojo findByPositionId(MessageSearchPojo searchPojo) {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
-        List<Message> messages = messageDao.findByPositionId(searchPojo.getPositionId(), searchPojo.getUserId());
+        List<Message> messages = messageDao.findByUserId(searchPojo.getUserId(), searchPojo.getPositionId());
         if (CollectionUtils.isNotEmpty(messages)) {
             PageInfo pageInfo = new PageInfo(messages, searchPojo.getPageSize());
             List<MessagePojo> messagePojos = new ArrayList<>();
