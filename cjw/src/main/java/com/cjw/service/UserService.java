@@ -169,15 +169,12 @@ public class UserService {
      * @return
      */
     public boolean checkSessionKey(Integer userId, String sessionKey) {
-        User user = userDao.findById(userId);
-        if (user == null) {
-            return false;
+        int i = userDao.ifExistUser(userId, sessionKey);
+        if (i == 1) {
+            return true;
         } else {
-            if (user.getSessionKey().equals(sessionKey)) {
-                return true;
-            } else {
-                return false;
-            }
+            return false;
         }
     }
+
 }

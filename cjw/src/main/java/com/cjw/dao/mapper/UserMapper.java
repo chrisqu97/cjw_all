@@ -4,6 +4,7 @@ import com.cjw.dao.entity.User;
 import com.cjw.dao.entity.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface UserMapper {
     int countByExample(UserExample example);
@@ -27,4 +28,7 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    @Select("select count(*) from user where user_id =#{userId} and session_key=#{sessionKey}")
+    int ifExistUser(@Param("userId")Integer userId,@Param("sessionKey")String sessionKey);
 }

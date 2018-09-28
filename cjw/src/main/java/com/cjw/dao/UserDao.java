@@ -61,4 +61,7 @@ public class UserDao {
         return userMapper.countByExample(example);
     }
 
+    public int ifExistUser(Integer userId, String sessionKey) {
+        return userMapper.ifExistUser(userId, sessionKey);
+    }
 }
