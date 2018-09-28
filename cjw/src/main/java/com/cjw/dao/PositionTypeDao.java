@@ -61,13 +61,10 @@ public class PositionTypeDao {
 
     public List<PositionType> findByParentId(Integer parentId) {
         PositionTypeExample example = new PositionTypeExample();
-        PositionTypeExample.Criteria criteria = example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
-        if (parentId == 0) {
-            criteria.andParentIsNull();
-        } else {
-            criteria.andParentEqualTo(parentId);
-        }
-        example.setOrderByClause("position_type_id desc");
+        example.createCriteria()
+                .andParentEqualTo(parentId)
+                .andStateEqualTo(Constant.STATE.VALUE);
+        example.setOrderByClause("position_type_id asc");
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positionTypes)) {
             return positionTypes;
