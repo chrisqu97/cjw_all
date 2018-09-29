@@ -11,6 +11,7 @@ public class UserPojo {
     private String birthday;
     private String phone;
     private Integer education;
+    private String educationName;
     private List<com.cjw.pojo.WorkExperiencePojo> workExperiences;
     private List<ProjectExperiencePojo> projectExperiences;
     private List<PracticeExperiencePojo> practiceExperiences;

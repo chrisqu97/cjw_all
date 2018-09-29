@@ -1,8 +1,10 @@
 package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cjw.common.Constant;
+import com.cjw.common.EducationEnum;
 import com.cjw.dao.UserDao;
 import com.cjw.dao.entity.User;
 import com.cjw.pojo.*;
@@ -80,6 +82,7 @@ public class UserService {
                 e.printStackTrace();
             }
             userPojo.setEducation(user.getEducation());
+            userPojo.setEducationName(getEducationName(userPojo.getEducation()));
             userPojo.setMyAdvantage(user.getMyAdvantage());
             if (StringUtils.isNotEmpty(user.getWorkExperience())) {
                 userPojo.setWorkExperiences(JSONObject.parseArray(user.getWorkExperience(), WorkExperiencePojo.class));
@@ -91,7 +94,8 @@ public class UserService {
                 userPojo.setProjectExperiences(JSONObject.parseArray(user.getProjectExperience(), ProjectExperiencePojo.class));
             }
             if (StringUtils.isNotEmpty(user.getEducationalExperience())) {
-                userPojo.setEducationalExperiences(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
+                userPojo.setEducationalExperiences(JSONArray.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
+                userPojo.getEducationalExperiences().get(0).setEducationName(getEducationName(userPojo.getEducation()));
             }
             if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
                 userPojo.setDesiredWorkingPlace(JSON.parseObject(user.getDesiredWorkingPlace(), List.class));
@@ -213,4 +217,28 @@ public class UserService {
         }
     }
 
+    public String getEducationName(Integer education) {
+        if (EducationEnum.SPECIALTY.getCode().equals(education)) {
+            return EducationEnum.SPECIALTY.getValue();
+        }
+        if (EducationEnum.UNDER_GRADUATE.getCode().equals(education)) {
+            return EducationEnum.UNDER_GRADUATE.getValue();
+        }
+        if (EducationEnum.POST_GRADUATE.getCode().equals(education)) {
+            return EducationEnum.POST_GRADUATE.getValue();
+        }
+        if (EducationEnum.MASTER.getCode().equals(education)) {
+            return EducationEnum.MASTER.getValue();
+        }
+        if (EducationEnum.DOCTOR.getCode().equals(education)) {
+            return EducationEnum.DOCTOR.getValue();
+        }
+        if (EducationEnum.POST_DOCTOR.getCode().equals(education)) {
+            return EducationEnum.POST_DOCTOR.getValue();
+        }
+        if (EducationEnum.OTHER.getCode().equals(education)) {
+            return EducationEnum.OTHER.getValue();
+        }
+        return null;
+    }
 }
