@@ -35,6 +35,7 @@ public class PositionTypeDao {
 
     public List<PositionType> findAll() {
         PositionTypeExample example = new PositionTypeExample();
+        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         example.setOrderByClause("position_type_id desc");
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positionTypes)) {

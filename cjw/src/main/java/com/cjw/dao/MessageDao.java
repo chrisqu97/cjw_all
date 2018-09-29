@@ -70,4 +70,7 @@ public class MessageDao {
         }
         return null;
     }
+    public List<Message> findByPositionId(Integer positionId, Integer userId) {
+        return messageMapper.findByPosition(positionId, userId);
+    }
 }

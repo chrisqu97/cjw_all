@@ -102,6 +102,24 @@ public class UserController {
     }
 
     /**
+     * 添加实习经验
+     *
+     * @param userPojo
+     * @return
+     */
+    @RequestMapping(value = "/addPracticeExperience", method = RequestMethod.POST)
+    public ResultPojo addPracticeExperience(@RequestBody UserPojo userPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        userService.addPracticeExperience(userPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setMessage("add practiceExperience success");
+        resultPojo.setData(userPojo);
+        return resultPojo;
+    }
+
+    /**
      * 添加我的优势
      *
      * @param userPojo

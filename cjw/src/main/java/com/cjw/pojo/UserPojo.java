@@ -13,6 +13,7 @@ public class UserPojo {
     private Integer education;
     private List<com.cjw.pojo.WorkExperiencePojo> workExperiences;
     private List<ProjectExperiencePojo> projectExperiences;
+    private List<PracticeExperiencePojo> practiceExperiences;
     private List<EducationalExperiencePojo> educationalExperiences;
     private List<String> desiredWorkingPlace;
     private String myAdvantage;

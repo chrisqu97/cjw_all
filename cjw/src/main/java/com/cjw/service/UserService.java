@@ -106,7 +106,16 @@ public class UserService {
     public UserPojo addProjectExperience(UserPojo userPojo) {
         User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
-            user.setPracticeExperience(JSON.toJSONString(userPojo.getProjectExperiences()));
+            user.setProjectExperience(JSON.toJSONString(userPojo.getProjectExperiences()));
+            userDao.update(user);
+        }
+        return userPojo;
+    }
+
+    public UserPojo addPracticeExperience(UserPojo userPojo) {
+        User user = userDao.findById(userPojo.getUserId());
+        if (user != null) {
+            user.setPracticeExperience(JSON.toJSONString(userPojo.getPracticeExperiences()));
             userDao.update(user);
         }
         return userPojo;

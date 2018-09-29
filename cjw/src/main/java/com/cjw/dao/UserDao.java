@@ -1,5 +1,6 @@
 package com.cjw.dao;
 
+import com.cjw.common.Constant;
 import com.cjw.dao.entity.User;
 import com.cjw.dao.entity.UserExample;
 import com.cjw.dao.mapper.UserMapper;
@@ -26,7 +27,8 @@ public class UserDao {
     public User findById(Integer id) {
         UserExample example = new UserExample();
         example.createCriteria()
-                .andUserIdEqualTo(id);
+                .andUserIdEqualTo(id)
+                .andStateEqualTo(Constant.STATE.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
@@ -37,7 +39,8 @@ public class UserDao {
     public User findByOpenId(String openId) {
         UserExample example = new UserExample();
         example.createCriteria()
-                .andOpenIdEqualTo(openId);
+                .andOpenIdEqualTo(openId)
+                .andStateEqualTo(Constant.STATE.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
@@ -47,7 +50,7 @@ public class UserDao {
 
     public List<User> findAll() {
         UserExample example = new UserExample();
-        example.createCriteria();
+        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users;
@@ -57,7 +60,7 @@ public class UserDao {
 
     public Integer countAll() {
         UserExample example = new UserExample();
-        example.createCriteria();
+        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         return userMapper.countByExample(example);
     }
 
