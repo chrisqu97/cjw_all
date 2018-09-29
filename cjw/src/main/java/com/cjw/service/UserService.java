@@ -95,7 +95,7 @@ public class UserService {
     }
 
     public UserPojo addWorkExperience(UserPojo userPojo) {
-        User user = new UserDao().findById(userPojo.getUserId());
+        User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
             user.setWorkExperience(JSON.toJSONString(userPojo.getWorkExperiences()));
             userDao.update(user);
@@ -104,7 +104,7 @@ public class UserService {
     }
 
     public UserPojo addProjectExperience(UserPojo userPojo) {
-        User user = new UserDao().findById(userPojo.getUserId());
+        User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
             user.setPracticeExperience(JSON.toJSONString(userPojo.getProjectExperiencePojos()));
             userDao.update(user);
@@ -113,7 +113,7 @@ public class UserService {
     }
 
     public UserPojo addMyAdvantage(UserPojo userPojo) {
-        User user = new UserDao().findById(userPojo.getUserId());
+        User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
             user.setMyAdvantage(userPojo.getMyAdvantage());
             userDao.update(user);
