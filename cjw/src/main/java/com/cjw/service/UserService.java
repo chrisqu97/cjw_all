@@ -70,6 +70,7 @@ public class UserService {
             userPojo = new UserPojo();
             userPojo.setUserId(user.getUserId());
             userPojo.setUserName(user.getUserName());
+            userPojo.setPhone(user.getPhone());
             try {
                 if (user.getBirthday() != null) {
                     SimpleDateFormat sf = DateUtils.getDateFormat();
@@ -78,17 +79,25 @@ public class UserService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            userPojo.setEducation(user.getEducation());
+            userPojo.setMyAdvantage(user.getMyAdvantage());
             if (StringUtils.isNotEmpty(user.getWorkExperience())) {
                 userPojo.setWorkExperiences(JSONObject.parseArray(user.getWorkExperience(), WorkExperiencePojo.class));
             }
-            if (user.getEducation() != null) {
-                userPojo.setEducation(user.getEducation());
+            if (StringUtils.isNotEmpty(user.getPracticeExperience())) {
+                userPojo.setPracticeExperiences(JSONObject.parseArray(user.getPracticeExperience(), PracticeExperiencePojo.class));
+            }
+            if (StringUtils.isNotEmpty(user.getProjectExperience())) {
+                userPojo.setProjectExperiences(JSONObject.parseArray(user.getProjectExperience(), ProjectExperiencePojo.class));
             }
             if (StringUtils.isNotEmpty(user.getEducationalExperience())) {
                 userPojo.setEducationalExperiences(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
             }
             if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
                 userPojo.setDesiredWorkingPlace(JSON.parseObject(user.getDesiredWorkingPlace(), List.class));
+            }
+            if (StringUtils.isNotEmpty(user.getJobIntension())) {
+                userPojo.setJobIntension(JSON.parseObject(user.getJobIntension(), JobIntensionPojo.class));
             }
         }
         return userPojo;
@@ -121,10 +130,28 @@ public class UserService {
         return userPojo;
     }
 
+    public UserPojo addEducationalExperience(UserPojo userPojo) {
+        User user = userDao.findById(userPojo.getUserId());
+        if (user != null) {
+            user.setEducationalExperience(JSON.toJSONString(userPojo.getEducationalExperiences()));
+            userDao.update(user);
+        }
+        return userPojo;
+    }
+
     public UserPojo addMyAdvantage(UserPojo userPojo) {
         User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
             user.setMyAdvantage(userPojo.getMyAdvantage());
+            userDao.update(user);
+        }
+        return userPojo;
+    }
+
+    public UserPojo addJobIntension(UserPojo userPojo) {
+        User user = userDao.findById(userPojo.getUserId());
+        if (user != null) {
+            user.setJobIntension(JSON.toJSONString(userPojo.getJobIntension()));
             userDao.update(user);
         }
         return userPojo;

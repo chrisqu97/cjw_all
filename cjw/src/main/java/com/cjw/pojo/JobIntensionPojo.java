@@ -8,5 +8,6 @@ import lombok.Data;
 @Data
 public class JobIntensionPojo {
     private Integer positionTypeId;
+    private String positionTypeName;
     private String salary;
 }

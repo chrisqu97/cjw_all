@@ -9,5 +9,5 @@ public class EducationalExperiencePojo {
     private String startDate;
     private String endDate;
     private String major;
-    private String education;
+    private int education;
 }
