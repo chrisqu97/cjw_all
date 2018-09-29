@@ -98,7 +98,7 @@ public class UserService {
                 userPojo.getEducationalExperiences().get(0).setEducationName(getEducationName(userPojo.getEducation()));
             }
             if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
-                userPojo.setDesiredWorkingPlace(JSON.parseObject(user.getDesiredWorkingPlace(), List.class));
+                userPojo.setDesiredWorkingPlace(JSONArray.parseArray(user.getDesiredWorkingPlace(), String.class));
             }
             if (StringUtils.isNotEmpty(user.getJobIntension())) {
                 userPojo.setJobIntension(JSON.parseObject(user.getJobIntension(), JobIntensionPojo.class));

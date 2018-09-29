@@ -56,10 +56,27 @@ public class CompanyController {
             resultPojo.setMessage("不存在该id的公司");
             return resultPojo;
         }
+
         resultPojo.setSuccess(true);
         resultPojo.setData(companyPojo);
         return resultPojo;
     }
 
+    /**
+     * 获取公司类型
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getCompanyType", method = RequestMethod.GET)
+    public ResultPojo getCompanyType() {
+        ResultPojo resultPojo = new ResultPojo();
+
+        Map<String, String> company_type = staticDataService.findByTypeCode("COMPANY_TYPE");
+
+        resultPojo.setSuccess(true);
+        resultPojo.setMessage("获取公司类型成功");
+        resultPojo.setData(company_type);
+        return resultPojo;
+    }
 
 }

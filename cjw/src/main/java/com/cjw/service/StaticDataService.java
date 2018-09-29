@@ -16,9 +16,9 @@ public class StaticDataService {
 
     public Map<String, String> findByTypeCode(String typeCode) {
         List<StaticData> staticDatas = staticDataDao.findByTypeCode(typeCode);
-        Map<String, String> map = new HashMap(staticDatas.size());
+        Map<String, String> map = new HashMap<>(staticDatas.size());
         for (StaticData data : staticDatas) {
-            map.put(data.getTypeName(), data.getTypeValue());
+            map.put(data.getTypeValue(), data.getTypeName());
         }
         return map;
     }
