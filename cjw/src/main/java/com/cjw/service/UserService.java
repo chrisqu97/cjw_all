@@ -85,7 +85,7 @@ public class UserService {
                 userPojo.setEducation(user.getEducation());
             }
             if (StringUtils.isNotEmpty(user.getEducationalExperience())) {
-                userPojo.setEducationalExperiencePojos(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
+                userPojo.setEducationalExperiences(JSONObject.parseArray(user.getEducationalExperience(), EducationalExperiencePojo.class));
             }
             if (StringUtils.isNotEmpty(user.getDesiredWorkingPlace())) {
                 userPojo.setDesiredWorkingPlace(JSON.parseObject(user.getDesiredWorkingPlace(), List.class));
@@ -106,7 +106,7 @@ public class UserService {
     public UserPojo addProjectExperience(UserPojo userPojo) {
         User user = userDao.findById(userPojo.getUserId());
         if (user != null) {
-            user.setPracticeExperience(JSON.toJSONString(userPojo.getProjectExperiencePojos()));
+            user.setPracticeExperience(JSON.toJSONString(userPojo.getProjectExperiences()));
             userDao.update(user);
         }
         return userPojo;
