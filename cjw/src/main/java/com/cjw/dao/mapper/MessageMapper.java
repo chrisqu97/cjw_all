@@ -31,6 +31,6 @@ public interface MessageMapper {
     int updateByPrimaryKey(Message record);
 
 
-    @Select("select * from message where position_id =#{positionId} and (user_id=#{userId} or accepter_id =#{userId})and state =1 order by message_id;")
+    @Select("select * from message where position_id =#{positionId} and (user_id=#{userId} or accepter_id =#{userId})and state =1 order by create_time;")
     List<Message> findByPosition(@Param("positionId") Integer positionId, @Param("userId") Integer userId);
 }
