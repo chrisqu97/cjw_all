@@ -97,7 +97,7 @@ public class PositionService {
             Company company = companyDao.findById(searchPojo.getCompanyId());
             SimpleDateFormat sf = DateUtils.getDateTimeFormat();
             List<PositionPojo> positionPojos = new ArrayList<>();
-            PageInfo pageInfo = new PageInfo(positions, searchPojo.getPageSize());
+            PageInfo pageInfo = new PageInfo<>(positions, searchPojo.getPageSize());
             for (Position position : positions) {
                 PositionPojo positionPojo = new PositionPojo();
                 positionPojo.setPositionId(position.getPositionId());

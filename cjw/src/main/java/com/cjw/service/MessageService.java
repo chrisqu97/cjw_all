@@ -44,7 +44,7 @@ public class MessageService {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Message> messages = messageDao.findByUserId(searchPojo.getUserId(), searchPojo.getPositionId());
         if (CollectionUtils.isNotEmpty(messages)) {
-            PageInfo pageInfo = new PageInfo(messages, searchPojo.getPageSize());
+            PageInfo pageInfo = new PageInfo<>(messages, searchPojo.getPageSize());
             List<MessagePojo> messagePojos = new ArrayList<>();
             for (Message message : messages) {
                 MessagePojo messagePojo = new MessagePojo();

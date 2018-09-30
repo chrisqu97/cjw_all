@@ -185,6 +185,7 @@ public class UserService {
             List<String> place = new ArrayList<>();
             place.add(userData.getString("province"));
             place.add(userData.getString("city"));
+            user.setLivingPlace(JSON.toJSONString(place));
             user.setState(Constant.STATE.VALUE);
 
             userDao.add(user);

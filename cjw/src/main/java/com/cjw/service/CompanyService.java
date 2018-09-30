@@ -27,7 +27,7 @@ public class CompanyService {
         List<Company> companies = companyDao.findByCondition(searchPojo);
         List<CompanyPojo> companyPojos = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(companies)) {
-            PageInfo pageInfo = new PageInfo(companies, searchPojo.getPageSize());
+            PageInfo pageInfo = new PageInfo<>(companies, searchPojo.getPageSize());
             for (Company company : companies) {
                 CompanyPojo companyPojo = new CompanyPojo();
                 if (company.getPlace() != null) {
