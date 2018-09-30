@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -181,11 +182,9 @@ public class UserService {
             user.setSessionKey(sessionKey + "?" + System.currentTimeMillis());
             user.setUserName(userData.getString("nickName"));
             user.setGender(jsonObject.getInteger("gender"));
-            PlacePojo placePojo = new PlacePojo();
-            placePojo.setCountry(userData.getString("country"));
-            placePojo.setProvince(userData.getString("province"));
-            placePojo.setCity(userData.getString("city"));
-            user.setLivingPlace(JSON.toJSONString(placePojo));
+            List<String> place = new ArrayList<>();
+            place.add(userData.getString("province"));
+            place.add(userData.getString("city"));
             user.setState(Constant.STATE.VALUE);
 
             userDao.add(user);
