@@ -19,7 +19,11 @@
     </view>
     <view class="people_detail_11">
       <text class="people_detail_17">最高学历</text>
-      <input name='education' bindinput="binddegreetap" class="people_detail_25" placeholder="填写最高学历" placeholder-class='phcolor'></input>
+      <picker name='education' bindchange="bindPickerChange" value="{{array}}" range="{{education}}">
+    <view class="picker">
+      {{education[index]}}
+    </view>
+  </picker>
     </view>
 
     <view class="people_detail_13">

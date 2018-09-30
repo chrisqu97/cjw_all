@@ -1,6 +1,6 @@
 {
   "pages": [
-   
+     
     "pages/index/index",
     "pages/test/test",
     "pages/search_page/search_page",
@@ -18,7 +18,7 @@
     "pages/people_detail/people_detail",
     "pages/job_recommend/job_recommend",
     "pages/Full_PeoDetail/Full_PeoDetail",
-    "pages/Full_PeoDetail/Job_YX/Job_YX",
+     "pages/Full_PeoDetail/Job_YX/Job_YX",
     "pages/Full_PeoDetail/Pro_Ex/Pro_Ex",
     "pages/Full_PeoDetail/Job_Ex/Job_Ex",
     "pages/Full_PeoDetail/Self_Value/Self_Value",
