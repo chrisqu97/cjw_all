@@ -2,8 +2,10 @@ package com.cjw.dao.mapper;
 
 import com.cjw.dao.entity.Message;
 import com.cjw.dao.entity.MessageExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface MessageMapper {
     int countByExample(MessageExample example);
@@ -27,4 +29,8 @@ public interface MessageMapper {
     int updateByPrimaryKeySelective(Message record);
 
     int updateByPrimaryKey(Message record);
+
+
+    @Select("select * from message where position_id =#{positionId} and (user_id=#{userId} or accepter_id =#{userId})and state =1 order by create_time;")
+    List<Message> findByPosition(@Param("positionId") Integer positionId, @Param("userId") Integer userId);
 }

@@ -24,6 +24,7 @@ public class StaticDataDao {
         example.createCriteria()
                 .andTypeCodeEqualTo(typeCode)
                 .andStateEqualTo(Constant.STATE.VALUE);
+        example.setOrderByClause("id asc");
         List<StaticData> staticDatas = staticDataMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(staticDatas)) {
             return staticDatas;

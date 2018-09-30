@@ -1,5 +1,6 @@
 package com.cjw.dao;
 
+import com.cjw.common.Constant;
 import com.cjw.dao.entity.Company;
 import com.cjw.dao.entity.CompanyExample;
 import com.cjw.dao.mapper.CompanyMapper;
@@ -28,7 +29,8 @@ public class CompanyDao {
     public Company findById(Integer id) {
         CompanyExample example = new CompanyExample();
         example.createCriteria()
-                .andCompanyIdEqualTo(id);
+                .andCompanyIdEqualTo(id)
+                .andStateEqualTo(Constant.STATE.VALUE);
         List<Company> companies = companyMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(companies)) {
             return companies.get(0);
@@ -38,7 +40,7 @@ public class CompanyDao {
 
     public List<Company> findAll() {
         CompanyExample example = new CompanyExample();
-        example.createCriteria();
+        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         List<Company> companies = companyMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(companies)) {
             return companies;
@@ -48,13 +50,13 @@ public class CompanyDao {
 
     public int countAll() {
         CompanyExample example = new CompanyExample();
-        example.createCriteria();
+        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         return companyMapper.countByExample(example);
     }
 
     public List<Company> findByCondition(CompanySearchPojo searchPojo) {
         CompanyExample example = new CompanyExample();
-        CompanyExample.Criteria criteria = example.createCriteria();
+        CompanyExample.Criteria criteria = example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
         if(searchPojo.getSize()!=null){
             criteria.andSizeEqualTo(searchPojo.getSize());
         }

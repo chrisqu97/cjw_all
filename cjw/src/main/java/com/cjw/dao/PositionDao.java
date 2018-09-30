@@ -1,5 +1,6 @@
 package com.cjw.dao;
 
+import com.cjw.common.Constant;
 import com.cjw.dao.entity.Position;
 import com.cjw.dao.entity.PositionExample;
 import com.cjw.dao.mapper.PositionMapper;
@@ -26,7 +27,8 @@ public class PositionDao {
     public Position findById(Integer id) {
         PositionExample example = new PositionExample();
         example.createCriteria()
-                .andPositionIdEqualTo(id);
+                .andPositionIdEqualTo(id)
+                .andStateEqualTo(Constant.STATE.VALUE);
         List<Position> positions = positionMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positions)) {
             return positions.get(0);
@@ -37,7 +39,8 @@ public class PositionDao {
     public List<Position> findByCompanyId(Integer companyId){
         PositionExample example = new PositionExample();
         example.createCriteria()
-                .andCompanyIdEqualTo(companyId);
+                .andCompanyIdEqualTo(companyId)
+                .andStateEqualTo(Constant.STATE.VALUE);
         example.setOrderByClause("position_id desc");
         List<Position> positions = positionMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positions)) {
