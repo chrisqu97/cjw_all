@@ -28,6 +28,7 @@ Page({
     that.data.userData.birthday = formData.birthday
     that.data.userData.educationalExperiences[0].schoolName=formData.school
     that.data.userData.educationalExperiences[0].education = formData.education
+    that.data.userData.educationalExperiences[0].major = formData.major
     that.data.userData.phone = formData.phone
     that.data.userData.education = formData.education
     that.data.userData.desiredWorkingPlace = formData.desiredWorkingPlace

@@ -16,7 +16,7 @@ Page({
   that.setData({
     userData:app.globalData.userData
   })
-  console.log(that.data.userData)
+
   },
 
   /**

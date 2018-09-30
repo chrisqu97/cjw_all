@@ -18,9 +18,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
+    var that = this
+   
 
+    that.setData({
+      userData: app.globalData.userData
+    })
+   
+  },
+  formSubmit: function (e) {
+    var that = this;
+    var formData = e.detail.value;//获取的表单信息
+    var req_url = 'User/updateUser'
+    var index = 0
+
+    //这里把表单值赋给userData
+    that.data.userData.jobIntension.positionTypeName = formData.positionTypeName
+    that.data.userData.jobIntension.salary = formData.salary
+   
+
+
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: that.data.userData,//把修改后userData发送给后端
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "POST",
+      success: function (res) {
+        //修改成功后把数据归档到全局数据
+        app.globalData.userData = that.data.userData
+        console.log(res)
+
+        wx.showToast({
+          title: '成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

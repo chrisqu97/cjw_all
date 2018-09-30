@@ -35,6 +35,7 @@ Page({
     this.setData({
       displays: "block"
     })
+
     this.setData({
       selected1: false,
       selected2: false,
@@ -43,7 +44,7 @@ Page({
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
-
+console.log()
       var showMode = e.target.dataset.current == 0;
 
       this.setData({

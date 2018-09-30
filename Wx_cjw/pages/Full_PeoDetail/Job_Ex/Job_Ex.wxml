@@ -1,8 +1,8 @@
 
- <button bindtap="insert" class="send">添加工作经验</button>
-  
-    <textarea name='' bindinput="test_2_input" class="test_2" placeholder="请输入相关工作经验,如有多个工作经验请添加多个文本框填写" placeholder-class='picker'></textarea>
-    
+<form bindsubmit='formSubmit'>
+  <view class='boader'>
+    <textarea name='workExperiences' bindinput="test_2_input" class="test_2" placeholder="请输入相关工作经验,如有多个工作经验请添加多个文本框填写" placeholder-class='picker'></textarea>
+    </view>
  
-
-  <button class='submit'>提交</button>
+ <button formType="submit" class='submit'>提交</button>
+</form>

@@ -30,6 +30,11 @@
       <text class="people_detail_19">手机号码</text>
       <input name='phone' bindinput="people_detail_27_input" class="people_detail_27" placeholder="填写手机号码" placeholder-class='phcolor'></input>
     </view>
+
+     <view class="people_detail_13">
+      <text class="people_detail_19">专业</text>
+      <input name='major'  class="people_detail_27" placeholder="填写专业" placeholder-class='phcolor'></input>
+    </view>
     <view class="people_detail_20">
       <text class="people_detail_21">求职区域</text>
       <picker name='desiredWorkingPlace' mode="region" value="{{location}}" bindchange="location_Change" class="location">

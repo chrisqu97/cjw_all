@@ -6,13 +6,17 @@
 <view class='bottom_line' > </view>
 <view>
   <text class='common'>学历：</text>
-  <text class='common'>{{userData.education}}</text>
+  <text class='common'>{{userData.educationName}}</text>
   <text class='age'>出生年月：</text>
-   <text class='age'>{{userData.birthday}}</text>
+   <text class='common'>{{userData.birthday}}</text>
 </view>
 <view>
   <text class='common'> 工作经验： </text>
    <text class='common'> {{userData.workExperiences[0].content}} </text>
+</view>
+<view>
+  <text class='common'> 项目经验： </text>
+   <text class='common'> {{userData.projectExperiences[0].content}} </text>
 </view>
 <view>
   <text class='common'> 自我评价  </text>

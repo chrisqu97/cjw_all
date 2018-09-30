@@ -2,11 +2,11 @@
 <form bindsubmit='formSubmit'>
   <view class='Full_PeoDetail_6'>
 <text class="Full_PeoDetail_7">职位类别</text>
- <input class='picker' placeholder='输入意向行业'></input>
+ <input name='positionTypeName' class='picker' placeholder='输入意向行业'></input>
 </view >
   <view class="Full_PeoDetail_6" >
     <text class="Full_PeoDetail_7" >期望薪资</text>
-    <picker mode="selector" bindchange="bindPickerChange"  range="{{price}}" style='text-align:center'><view class='picker'><text>{{price[index]}}</text></view></picker>
+    <picker name='salary' mode="selector" bindchange="bindPickerChange"  range="{{price}}" style='text-align:center'><view class='picker'><text>{{price[index]}}</text></view></picker>
   </view>
 
  <button formType="submit" class='submit'>提交</button>
