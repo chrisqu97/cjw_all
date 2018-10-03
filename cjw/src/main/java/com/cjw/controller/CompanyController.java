@@ -36,6 +36,7 @@ public class CompanyController {
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);
+
         return resultPojo;
     }
 
@@ -76,6 +77,22 @@ public class CompanyController {
         resultPojo.setSuccess(true);
         resultPojo.setMessage("获取公司类型成功");
         resultPojo.setData(company_type);
+        return resultPojo;
+    }
+
+    /**
+     * 添加公司
+     *
+     * @param companyPojo
+     * @return
+     */
+    public ResultPojo add(@RequestBody CompanyPojo companyPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        companyService.add(companyPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setMessage("添加公司成功");
         return resultPojo;
     }
 

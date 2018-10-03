@@ -25,16 +25,17 @@ public class CompanyService {
     public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String, String> companyType) {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Company> companies = companyDao.findByCondition(searchPojo);
-        List<CompanyPojo> companyPojos = new ArrayList<>();
+
         if (CollectionUtils.isNotEmpty(companies)) {
+            List<CompanyPojo> companyPojos = new ArrayList<>();
             PageInfo pageInfo = new PageInfo<>(companies, searchPojo.getPageSize());
             for (Company company : companies) {
                 CompanyPojo companyPojo = new CompanyPojo();
+                companyPojo.setCompanyId(company.getCompanyId());
+                companyPojo.setCompanyName(company.getCompanyName());
+                companyPojo.setSize(company.getSize());
                 if (company.getPlace() != null) {
                     companyPojo.setPlace(JSON.parseArray(company.getPlace(), String.class));
-                }
-                if (company.getSize() != null) {
-                    companyPojo.setSize(company.getSize());
                 }
                 if (company.getCompanyType() != null) {
                     companyPojo.setCompanyType(company.getCompanyType());
@@ -44,8 +45,9 @@ public class CompanyService {
             }
             searchPojo.setTotalCount((int) pageInfo.getTotal());
             searchPojo.setTotalPage(pageInfo.getPages());
+            searchPojo.setCompanyPojos(companyPojos);
         }
-        searchPojo.setCompanyPojos(companyPojos);
+
         return searchPojo;
     }
 
@@ -72,6 +74,7 @@ public class CompanyService {
         company.setSize(companyPojo.getSize());
         company.setState(Constant.STATE.VALUE);
         company.setPlace(JSON.toJSONString(companyPojo.getPlace()));
+        company.setState(Constant.STATE.VALUE);
         companyDao.add(company);
         return companyPojo;
     }

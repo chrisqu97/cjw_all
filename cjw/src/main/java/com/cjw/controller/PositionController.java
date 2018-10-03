@@ -31,7 +31,7 @@ public class PositionController {
     public ResultPojo findById(@RequestBody PositionPojo positionPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        if(positionPojo.getPositionId()==null){
+        if (positionPojo.getPositionId() == null) {
             resultPojo.setMessage("职位id为空");
             return resultPojo;
         }
@@ -39,7 +39,7 @@ public class PositionController {
         Map<String, String> all = positionTypeService.findAll();
         positionPojo = positionService.findById(positionPojo.getPositionId(), all);
 
-        if(positionPojo==null){
+        if (positionPojo == null) {
             resultPojo.setMessage("未查到该职位");
             return resultPojo;
         }
@@ -87,6 +87,14 @@ public class PositionController {
         return resultPojo;
     }
 
+
+    /**
+     * 根据公司id查找
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByCompanyId", method = RequestMethod.POST)
     public ResultPojo findByCompanyId(@RequestBody PositionSearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
