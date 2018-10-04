@@ -86,6 +86,7 @@ public class CompanyController {
      * @param companyPojo
      * @return
      */
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResultPojo add(@RequestBody CompanyPojo companyPojo) {
         ResultPojo resultPojo = new ResultPojo();
 

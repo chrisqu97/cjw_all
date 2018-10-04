@@ -74,7 +74,6 @@ public class CompanyService {
         company.setSize(companyPojo.getSize());
         company.setState(Constant.STATE.VALUE);
         company.setPlace(JSON.toJSONString(companyPojo.getPlace()));
-        company.setState(Constant.STATE.VALUE);
         companyDao.add(company);
         return companyPojo;
     }
