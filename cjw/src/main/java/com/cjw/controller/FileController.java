@@ -26,7 +26,7 @@ public class FileController {
     /**
      * 文件上传的绝对路径
      */
-    @Value("${upload.path}")
+    @Value("${file.uploadPath}")
     private String uploadPath;
 
     /**
