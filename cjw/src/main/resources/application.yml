@@ -46,14 +46,6 @@ logging:
   level:
     com.cjw.dao.mapper: DEBUG
 
-#pagehelper
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-  returnPageInfo: check
-
 wx:
   api: https://api.weixin.qq.com/sns/jscode2session
   appId: wxe12df03a91262d60
