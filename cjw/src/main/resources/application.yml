@@ -27,7 +27,7 @@ spring:
 #      maxIdle: 20
 #      maxWait: 50000
 
-
+#上传文件
 file:
   staticAccessPath: /api/file/**
   uploadPath: E:/computerStudy/Git/cjw_all/cjw/upload/
@@ -41,6 +41,7 @@ logging:
   level:
     com.cjw.dao.mapper: DEBUG
 
+#微信
 wx:
   api: https://api.weixin.qq.com/sns/jscode2session
   appId: wxe12df03a91262d60

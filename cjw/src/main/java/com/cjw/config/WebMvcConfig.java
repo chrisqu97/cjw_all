@@ -42,6 +42,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Value("${file.uploadPath}")
     private String uploadPath;
 
+    /**
+     * 静态资源访问
+     *
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(staticAccessPath).addResourceLocations("file:" + uploadPath);

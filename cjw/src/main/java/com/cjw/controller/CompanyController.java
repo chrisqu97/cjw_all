@@ -31,8 +31,9 @@ public class CompanyController {
     public ResultPojo findByCondition(@RequestBody CompanySearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
-        searchPojo = companyService.findByCondition(searchPojo, map);
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String, String> companySize = staticDataService.findByTypeCode("COMPANY_SIZE");
+        searchPojo = companyService.findByCondition(searchPojo, companyType, companySize);
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);

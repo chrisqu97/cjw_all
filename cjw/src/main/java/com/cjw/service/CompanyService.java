@@ -22,7 +22,7 @@ public class CompanyService {
     @Autowired
     private CompanyDao companyDao;
 
-    public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String, String> companyType) {
+    public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String, String> companyType, Map<String, String> companySize) {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Company> companies = companyDao.findByCondition(searchPojo);
 
@@ -34,6 +34,7 @@ public class CompanyService {
                 companyPojo.setCompanyId(company.getCompanyId());
                 companyPojo.setCompanyName(company.getCompanyName());
                 companyPojo.setSize(company.getSize());
+                companyPojo.setSizeName(companySize.get(company.getSize() + ""));
                 if (company.getPlace() != null) {
                     companyPojo.setPlace(JSON.parseArray(company.getPlace(), String.class));
                 }

@@ -10,6 +10,7 @@ public class CompanyPojo {
     private String companyName;
     private Integer companyType;
     private String companyTypeName;
-    private String size;
+    private Integer size;
+    private String sizeName;
     private List<String> place;
 }
