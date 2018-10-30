@@ -28,7 +28,7 @@ public class UserDao {
         UserExample example = new UserExample();
         example.createCriteria()
                 .andUserIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
@@ -40,7 +40,7 @@ public class UserDao {
         UserExample example = new UserExample();
         example.createCriteria()
                 .andOpenIdEqualTo(openId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users.get(0);
@@ -50,7 +50,7 @@ public class UserDao {
 
     public List<User> findAll() {
         UserExample example = new UserExample();
-        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
+        example.createCriteria().andStateEqualTo(Constant.State.VALUE);
         List<User> users = userMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(users)) {
             return users;
@@ -60,7 +60,7 @@ public class UserDao {
 
     public Integer countAll() {
         UserExample example = new UserExample();
-        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
+        example.createCriteria().andStateEqualTo(Constant.State.VALUE);
         return userMapper.countByExample(example);
     }
 

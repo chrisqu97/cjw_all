@@ -33,8 +33,8 @@ public class MessageService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        message.setIfRead(Constant.STATE.VALUE);
-        message.setState(Constant.STATE.VALUE);
+        message.setIfRead(Constant.State.VALUE);
+        message.setState(Constant.State.VALUE);
 
         messageDao.add(message);
         return messagePojo;

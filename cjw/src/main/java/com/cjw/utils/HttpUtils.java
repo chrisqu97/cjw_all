@@ -114,7 +114,7 @@ public class HttpUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Constant.HTTP_MESSAGE.ERROR;
+        return Constant.HttpMessage.ERROR;
     }
 
     public JSONObject getRequestJsonObject(HttpServletRequest request) throws IOException {

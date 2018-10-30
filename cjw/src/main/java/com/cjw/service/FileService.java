@@ -47,7 +47,7 @@ public class FileService {
         file.setFileName(filePojo.getFileName());
         file.setPath(filePojo.getPath());
         file.setUserId(filePojo.getUserId());
-        file.setState(Constant.STATE.VALUE);
+        file.setState(Constant.State.VALUE);
         fileDao.add(file);
 
         filePojo.setFileId(file.getFileId());

@@ -24,7 +24,7 @@ public class MessageDao {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andMessageIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages.get(0);
@@ -37,7 +37,7 @@ public class MessageDao {
         example.createCriteria()
                 .andAccepterIdEqualTo(accepterId)
                 .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages;
@@ -50,7 +50,7 @@ public class MessageDao {
         example.createCriteria()
                 .andUserIdEqualTo(userId)
                 .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages;
@@ -62,8 +62,8 @@ public class MessageDao {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andAccepterIdEqualTo(accepterId)
-                .andIfReadEqualTo(Constant.STATE.VALUE)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andIfReadEqualTo(Constant.State.VALUE)
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages;

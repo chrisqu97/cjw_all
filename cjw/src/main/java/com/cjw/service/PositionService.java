@@ -40,7 +40,7 @@ public class PositionService {
         position.setDescription(positionPojo.getDescription());
         position.setCompanyId(positionPojo.getCompanyId());
         position.setUserId(positionPojo.getUserId());
-        position.setState(Constant.STATE.VALUE);
+        position.setState(Constant.State.VALUE);
         Date date = new Date();
         position.setCreateTime(date);
         position.setUpdateTime(date);

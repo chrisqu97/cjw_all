@@ -24,7 +24,7 @@ public class FileDao {
         FileExample example = new FileExample();
         example.createCriteria()
                 .andFileIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<File> files = fileMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(files)) {
             return files.get(0);
@@ -36,7 +36,7 @@ public class FileDao {
         FileExample example = new FileExample();
         example.createCriteria()
                 .andUserIdEqualTo(userId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<File> files = fileMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(files)) {
             return files;

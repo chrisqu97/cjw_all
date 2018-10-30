@@ -186,7 +186,7 @@ public class UserService {
             place.add(userData.getString("province"));
             place.add(userData.getString("city"));
             user.setLivingPlace(JSON.toJSONString(place));
-            user.setState(Constant.STATE.VALUE);
+            user.setState(Constant.State.VALUE);
 
             userDao.add(user);
         } else {

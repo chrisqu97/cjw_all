@@ -28,7 +28,7 @@ public class PositionDao {
         PositionExample example = new PositionExample();
         example.createCriteria()
                 .andPositionIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<Position> positions = positionMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positions)) {
             return positions.get(0);
@@ -40,7 +40,7 @@ public class PositionDao {
         PositionExample example = new PositionExample();
         example.createCriteria()
                 .andCompanyIdEqualTo(companyId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_id desc");
         List<Position> positions = positionMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positions)) {
