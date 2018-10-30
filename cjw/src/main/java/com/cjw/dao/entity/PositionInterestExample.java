@@ -404,6 +404,66 @@ public class PositionInterestExample {
             addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
+
+        public Criteria andPreferenceIsNull() {
+            addCriterion("preference is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceIsNotNull() {
+            addCriterion("preference is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceEqualTo(Integer value) {
+            addCriterion("preference =", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceNotEqualTo(Integer value) {
+            addCriterion("preference <>", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceGreaterThan(Integer value) {
+            addCriterion("preference >", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("preference >=", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceLessThan(Integer value) {
+            addCriterion("preference <", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceLessThanOrEqualTo(Integer value) {
+            addCriterion("preference <=", value, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceIn(List<Integer> values) {
+            addCriterion("preference in", values, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceNotIn(List<Integer> values) {
+            addCriterion("preference not in", values, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceBetween(Integer value1, Integer value2) {
+            addCriterion("preference between", value1, value2, "preference");
+            return (Criteria) this;
+        }
+
+        public Criteria andPreferenceNotBetween(Integer value1, Integer value2) {
+            addCriterion("preference not between", value1, value2, "preference");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
