@@ -96,7 +96,7 @@ public class PositionService {
     }
 
     private Map<String, String> getUserMap() {
-        List<User> allUser = userDao.findAll();
+        List<User> allUser = userDao.getUserIdAndUserName();
         Map<String, String> users = new HashMap<>(allUser.size());
         if (CollectionUtils.isNotEmpty(allUser)) {
             for (User user : allUser) {

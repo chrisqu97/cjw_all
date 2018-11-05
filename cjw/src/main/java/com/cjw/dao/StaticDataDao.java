@@ -32,4 +32,17 @@ public class StaticDataDao {
             return null;
         }
     }
+
+    public List<StaticData> findAll(){
+        StaticDataExample example = new StaticDataExample();
+        example.createCriteria()
+                .andStateEqualTo(Constant.State.VALUE);
+        example.setOrderByClause("id asc");
+        List<StaticData> staticDatas = staticDataMapper.selectByExample(example);
+        if (CollectionUtils.isNotEmpty(staticDatas)) {
+            return staticDatas;
+        } else {
+            return null;
+        }
+    }
 }

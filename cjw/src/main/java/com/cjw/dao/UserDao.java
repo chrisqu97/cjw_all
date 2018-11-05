@@ -67,4 +67,7 @@ public class UserDao {
     public int ifExistUser(Integer userId, String sessionKey) {
         return userMapper.ifExistUser(userId, sessionKey);
     }
+    public List<User> getUserIdAndUserName(){
+        return userMapper.getUserIdAndUserName();
+    }
 }

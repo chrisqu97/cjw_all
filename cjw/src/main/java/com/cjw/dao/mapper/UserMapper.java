@@ -2,7 +2,9 @@ package com.cjw.dao.mapper;
 
 import com.cjw.dao.entity.User;
 import com.cjw.dao.entity.UserExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -30,5 +32,8 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     @Select("select count(*) from user where user_id =#{userId} and session_key=#{sessionKey}")
-    int ifExistUser(@Param("userId")Integer userId,@Param("sessionKey")String sessionKey);
+    int ifExistUser(@Param("userId") Integer userId, @Param("sessionKey") String sessionKey);
+
+    @Select("select user_id,user_name from user")
+    List<User> getUserIdAndUserName();
 }
