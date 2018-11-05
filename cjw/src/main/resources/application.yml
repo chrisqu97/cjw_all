@@ -15,6 +15,10 @@ spring:
         maxActive: 20
         minIdle: 5
         maxWait: 50000
+        testOnBorrow: false
+        validationQuery: SELECT 1
+        testWhileIdle: true
+        poolPreparedStatements: true
       type: com.alibaba.druid.pool.DruidDataSource
 
 #    生产数据库

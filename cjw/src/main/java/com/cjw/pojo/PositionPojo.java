@@ -20,4 +20,5 @@ public class PositionPojo {
     private Integer userId;
     private String userName;
     private String createTime;
+    private List<String> welfare;
 }

@@ -1,6 +1,7 @@
 package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.cjw.common.Constant;
 import com.cjw.dao.CompanyDao;
 import com.cjw.dao.PositionDao;
@@ -15,6 +16,7 @@ import com.cjw.utils.DateUtils;
 import com.cjw.utils.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.mahout.math.jet.random.Poisson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -136,6 +138,8 @@ public class PositionService {
             positionPojo.setCreateTime(sf.format(position.getCreateTime()));
             positionPojo.setUserId(position.getUserId());
             positionPojo.setUserName(users.get(position.getUserId() + ""));
+            positionPojo.setWelfare(JSON.parseArray(position.getWelfare(), String.class));
+            positionPojo.setEducationalRequirements(position.getEducationalRequirements());
             positionPojos.add(positionPojo);
         }
     }
