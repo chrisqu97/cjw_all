@@ -41,8 +41,10 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "才聚网",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
+
   "tabBar": {
     "list": [
       {
@@ -79,4 +81,6 @@
     "request": 10000,
     "downloadFile": 10000
   }
+  
 }
+

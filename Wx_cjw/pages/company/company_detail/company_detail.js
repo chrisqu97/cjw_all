@@ -1,4 +1,5 @@
 // pages/company/company_detail/company_detail.js
+var app = getApp() 
 Page({
 
   /**
@@ -9,6 +10,8 @@ Page({
     search_selected: 0,
     search_value: '',
     currentTab: 0,
+    companyId:1,
+
   },
 
   main_19_click: function (e) {
@@ -20,9 +23,48 @@ Page({
   },
   
   onLoad: function (options) {
-  
+  var that=this;
+    var companyId = options.id;
+ this.setData({
+   companyId:companyId
+ })
+
+that.getcompanydetail()
   },
 
+  getcompanydetail: function (e) {
+    var that = this
+    // 请求后台 
+    var req_url = 'Company/findById'
+    
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: {
+        companyId:that.data.companyId
+      },
+
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "POST",
+
+      success: function (res) {
+       
+        // 后端获取的公司详情
+        var companydetail = res.data.data
+
+        // 前端需要渲染的公司详情
+        var comdetail = companydetail
+          that.setData({
+            comdetail: companydetail,
+          })
+
+      },
+      fail: function (res) {
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

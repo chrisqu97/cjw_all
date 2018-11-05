@@ -1,11 +1,11 @@
 <!--pages/company/company_detail/company_detail.wxml-->
 
 <view class='title'>
-    公司名称
+    {{comdetail.companyName}}
 </view>
 <view>
-  <text class='size'>#规模</text>
-  <text class='classify'>#行业分类</text>
+  <text class='size'>公司规模：{{comdetail.sizeName}}人</text>
+  <text class='classify'>公司类型：{{comdetail.companyTypeName}}</text>
 </view>
 
 <view class="swiper">
@@ -18,19 +18,19 @@
        <swiper-item >
        <!-- 公司地址 -->
      <view class='title'>公司地址</view>
-      <view class='content'>#具体地址</view>
+      <view class='content'>{{comdetail.detailPlace}}</view>
      <view class='bottom_line' > </view>
     <view class='title'>公司介绍</view>
-      <view class='content'>#具体介绍</view>
+      <view class='content'>{{comdetail.description}}</view>
     <view class='bottom_line' > </view>
-<!-- 工商信息 -->
+<!-- 工商信息
      <view class='title'>工商信息</view>
       <view class='content'>成立时间   <text class='right'>#成立时间</text> </view> 
       <view class='bottom_line' > </view> 
       <view class='content'>注册资金   <text class='right'>#注册资金</text> </view> 
       <view class='bottom_line' > </view> 
-      <view class='content'>法人代表   <text class='right'>#法人代表</text> </view> 
-      <view class='bottom_line' > </view> 
+      <view class='content'>法人代表   <text class='right'>#法人代表</text> </view>  -->
+     
        </swiper-item>
 
        <swiper-item >
