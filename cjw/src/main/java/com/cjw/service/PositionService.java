@@ -117,7 +117,7 @@ public class PositionService {
 
     private void setPositionPojos(PositionSearchPojo searchPojo, List<Position> positions) {
         Map<String, String> users = getUserMap();
-        SimpleDateFormat sf = DateUtils.getDateTimeFormat();
+        SimpleDateFormat sf = DateUtils.getDateFormat();
         List<PositionPojo> positionPojos = new ArrayList<>();
         PageInfo pageInfo = new PageInfo<>(positions, searchPojo.getPageSize());
 

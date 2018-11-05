@@ -109,6 +109,12 @@ public class PositionController {
         return resultPojo;
     }
 
+    /**
+     * 根据职位名称查询
+     *
+     * @param searchPojo
+     * @return
+     */
     @RequestMapping(value = "/findByPositionName", method = RequestMethod.POST)
     public ResultPojo findByPositionName(@RequestBody PositionSearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
@@ -125,6 +131,12 @@ public class PositionController {
         return resultPojo;
     }
 
+    /**
+     * 模糊匹配获取职位名称
+     *
+     * @param positionName
+     * @return
+     */
     @RequestMapping(value = "/getPositionName", method = RequestMethod.GET)
     public ResultPojo getPositionName(@RequestParam String positionName) {
         ResultPojo resultPojo = new ResultPojo();
