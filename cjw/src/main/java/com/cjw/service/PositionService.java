@@ -12,6 +12,7 @@ import com.cjw.pojo.PositionPojo;
 import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.utils.CollectionUtils;
 import com.cjw.utils.DateUtils;
+import com.cjw.utils.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,32 +88,64 @@ public class PositionService {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Position> positions = positionDao.findByCompanyId(searchPojo.getCompanyId());
         if (CollectionUtils.isNotEmpty(positions)) {
-            List<User> allUser = userDao.findAll();
-            Map<String, String> users = new HashMap<>();
-            if (CollectionUtils.isNotEmpty(allUser)) {
-                for (User user : allUser) {
-                    users.put(user.getUserId() + "", user.getUserName());
-                }
-            }
-            Company company = companyDao.findById(searchPojo.getCompanyId());
-            SimpleDateFormat sf = DateUtils.getDateTimeFormat();
-            List<PositionPojo> positionPojos = new ArrayList<>();
-            PageInfo pageInfo = new PageInfo<>(positions, searchPojo.getPageSize());
-            for (Position position : positions) {
-                PositionPojo positionPojo = new PositionPojo();
-                positionPojo.setPositionId(position.getPositionId());
-                positionPojo.setPositionName(position.getPositionName());
-                positionPojo.setPlace(JSON.parseArray(position.getPlace(), String.class));
-                positionPojo.setSalary(position.getSalary());
-                positionPojo.setCreateTime(sf.format(position.getCreateTime()));
-                positionPojo.setUserId(position.getUserId());
-                positionPojo.setUserName(users.get(position.getUserId() + ""));
-                positionPojos.add(positionPojo);
-            }
-            searchPojo.setPositionPojos(positionPojos);
-            searchPojo.setTotalCount((int) pageInfo.getTotal());
-            searchPojo.setTotalPage(pageInfo.getPages());
+            setPositionPojos(searchPojo, positions);
         }
         return searchPojo;
     }
+
+    private Map<String, String> getUserMap() {
+        List<User> allUser = userDao.findAll();
+        Map<String, String> users = new HashMap<>(allUser.size());
+        if (CollectionUtils.isNotEmpty(allUser)) {
+            for (User user : allUser) {
+                users.put(user.getUserId() + "", user.getUserName());
+            }
+        }
+        return users;
+    }
+
+    public PositionSearchPojo findByPositionName(PositionSearchPojo searchPojo) {
+        PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
+        List<Position> positions = positionDao.findByPositionName(searchPojo.getPositionName());
+        if (CollectionUtils.isNotEmpty(positions)) {
+            setPositionPojos(searchPojo, positions);
+        }
+        return searchPojo;
+    }
+
+    private void setPositionPojos(PositionSearchPojo searchPojo, List<Position> positions) {
+        Map<String, String> users = getUserMap();
+        SimpleDateFormat sf = DateUtils.getDateTimeFormat();
+        List<PositionPojo> positionPojos = new ArrayList<>();
+        PageInfo pageInfo = new PageInfo<>(positions, searchPojo.getPageSize());
+
+        createPositionPojo(positions, users, sf, positionPojos);
+
+        searchPojo.setPositionPojos(positionPojos);
+        searchPojo.setTotalCount((int) pageInfo.getTotal());
+        searchPojo.setTotalPage(pageInfo.getPages());
+    }
+
+    private void createPositionPojo(List<Position> positions, Map<String, String> users, SimpleDateFormat sf, List<PositionPojo> positionPojos) {
+        for (Position position : positions) {
+            PositionPojo positionPojo = new PositionPojo();
+            positionPojo.setPositionId(position.getPositionId());
+            positionPojo.setPositionName(position.getPositionName());
+            positionPojo.setPlace(JSON.parseArray(position.getPlace(), String.class));
+            positionPojo.setSalary(position.getSalary());
+            positionPojo.setCreateTime(sf.format(position.getCreateTime()));
+            positionPojo.setUserId(position.getUserId());
+            positionPojo.setUserName(users.get(position.getUserId() + ""));
+            positionPojos.add(positionPojo);
+        }
+    }
+
+    public List<String> getPositionName(String positionName) {
+        List<String> list = positionDao.getPositionName(positionName);
+        if (CollectionUtils.isEmpty(list)) {
+            list = new ArrayList<>();
+        }
+        return list;
+    }
+
 }

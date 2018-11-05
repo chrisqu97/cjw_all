@@ -5,12 +5,11 @@ import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.service.PositionService;
 import com.cjw.service.PositionTypeService;
+import com.cjw.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -107,6 +106,38 @@ public class PositionController {
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
+
+    @RequestMapping(value = "/findByPositionName", method = RequestMethod.POST)
+    public ResultPojo findByPositionName(@RequestBody PositionSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        if (searchPojo.getPositionName() == null) {
+            resultPojo.setMessage("职位名称为空");
+            return resultPojo;
+        }
+
+        searchPojo = positionService.findByPositionName(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
+
+    @RequestMapping(value = "/getPositionName", method = RequestMethod.GET)
+    public ResultPojo getPositionName(@RequestParam String positionName) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        if (StringUtils.isEmpty(positionName)) {
+            resultPojo.setMessage("职位名称为空");
+            return resultPojo;
+        }
+
+        List<String> list = positionService.getPositionName(positionName);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(list);
         return resultPojo;
     }
 }

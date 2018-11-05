@@ -74,11 +74,11 @@ public class CompanyController {
     public ResultPojo getCompanyType() {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> company_type = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
 
         resultPojo.setSuccess(true);
         resultPojo.setMessage("获取公司类型成功");
-        resultPojo.setData(company_type);
+        resultPojo.setData(companyType);
         return resultPojo;
     }
 

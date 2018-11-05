@@ -51,6 +51,9 @@ public class LoginAspect {
                     return proceedingJoinPoint.proceed();
                 } catch (Throwable throwable) {
                     log.error(throwable.getMessage(), throwable);
+                    ResultPojo resultPojo = new ResultPojo();
+                    resultPojo.setMessage(throwable.getMessage());
+                    return resultPojo;
                 }
             } else {
                 ResultPojo resultPojo = new ResultPojo();
@@ -62,7 +65,6 @@ public class LoginAspect {
             resultPojo.setMessage("session_key is empty");
             return resultPojo;
         }
-        return null;
     }
 
 }

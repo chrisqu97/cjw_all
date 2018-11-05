@@ -12,4 +12,5 @@ public class PositionSearchPojo {
     private Integer totalPage;
     private List<PositionPojo> positionPojos;
     private Integer companyId;
+    private String positionName;
 }

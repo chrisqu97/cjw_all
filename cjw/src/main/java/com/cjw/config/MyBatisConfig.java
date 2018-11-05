@@ -17,7 +17,7 @@ import java.util.Properties;
 @MapperScan("com.cjw.dao.mapper")
 public class MyBatisConfig {
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
+    @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource dataSource() {
         return new DruidDataSource();
     }
