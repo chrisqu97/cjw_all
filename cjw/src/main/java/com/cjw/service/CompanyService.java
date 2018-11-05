@@ -52,16 +52,22 @@ public class CompanyService {
         return searchPojo;
     }
 
-    public CompanyPojo findById(Integer id, Map<String, String> companyType) {
+    public CompanyPojo findById(Integer id, Map<String, String> companyType, Map<String, String> companySize) {
         Company company = companyDao.findById(id);
         if (company != null) {
             CompanyPojo companyPojo = new CompanyPojo();
             companyPojo.setCompanyId(company.getCompanyId());
             companyPojo.setCompanyName(company.getCompanyName());
+            companyPojo.setDescription(company.getDescription());
             companyPojo.setCompanyType(company.getCompanyType());
             companyPojo.setCompanyTypeName(companyType.get(company.getCompanyType() + ""));
             companyPojo.setSize(company.getSize());
+            companyPojo.setSizeName(companySize.get(company.getSize() + ""));
+            companyPojo.setLinkMan(company.getLinkMan());
+            companyPojo.setPhone(company.getPhone());
+            companyPojo.setEmail(company.getEmail());
             companyPojo.setPlace(JSON.parseArray(company.getPlace(), String.class));
+            companyPojo.setDetailPlace(company.getDetailPlace());
             return companyPojo;
         } else {
             return null;

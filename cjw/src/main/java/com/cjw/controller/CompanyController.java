@@ -51,8 +51,9 @@ public class CompanyController {
     public ResultPojo findById(@RequestBody CompanyPojo companyPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
-        companyPojo = companyService.findById(companyPojo.getCompanyId(), map);
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String,String> companySize=staticDataService.findByTypeCode("COMPANY_SIZE");
+        companyPojo = companyService.findById(companyPojo.getCompanyId(), companyType,companySize);
 
         if (companyPojo == null) {
             resultPojo.setMessage("不存在该id的公司");
