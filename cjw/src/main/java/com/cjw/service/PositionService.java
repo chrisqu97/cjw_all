@@ -65,6 +65,9 @@ public class PositionService {
             positionPojo.setExperienceRequirements(position.getExperienceRequirements());
             positionPojo.setSalary(position.getSalary());
             positionPojo.setDescription(position.getDescription());
+            if (StringUtils.isNotEmpty(position.getWelfare())) {
+                positionPojo.setWelfare(JSON.parseArray(position.getWelfare(), String.class));
+            }
             if (position.getCompanyId() != null) {
                 positionPojo.setCompanyId(position.getCompanyId());
                 Company company = companyDao.findById(position.getCompanyId());
