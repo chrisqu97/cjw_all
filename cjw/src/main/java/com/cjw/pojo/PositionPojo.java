@@ -21,4 +21,6 @@ public class PositionPojo {
     private String userName;
     private String createTime;
     private List<String> welfare;
+    private String skillDescription;
+    private String educationBackground;
 }

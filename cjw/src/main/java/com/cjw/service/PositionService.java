@@ -65,6 +65,8 @@ public class PositionService {
             positionPojo.setExperienceRequirements(position.getExperienceRequirements());
             positionPojo.setSalary(position.getSalary());
             positionPojo.setDescription(position.getDescription());
+            positionPojo.setSkillDescription(position.getSkillDescription());
+            positionPojo.setEducationBackground(position.getEducationBackground());
             if (StringUtils.isNotEmpty(position.getWelfare())) {
                 positionPojo.setWelfare(JSON.parseArray(position.getWelfare(), String.class));
             }
