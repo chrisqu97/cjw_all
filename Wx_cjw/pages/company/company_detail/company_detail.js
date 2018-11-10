@@ -11,12 +11,20 @@ Page({
     search_value: '',
     currentTab: 0,
     companyId:1,
+    // 一页显示的条数
+    pageSize: 10,
+    // 当前页
+    pageNum: 1,
+    job:[],
+    welfare:[]
 
   },
 
   main_19_click: function (e) {
+    var positionId=e.currentTarget.dataset.id;
+    console.log("id+"+positionId)
     wx.navigateTo({
-      url: '../../job_detail/job_detail',
+      url: '../../job_detail/job_detail?id=' + positionId,
     })
 
 
@@ -30,6 +38,7 @@ Page({
  })
 
 that.getcompanydetail()
+that.getjoblist()
   },
 
   getcompanydetail: function (e) {
@@ -60,6 +69,54 @@ that.getcompanydetail()
             comdetail: companydetail,
           })
 
+      },
+      fail: function (res) {
+      }
+    })
+  },
+
+  getjoblist: function (e) {
+    var that = this
+    // 请求后台 
+    // 获取第一页的list及总页数
+    var req_url = 'Position/findByCompanyId'
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: {
+        pageSize: that.data.pageSize,
+        pageNum: that.data.pageNum,
+        companyId: that.data.companyId
+      },
+
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "POST",
+
+      success: function (res) {
+      
+        // 后端获取的职位列表
+        var joblist = res.data.data.positionPojos
+    
+        // 前端需要渲染的职位列表
+        var jobtem = that.data.job
+
+
+        if (joblist.length < that.data.pageSize) {
+          that.setData({
+            job: jobtem.concat(joblist),
+            hasMoreData: false,
+           
+          })
+        }
+        else {
+          that.setData({
+            job: jobtem.concat(joblist),
+            hasMoreData: true,
+            pageNum: that.data.pageNum + 1
+          })
+        }
       },
       fail: function (res) {
       }

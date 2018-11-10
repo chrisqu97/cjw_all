@@ -11,9 +11,7 @@ App({
     iv:"",
     session_key:""
   },
-  checkLogin: function () {
-    
-  },
+
   getLaction: function () {
     var that = this;
     wx.getLocation({
@@ -46,6 +44,11 @@ App({
       
       
     })
+   
+      
+  
+    
+
   },
   onLaunch: function () {
     // 展示本地存储能力

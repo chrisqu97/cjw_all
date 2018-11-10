@@ -32,6 +32,7 @@ Page({
     var that=this
     that.getcompany()
   },
+
   detail:function(e){
 var postId=e.currentTarget.dataset.id;
 wx.navigateTo({
@@ -105,8 +106,7 @@ choosecompany:function(e){
       method: "POST",
 
       success: function (res) {
-        console.log(that.data.currentCompanySize)
-        console.log(res.data.data.companyPojos)
+       
         // 后端获取的公司列表
         var companylist = res.data.data.companyPojos
         // 前端需要渲染的公司列表

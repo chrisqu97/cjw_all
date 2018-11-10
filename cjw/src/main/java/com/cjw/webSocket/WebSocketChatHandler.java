@@ -46,12 +46,12 @@ public class WebSocketChatHandler implements WebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         // 将消息进行转化，因为是消息是json数据，可能里面包含了发送给某个人的信息，所以需要用json相关的工具类处理之后再封装成TextMessage，
-        TextMessage msg = (TextMessage) message.getPayload();
-        MessagePojo messagePojo = messageTask.convertToMessagePojo(msg.getPayload());
+        String msg = (String) message.getPayload();
+        MessagePojo messagePojo = messageTask.convertToMessagePojo(msg);
         // 给所有用户群发消息
         //sendMessagesToUsers(msg);
         // 给指定用户群发消息
-        sendMessageToUser(messagePojo, msg);
+        sendMessageToUser(messagePojo, message);
 
     }
 
@@ -112,7 +112,7 @@ public class WebSocketChatHandler implements WebSocketHandler {
      * @param messagePojo
      * @param message
      */
-    public void sendMessageToUser(MessagePojo messagePojo, TextMessage message) {
+    public void sendMessageToUser(MessagePojo messagePojo, WebSocketMessage message) {
         for (WebSocketSession user : users) {
             Integer currentUserId = getUserId(user);
             if (currentUserId != null && currentUserId.equals(messagePojo.getAccepterId())) {

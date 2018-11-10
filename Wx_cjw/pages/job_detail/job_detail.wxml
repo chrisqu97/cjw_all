@@ -1,38 +1,39 @@
-<view class='title'>软件工程师
-  <text class='right'>#薪资</text>
+<view class='title'>{{posdetail.positionName}}
+  <text class='right'>{{posdetail.salary}}</text>
 </view>
 <view >
-  <text class='content'>地区</text>
-  <text class='content'>经验</text>
-  <text class='content'>学历</text>
+  <text class='content'>{{posdetail.place[0]}}</text>
+  <text class='content'>经验要求：{{posdetail.experienceRequirements}}</text>
+  <text class='content'>学历要求：{{posdetail.educationalRequirements}}以上</text>
 </view>
 
 <!-- 企业福利 -->
 <view class='Bqview'>
-  <text class='biaoqian'>#五险一金</text>
-  <text class='biaoqian'>#五险一金</text>
-  <text class='biaoqian'>#五险一金</text>
-  <text class='biaoqian'>#五险一金</text>
-  <text class='biaoqian'>#五险一金</text>
-  <text class='biaoqian'>#五险一金</text>
- 
+  <text class='biaoqian' wx:for="{{posdetail[index].welfare[index]}}">posdetail[index].welfare[index]</text>
 </view>
+
 <!-- 职位详情 -->
   <view class='bottom_line' > </view>
 <view class='title'> 职位详情</view>
   <view class='content'>岗位职责：</view>
-  <view class='content'>#具体职责 </view>
+  <view class='content'>{{posdetail.description}} </view>
   <view class='bottom_line' > </view>
 
 <!-- 技能要求 -->
 <view class='title'> 技能要求</view>
 <view class='Bqview'>
-  <text class='biaoqian'>#后端开发</text>
+  <text class='content'>{{posdetail.skillDescription}}</text>
 </view>
-
+  <view class='bottom_line' > </view>
+<!-- 学历要求 -->
+<view class='title'> 学历要求</view>
+<view class='Bqview'>
+  <text class='content'>{{posdetail.educationBackground}}</text>
+</view>
+  <view class='bottom_line' > </view>
 <!-- 立即沟通 -->
   <navigator url='../mine/message/communication/communication'>
-    <view class='preview'>
+    <view class='preview' >
     <text> 立即沟通</text> 
   </view>
   </navigator>
