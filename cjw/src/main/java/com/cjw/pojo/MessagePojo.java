@@ -9,6 +9,6 @@ public class MessagePojo {
     private Integer userId;
     private Integer accepterId;
     private Integer positionId;
-    private String createTime;
+    private Long createTime;
     private Integer ifRead;
 }

@@ -37,9 +37,8 @@ public class MessageController {
         messagePojo.setUserId(1);
         messagePojo.setAccepterId(1);
 
-        SimpleDateFormat dateTimeFormat = DateUtils.getDateTimeFormat();
         messagePojo.setContent(System.currentTimeMillis() + "");
-        messagePojo.setCreateTime(dateTimeFormat.format(System.currentTimeMillis()));
+        messagePojo.setCreateTime(System.currentTimeMillis());
         messageTask.addMessage(messagePojo);
 
         System.out.println("end");

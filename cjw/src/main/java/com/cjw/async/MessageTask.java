@@ -34,7 +34,7 @@ public class MessageTask {
      */
     public MessagePojo convertToMessagePojo(String message) {
         MessagePojo messagePojo = JSON.parseObject(message, MessagePojo.class);
-        messagePojo.setCreateTime(System.currentTimeMillis() + "");
+        messagePojo.setCreateTime(System.currentTimeMillis());
         messagePojo.setIfRead(1);
         return messagePojo;
     }

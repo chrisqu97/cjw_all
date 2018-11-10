@@ -112,19 +112,19 @@ public class WebSocketChatHandler implements WebSocketHandler {
      * @param messagePojo
      * @param message
      */
-    public void sendMessageToUser(MessagePojo messagePojo, WebSocketMessage message) {
+    private void sendMessageToUser(MessagePojo messagePojo, WebSocketMessage message) {
+        //存储消息
+        messageTask.addMessage(messagePojo);
         for (WebSocketSession user : users) {
             Integer currentUserId = getUserId(user);
             if (currentUserId != null && currentUserId.equals(messagePojo.getAccepterId())) {
                 try {
-                    //存储消息
-                    messageTask.addMessage(messagePojo);
                     // isOpen()在线就发送
                     if (user.isOpen()) {
                         user.sendMessage(message);
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error(e.getMessage(),e);
                 }
             }
         }
