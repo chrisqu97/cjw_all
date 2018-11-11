@@ -11,9 +11,7 @@ App({
     iv:"",
     session_key:""
   },
-  checkLogin: function () {
-    
-  },
+
   getLaction: function () {
     var that = this;
     wx.getLocation({
@@ -46,6 +44,11 @@ App({
       
       
     })
+   
+      
+  
+    
+
   },
   onLaunch: function () {
     // 展示本地存储能力
@@ -85,7 +88,30 @@ App({
         }
       }
     })
-   
+    
+    //获取用户信息
+    var that = this
+    var req_url = 'User/findByUserId'
+    wx.request({
+      url: that.globalData.host + req_url,
+      data: {
+        userId: 1
+      },
+     
+      header: {
+        'content-type': 'application/json', // 默认值
+        "session_key": that.globalData.session_key
+      },
+      method: "POST",
+      success: function (res) {
+        console.log("请求用户信息成功");
+        that.globalData.userData=res.data.data
+        console.log(that.globalData.userData)
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
     
   },
   
@@ -97,7 +123,8 @@ App({
     projectId: "wxe12df03a91262d60center",
     //临时用户id
     // userid: 'lisi2',
-    session_key: "G5RZfJLF7R/dJ1rrqjU1p2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL"
+    session_key: "VTERSv7f1ANeWlG5/iViO2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL",
+    userData:null
   }
 
 })

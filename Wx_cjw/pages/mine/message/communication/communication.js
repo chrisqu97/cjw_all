@@ -1,20 +1,59 @@
 // pages/mine/message/communication/communication.js
+var app=getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    message: {
+      "content": "",
+      "userId": 123,
+      "accepterId": 2,
+      "positionId": 1,
+    }
   },
-
+  sendSocketMessage: function (msg) {
+    wx.sendSocketMessage({
+      data: msg
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    //开启失败监控
+    wx.onSocketError(function (res) {
+      console.log('WebSocket连接打开失败，请检查！')
+    })
+    //开启服务器消息监控
+    wx.onSocketMessage(function (res) {
+      console.log('收到服务器内容：' + res.data)
+    })
+    
+
   },
 
+//发送消息
+sendMsg :function(e){
+  var that=this
+  //开启连接
+  wx.connectSocket({
+    url: 'ws://localhost:8080/webSocketServer',
+    header: {
+      'content-type': 'application/json',
+      'userId': "123"
+    },
+  })
+  //检查连接是否开启 回调成功才能发送消息
+  wx.onSocketOpen(function (res) {
+    //发送
+    that.sendSocketMessage(JSON.stringify(that.data.message))
+  })
+},
+
+//关闭连接
+close:function(e){
+  wx.onSocketClose(function (res) {
+    console.log('WebSocket 已关闭！')
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

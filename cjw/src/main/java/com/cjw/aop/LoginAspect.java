@@ -5,6 +5,7 @@ import com.cjw.pojo.SessionKeyPojo;
 import com.cjw.service.UserService;
 import com.cjw.utils.StringUtils;
 import com.cjw.utils.WxUtiles;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,13 +22,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Aspect
 @Component
+@Slf4j
 public class LoginAspect {
     @Autowired
     private UserService userService;
     @Autowired
     private WxUtiles wxUtiles;
-
-    private Logger logger = Logger.getLogger(getClass());
 
     private static final String POINT = "!execution(* com.cjw.controller.UserController.login (..)) && execution(* com.cjw.controller.*.*(..)) ";
 
@@ -39,7 +39,7 @@ public class LoginAspect {
      * @throws Exception
      */
     @Around(POINT)
-    public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Exception {
+    public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         String sessionKey = request.getHeader("session_key");
@@ -48,10 +48,12 @@ public class LoginAspect {
             SessionKeyPojo sessionKeyPojo = wxUtiles.decodeSessionKey(sessionKey);
             if (sessionKeyPojo != null && userService.checkSessionKey(sessionKeyPojo.getUserId(), sessionKeyPojo.getSessionKey())) {
                 try {
-                    Object result = proceedingJoinPoint.proceed();
-                    return result;
+                    return proceedingJoinPoint.proceed();
                 } catch (Throwable throwable) {
-                    throwable.printStackTrace();
+                    log.error(throwable.getMessage(), throwable);
+                    ResultPojo resultPojo = new ResultPojo();
+                    resultPojo.setMessage(throwable.getMessage());
+                    return resultPojo;
                 }
             } else {
                 ResultPojo resultPojo = new ResultPojo();
@@ -63,7 +65,6 @@ public class LoginAspect {
             resultPojo.setMessage("session_key is empty");
             return resultPojo;
         }
-        return null;
     }
 
 }

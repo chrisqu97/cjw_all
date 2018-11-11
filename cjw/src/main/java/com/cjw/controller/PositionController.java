@@ -5,12 +5,11 @@ import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.service.PositionService;
 import com.cjw.service.PositionTypeService;
+import com.cjw.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -31,7 +30,7 @@ public class PositionController {
     public ResultPojo findById(@RequestBody PositionPojo positionPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        if(positionPojo.getPositionId()==null){
+        if (positionPojo.getPositionId() == null) {
             resultPojo.setMessage("职位id为空");
             return resultPojo;
         }
@@ -39,7 +38,7 @@ public class PositionController {
         Map<String, String> all = positionTypeService.findAll();
         positionPojo = positionService.findById(positionPojo.getPositionId(), all);
 
-        if(positionPojo==null){
+        if (positionPojo == null) {
             resultPojo.setMessage("未查到该职位");
             return resultPojo;
         }
@@ -87,6 +86,14 @@ public class PositionController {
         return resultPojo;
     }
 
+
+    /**
+     * 根据公司id查找
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByCompanyId", method = RequestMethod.POST)
     public ResultPojo findByCompanyId(@RequestBody PositionSearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
@@ -99,6 +106,50 @@ public class PositionController {
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
+
+    /**
+     * 根据职位名称查询
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByPositionName", method = RequestMethod.POST)
+    public ResultPojo findByPositionName(@RequestBody PositionSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        if (searchPojo.getPositionName() == null) {
+            resultPojo.setMessage("职位名称为空");
+            return resultPojo;
+        }
+
+        searchPojo = positionService.findByPositionName(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
+
+    /**
+     * 模糊匹配获取职位名称
+     *
+     * @param positionName
+     * @return
+     */
+    @RequestMapping(value = "/getPositionName", method = RequestMethod.GET)
+    public ResultPojo getPositionName(@RequestParam String positionName) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        if (StringUtils.isEmpty(positionName)) {
+            resultPojo.setMessage("职位名称为空");
+            return resultPojo;
+        }
+
+        List<String> list = positionService.getPositionName(positionName);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(list);
         return resultPojo;
     }
 }

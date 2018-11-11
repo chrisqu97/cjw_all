@@ -39,7 +39,7 @@ public class MessageTest extends TestBase {
 
         SimpleDateFormat dateTimeFormat = DateUtils.getDateTimeFormat();
         messagePojo.setContent(System.currentTimeMillis() + "");
-        messagePojo.setCreateTime(dateTimeFormat.format(System.currentTimeMillis()));
+        messagePojo.setCreateTime(System.currentTimeMillis());
         messageService.add(messagePojo);
     }
 }

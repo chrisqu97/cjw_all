@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,26 +24,22 @@ public class MessageService {
 
     public MessagePojo add(MessagePojo messagePojo) {
         Message message = new Message();
-        message.setUserId(message.getUserId());
+        message.setUserId(messagePojo.getUserId());
         message.setAccepterId(messagePojo.getAccepterId());
         message.setPositionId(messagePojo.getPositionId());
         message.setContent(messagePojo.getContent());
-        try {
-            SimpleDateFormat simpleDateFormat = DateUtils.getDateTimeFormat();
-            message.setCreateTime(simpleDateFormat.parse(messagePojo.getCreateTime()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        message.setIfRead(Constant.STATE.VALUE);
-        message.setState(Constant.STATE.VALUE);
+        message.setContent(messagePojo.getContent());
+        message.setCreateTime(new Date(messagePojo.getCreateTime()));
+        message.setIfRead(Constant.State.VALUE);
+        message.setState(Constant.State.VALUE);
 
         messageDao.add(message);
         return messagePojo;
     }
 
-    public MessageSearchPojo findByPositionId(MessageSearchPojo searchPojo) {
+    public MessageSearchPojo findByUserIdAndPositionId(MessageSearchPojo searchPojo) {
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
-        List<Message> messages = messageDao.findByUserId(searchPojo.getUserId(), searchPojo.getPositionId());
+        List<Message> messages = messageDao.findByUserIdAndPositionId(searchPojo.getUserId(), searchPojo.getPositionId());
         if (CollectionUtils.isNotEmpty(messages)) {
             PageInfo pageInfo = new PageInfo<>(messages, searchPojo.getPageSize());
             List<MessagePojo> messagePojos = new ArrayList<>();
@@ -53,12 +50,7 @@ public class MessageService {
                 messagePojo.setAccepterId(message.getAccepterId());
                 messagePojo.setContent(message.getContent());
                 messagePojo.setPositionId(message.getPositionId());
-                try {
-                    SimpleDateFormat simpleDateFormat = DateUtils.getDateTimeFormat();
-                    messagePojo.setCreateTime(simpleDateFormat.format(message.getCreateTime()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                messagePojo.setCreateTime(message.getCreateTime().getTime());
                 messagePojo.setIfRead(message.getIfRead());
                 messagePojos.add(messagePojo);
             }

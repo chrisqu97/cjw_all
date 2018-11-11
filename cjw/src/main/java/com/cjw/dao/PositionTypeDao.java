@@ -25,7 +25,7 @@ public class PositionTypeDao {
         PositionTypeExample example = new PositionTypeExample();
         example.createCriteria()
                 .andPositionTypeIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positionTypes)) {
             return positionTypes.get(0);
@@ -35,7 +35,7 @@ public class PositionTypeDao {
 
     public List<PositionType> findAll() {
         PositionTypeExample example = new PositionTypeExample();
-        example.createCriteria().andStateEqualTo(Constant.STATE.VALUE);
+        example.createCriteria().andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_type_id desc");
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positionTypes)) {
@@ -64,7 +64,7 @@ public class PositionTypeDao {
         PositionTypeExample example = new PositionTypeExample();
         example.createCriteria()
                 .andParentEqualTo(parentId)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_type_id asc");
         List<PositionType> positionTypes = positionTypeMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(positionTypes)) {

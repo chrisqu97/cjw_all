@@ -23,7 +23,20 @@ public class StaticDataDao {
         StaticDataExample example = new StaticDataExample();
         example.createCriteria()
                 .andTypeCodeEqualTo(typeCode)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
+        example.setOrderByClause("id asc");
+        List<StaticData> staticDatas = staticDataMapper.selectByExample(example);
+        if (CollectionUtils.isNotEmpty(staticDatas)) {
+            return staticDatas;
+        } else {
+            return null;
+        }
+    }
+
+    public List<StaticData> findAll(){
+        StaticDataExample example = new StaticDataExample();
+        example.createCriteria()
+                .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("id asc");
         List<StaticData> staticDatas = staticDataMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(staticDatas)) {

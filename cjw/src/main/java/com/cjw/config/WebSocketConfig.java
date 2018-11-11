@@ -18,12 +18,12 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(WebSocketChatHandler(), webSocketUrl)
+        registry.addHandler(webSocketChatHandler(), webSocketUrl)
                 .addInterceptors(new WebSocketInterceptor()).setAllowedOrigins("*");
     }
 
     @Bean
-    public WebSocketHandler WebSocketChatHandler() {
+    public WebSocketHandler webSocketChatHandler() {
         return new WebSocketChatHandler();
     }
 }

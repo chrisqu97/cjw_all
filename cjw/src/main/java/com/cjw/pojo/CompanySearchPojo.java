@@ -11,6 +11,6 @@ public class CompanySearchPojo {
     private Integer totalCount;
     private Integer totalPage;
     private List<CompanyPojo> companyPojos;
-    private String size;
+    private Integer size;
     private Integer companyType;
 }

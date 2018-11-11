@@ -130,6 +130,6 @@
   </scroll-view>
 </view>
 <view class="cmt_input">
-  <input class="input_content" placeholder="请输入"/>
-  <view class="send">发送</view>
+  <input class="input_content" placeholder="请输入" bindinput='message'/>
+  <button class='send' bindtap='sendMsg'>发送</button> 
 </view>

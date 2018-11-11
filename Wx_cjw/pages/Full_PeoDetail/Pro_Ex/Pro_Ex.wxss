@@ -1,5 +1,9 @@
 /* pages/mine/feedback/feedback.wxss */
-
+.boader{
+  margin: 50rpx;
+  border-style:solid;
+	border-width:1px;
+}
 .send {
   /* position: fixed;
   right: 30px; */

@@ -2,6 +2,7 @@ package com.cjw.controller;
 
 import com.cjw.async.MessageTask;
 import com.cjw.pojo.MessagePojo;
+import com.cjw.pojo.MessageSearchPojo;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.service.MessageService;
 import com.cjw.utils.DateUtils;
@@ -24,6 +25,7 @@ public class MessageController {
 
     /**
      * 测试异步执行
+     *
      * @return
      */
     @RequestMapping(value = "/addMessageTask", method = RequestMethod.GET)
@@ -37,9 +39,8 @@ public class MessageController {
         messagePojo.setUserId(1);
         messagePojo.setAccepterId(1);
 
-        SimpleDateFormat dateTimeFormat = DateUtils.getDateTimeFormat();
         messagePojo.setContent(System.currentTimeMillis() + "");
-        messagePojo.setCreateTime(dateTimeFormat.format(System.currentTimeMillis()));
+        messagePojo.setCreateTime(System.currentTimeMillis());
         messageTask.addMessage(messagePojo);
 
         System.out.println("end");
@@ -49,4 +50,30 @@ public class MessageController {
         return resultPojo;
     }
 
+
+    /**
+     * 获取聊天记录
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByUserIdAndPositionId", method = RequestMethod.POST)
+    public ResultPojo findByUserIdAndPositionId(MessageSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+        if (searchPojo.getUserId() == null) {
+            resultPojo.setMessage("用户id为空");
+            return resultPojo;
+        }
+        if (searchPojo.getPositionId() == null) {
+            resultPojo.setMessage("职位id为空");
+            return resultPojo;
+        }
+
+        searchPojo = messageService.findByUserIdAndPositionId(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setMessage("获取聊天记录成功");
+        resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
 }

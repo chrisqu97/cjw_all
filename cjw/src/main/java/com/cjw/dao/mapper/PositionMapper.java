@@ -2,8 +2,11 @@ package com.cjw.dao.mapper;
 
 import com.cjw.dao.entity.Position;
 import com.cjw.dao.entity.PositionExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface PositionMapper {
     int countByExample(PositionExample example);
@@ -27,4 +30,7 @@ public interface PositionMapper {
     int updateByPrimaryKeySelective(Position record);
 
     int updateByPrimaryKey(Position record);
+
+    @Select("select position_name from position where position_name like #{positionName}")
+    List<String> getPositionName(@Param("positionName") String positionName);
 }

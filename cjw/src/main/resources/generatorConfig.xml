@@ -50,38 +50,38 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="company" domainObjectName="Company">
-            <generatedKey column="company_id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="file" domainObjectName="File">
-            <generatedKey column="file_id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="follow_company" domainObjectName="FollowCompany">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="message" domainObjectName="Message">
-            <generatedKey column="message_id" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="company" domainObjectName="Company">-->
+            <!--<generatedKey column="company_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="file" domainObjectName="File">-->
+            <!--<generatedKey column="file_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="follow_company" domainObjectName="FollowCompany">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="message" domainObjectName="Message">-->
+            <!--<generatedKey column="message_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
         <table tableName="position" domainObjectName="Position">
             <generatedKey column="position_id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="position_interest" domainObjectName="PositionInterest">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="position_type" domainObjectName="PositionType">
-            <generatedKey column="position_type_id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="see_company" domainObjectName="SeeCompany">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="send_file" domainObjectName="SendFile">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="static_data" domainObjectName="StaticData">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="user" domainObjectName="User">
-            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="position_interest" domainObjectName="PositionInterest">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="position_type" domainObjectName="PositionType">-->
+            <!--<generatedKey column="position_type_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="see_company" domainObjectName="SeeCompany">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="send_file" domainObjectName="SendFile">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="static_data" domainObjectName="StaticData">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="user" domainObjectName="User">-->
+            <!--<generatedKey column="user_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>

@@ -25,7 +25,7 @@
  margin: 20rpx;
 }
 .common{
-  margin: 40rpx;
+  margin: 20rpx;
   width: 100rpx;
   font-size: 28rpx;
 }

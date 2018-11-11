@@ -24,36 +24,10 @@ public class MessageDao {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andMessageIdEqualTo(id)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages.get(0);
-        }
-        return null;
-    }
-
-    public List<Message> findByAcceptId(Integer accepterId, Integer positionId) {
-        MessageExample example = new MessageExample();
-        example.createCriteria()
-                .andAccepterIdEqualTo(accepterId)
-                .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.STATE.VALUE);
-        List<Message> messages = messageMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(messages)) {
-            return messages;
-        }
-        return null;
-    }
-
-    public List<Message> findByUserId(Integer userId, Integer positionId) {
-        MessageExample example = new MessageExample();
-        example.createCriteria()
-                .andUserIdEqualTo(userId)
-                .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.STATE.VALUE);
-        List<Message> messages = messageMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(messages)) {
-            return messages;
         }
         return null;
     }
@@ -62,15 +36,16 @@ public class MessageDao {
         MessageExample example = new MessageExample();
         example.createCriteria()
                 .andAccepterIdEqualTo(accepterId)
-                .andIfReadEqualTo(Constant.STATE.VALUE)
-                .andStateEqualTo(Constant.STATE.VALUE);
+                .andIfReadEqualTo(Constant.State.VALUE)
+                .andStateEqualTo(Constant.State.VALUE);
         List<Message> messages = messageMapper.selectByExample(example);
         if (CollectionUtils.isNotEmpty(messages)) {
             return messages;
         }
         return null;
     }
-    public List<Message> findByPositionId(Integer positionId, Integer userId) {
-        return messageMapper.findByPosition(positionId, userId);
+
+    public List<Message> findByUserIdAndPositionId(Integer userId, Integer positionId) {
+        return messageMapper.findByUserIdAndPositionId(userId, positionId);
     }
 }

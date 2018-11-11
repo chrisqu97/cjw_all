@@ -31,11 +31,13 @@ public class CompanyController {
     public ResultPojo findByCondition(@RequestBody CompanySearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
-        searchPojo = companyService.findByCondition(searchPojo, map);
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String, String> companySize = staticDataService.findByTypeCode("COMPANY_SIZE");
+        searchPojo = companyService.findByCondition(searchPojo, companyType, companySize);
 
         resultPojo.setSuccess(true);
         resultPojo.setData(searchPojo);
+
         return resultPojo;
     }
 
@@ -49,8 +51,9 @@ public class CompanyController {
     public ResultPojo findById(@RequestBody CompanyPojo companyPojo) {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> map = staticDataService.findByTypeCode("COMPANY_TYPE");
-        companyPojo = companyService.findById(companyPojo.getCompanyId(), map);
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String,String> companySize=staticDataService.findByTypeCode("COMPANY_SIZE");
+        companyPojo = companyService.findById(companyPojo.getCompanyId(), companyType,companySize);
 
         if (companyPojo == null) {
             resultPojo.setMessage("不存在该id的公司");
@@ -71,11 +74,28 @@ public class CompanyController {
     public ResultPojo getCompanyType() {
         ResultPojo resultPojo = new ResultPojo();
 
-        Map<String, String> company_type = staticDataService.findByTypeCode("COMPANY_TYPE");
+        Map<String, String> companyType = staticDataService.findByTypeCode("COMPANY_TYPE");
 
         resultPojo.setSuccess(true);
         resultPojo.setMessage("获取公司类型成功");
-        resultPojo.setData(company_type);
+        resultPojo.setData(companyType);
+        return resultPojo;
+    }
+
+    /**
+     * 添加公司
+     *
+     * @param companyPojo
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResultPojo add(@RequestBody CompanyPojo companyPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        companyService.add(companyPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setMessage("添加公司成功");
         return resultPojo;
     }
 

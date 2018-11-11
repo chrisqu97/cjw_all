@@ -7,13 +7,16 @@ Page({
    */
   data: {
     userInfo: {},
-    userdata:[]
-
+    userData:null
   },
  
   onLoad: function () {
-   this.getusrInfo(),
-   this.getjianli()
+  //获取用户信息
+  var that =this
+  that.setData({
+    userData:app.globalData.userData
+  })
+
   },
 
   /**
@@ -21,34 +24,6 @@ Page({
    */
   onReady: function () {
   
-  },
-  getjianli: function () {
-    var that = this
-    var req_url = 'User/findByUserId'
-    var userdata=this.data.userdata
-
-    wx.request({
-      url: app.globalData.host + req_url,
-      data: {
-        userId: 1
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json', // 默认值
-        "session_key": "VTERSv7f1ANeWlG5/iViO2QEvNQlVt4P2TTvuQNL+7xf0f9sgs/xtSnZ24yZCjSL"
-      },
-      method: "POST",
-      success: function (res) {
-        console.log("请求简历成功");
-        that.setData({
-          userdata: res.data.userdata
-        })
-        console.log(that.data.userdata)
-      },
-      fail: function (res) {
-        console.log(".....fail.....");
-      }
-    })
   },
   getusrInfo: function () {
     if (app.globalData.userInfo) {

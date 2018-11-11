@@ -320,7 +320,7 @@
 }
 
 .people_2 .people_4 .people_6 {
-  width: 144rpx;
+  width: 600rpx;
   height: 44rpx;
   padding: 0rpx;
   margin-top: 8rpx;
@@ -336,7 +336,7 @@
 }
 
 .people_2 .people_4 .people_7 {
-  width: 100rpx;
+  width: 300rpx;
   height: 30rpx;
   padding: 0rpx;
   margin-top: 63rpx;
@@ -370,7 +370,7 @@
 }
 
 .people_2 .people_4 .people_11 {
-  width: 200rpx;
+  width: 300rpx;
   height: 29rpx;
   padding: 0rpx;
   margin-top: 108rpx;
@@ -419,16 +419,14 @@
 
 }
 
-.people_2 .people_4 .people_12 {
-  width: 100rpx;
+ .people_12 {
+  width: 300rpx;
   height: 29rpx;
-  padding: 0rpx;
+  padding-top: 50rpx;
   margin-top: 8rpx;
-  margin-left: 480rpx;
+  margin-left:350rpx;
   float: left;
-  position: absolute;
-  top: 0rpx;
-  left: 0rpx;
+
   text-align: left;
   color:#80ca04;
   font-size: 27rpx;

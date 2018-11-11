@@ -13,14 +13,14 @@
         <view class="shaixuan">
           <span class="shuaixuantiaojian">人数</span>
           <block wx:for="{{array}}" wx:key="key">
-            <view class="chose-txt" data-id="{{index}}" bindtap="choseTxtColor" style="{{index == one?' border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
+            <view class="chose-txt" data-id="{{index}}" bindtap="choseCompanySize" style="{{index == currentCompanySize?' border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
               <text class="chose-p">{{item.name}}</text>
             </view>
           </block>
         </view>
         <view class="qingkong">
           <span class="tianjian" bindtap="qingchu">清除条件</span>
-          <p class="queren" bindtap="queren">确认</p>
+          <p class="queren" bindtap="selectSize">确认</p>
         </view>
  </swiper-item>
  <!-- 行业 -->
@@ -28,29 +28,32 @@
         <view class="shaixuan">
           <span class="shuaixuantiaojian">分类</span>
           <block wx:for="{{industry}}" wx:key="key">
-            <view class="chose-txt" data-id="{{index}}" bindtap="choseTxtColor" style="{{index == one?' border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
+            <view class="chose-txt" data-id="{{index}}" bindtap="choseIndustry" style="{{index == currentIndustry?' border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
               <text class="chose-p">{{item.industry}}</text>
             </view>
           </block>
         </view>
         <view class="qingkong">
           <span class="tianjian" bindtap="qingchu">清除条件</span>
-          <p class="queren" bindtap="queren">确认</p>
+          <p class="queren" bindtap="selectIndustry">确认</p>
         </view>
  </swiper-item>
    </swiper>
 
    <!-- 公司列表 -->
-   <navigator url='./company_detail/company_detail'>
-<view class="people_2" >
+ 
+   <view class="people_2" wx:for="{{company}}" wx:key='index' data-id='{{company[index].companyId}}' bindtap='detail'>
+              
+
              <image src="/images/company2.png" style=" width:149rpx;height:149rpx;"     mode="scaleToFill" border="0"   bindtap="people_3_click"  class="people_3" ></image>
                                           <view class="people_4" > 
-                                          <text class="people_6" >XX公司</text>
-                                            <text class="people_7" >温州市</text> 
-                                            <text class="people_11" >规模：20-99人</text>
-                                            <text class="people_8" >鹿城区</text>
-                                            <text class="people_9" >梧田</text>
-                                            <text class="people_12" >互联网</text>
+                                          <text class="people_6" >{{company[index].companyName}}</text>
+                                            <text class="people_7" >工作地点：{{company[index].place}}</text> 
+                                            <text class="people_11" >公司规模：{{company[index].sizeName}}人</text>
+                                            <!-- <text class="people_8" >鹿城区</text>
+                                            <text class="people_9" >梧田</text> -->
+                                            <text class="people_12" >{{company[index].companyTypeName}}</text>
                                           </view>
                        </view>
- </navigator>
+ <!-- </navigator> -->
+ 

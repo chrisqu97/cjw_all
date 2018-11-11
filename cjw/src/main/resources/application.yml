@@ -6,14 +6,20 @@ server:
 spring:
 #    测试数据库
     datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://111.231.120.239:3306/cjw_test?useUnicode=true&zeroDateTimeBehavior=convertToNull
-      username: cjw_test
-      password: cjw_test2018
-      initialSize: 10
-      maxActive: 20
-      minIdle: 5
-      maxWait: 50000
+      druid:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://111.231.120.239:3306/cjw_test?useUnicode=true&zeroDateTimeBehavior=convertToNull
+        username: cjw_test
+        password: cjw_test2018
+        initialSize: 10
+        maxActive: 20
+        minIdle: 5
+        maxWait: 50000
+        testOnBorrow: false
+        validationQuery: SELECT 1
+        testWhileIdle: true
+        poolPreparedStatements: true
+      type: com.alibaba.druid.pool.DruidDataSource
 
 #    生产数据库
 #    datasource:
@@ -27,23 +33,23 @@ spring:
 #      maxIdle: 20
 #      maxWait: 50000
 
+#上传文件
+file:
+  staticAccessPath: /api/file/**
+  uploadPath: E:/computerStudy/Git/cjw_all/cjw/upload/
+
 mybatis:
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: com.cjw.dao.entity
+  configuration:
+    map-underscore-to-camel-case: true
 
 # 打印sql
 logging:
   level:
     com.cjw.dao.mapper: DEBUG
 
-#pagehelper
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-  returnPageInfo: check
-
+#微信
 wx:
   api: https://api.weixin.qq.com/sns/jscode2session
   appId: wxe12df03a91262d60

@@ -28,14 +28,14 @@
     <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
   </view>
   </navigator>
-  <navigator url='./Self_Value/Self_Value'>
+  <!-- <navigator url='./Self_Value/Self_Value'>
   <view class="Full_PeoDetail_6" >
     <text class="Full_PeoDetail_7" >自我评价</text>
     <text class="Full_PeoDetail_25" >选填</text>
     <text class="Full_PeoDetail_24" >待完善</text>
     <image src="/pages/Full_PeoDetail/images/Full_PeoDetail/Full_PeoDetail_8_8.jpg" style=" width:34rpx;height:33rpx;"  mode="scaleToFill" border="0"   bindtap="Full_PeoDetail_8_click"  class="Full_PeoDetail_8" ></image>
   </view>
-  </navigator>
+  </navigator> -->
   <navigator url='./Pre_Peodetail/Pre_Peodetail'>
     <view class='preview'>
     <text> 预览简历</text> 

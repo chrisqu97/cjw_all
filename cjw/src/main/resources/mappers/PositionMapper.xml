@@ -15,6 +15,9 @@
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="skill_description" jdbcType="VARCHAR" property="skillDescription" />
+    <result column="education_background" jdbcType="VARCHAR" property="educationBackground" />
+    <result column="welfare" jdbcType="VARCHAR" property="welfare" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -76,7 +79,8 @@
   </sql>
   <sql id="Base_Column_List">
     position_id, user_id, position_name, company_id, position_type, place, educational_requirements, 
-    experience_requirements, salary, description, state, create_time, update_time
+    experience_requirements, salary, description, state, create_time, update_time, skill_description, 
+    education_background, welfare
   </sql>
   <select id="selectByExample" parameterType="com.cjw.dao.entity.PositionExample" resultMap="BaseResultMap">
     select
@@ -115,13 +119,15 @@
     insert into position (user_id, position_name, company_id, 
       position_type, place, educational_requirements, 
       experience_requirements, salary, description, 
-      state, create_time, update_time
-      )
+      state, create_time, update_time, 
+      skill_description, education_background, 
+      welfare)
     values (#{userId,jdbcType=INTEGER}, #{positionName,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, 
       #{positionType,jdbcType=INTEGER}, #{place,jdbcType=VARCHAR}, #{educationalRequirements,jdbcType=VARCHAR}, 
       #{experienceRequirements,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{skillDescription,jdbcType=VARCHAR}, #{educationBackground,jdbcType=VARCHAR}, 
+      #{welfare,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cjw.dao.entity.Position">
     <selectKey keyProperty="positionId" order="AFTER" resultType="java.lang.Integer">
@@ -165,6 +171,15 @@
       <if test="updateTime != null">
         update_time,
       </if>
+      <if test="skillDescription != null">
+        skill_description,
+      </if>
+      <if test="educationBackground != null">
+        education_background,
+      </if>
+      <if test="welfare != null">
+        welfare,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -202,6 +217,15 @@
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skillDescription != null">
+        #{skillDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="educationBackground != null">
+        #{educationBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare != null">
+        #{welfare,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -253,6 +277,15 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.skillDescription != null">
+        skill_description = #{record.skillDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationBackground != null">
+        education_background = #{record.educationBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="record.welfare != null">
+        welfare = #{record.welfare,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -272,7 +305,10 @@
       description = #{record.description,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      skill_description = #{record.skillDescription,jdbcType=VARCHAR},
+      education_background = #{record.educationBackground,jdbcType=VARCHAR},
+      welfare = #{record.welfare,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -316,6 +352,15 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="skillDescription != null">
+        skill_description = #{skillDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="educationBackground != null">
+        education_background = #{educationBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare != null">
+        welfare = #{welfare,jdbcType=VARCHAR},
+      </if>
     </set>
     where position_id = #{positionId,jdbcType=INTEGER}
   </update>
@@ -332,7 +377,10 @@
       description = #{description,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      skill_description = #{skillDescription,jdbcType=VARCHAR},
+      education_background = #{educationBackground,jdbcType=VARCHAR},
+      welfare = #{welfare,jdbcType=VARCHAR}
     where position_id = #{positionId,jdbcType=INTEGER}
   </update>
 </mapper>

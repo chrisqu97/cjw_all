@@ -30,6 +30,12 @@ public class Position implements Serializable {
 
     private Date updateTime;
 
+    private String skillDescription;
+
+    private String educationBackground;
+
+    private String welfare;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getPositionId() {
@@ -134,5 +140,29 @@ public class Position implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getSkillDescription() {
+        return skillDescription;
+    }
+
+    public void setSkillDescription(String skillDescription) {
+        this.skillDescription = skillDescription == null ? null : skillDescription.trim();
+    }
+
+    public String getEducationBackground() {
+        return educationBackground;
+    }
+
+    public void setEducationBackground(String educationBackground) {
+        this.educationBackground = educationBackground == null ? null : educationBackground.trim();
+    }
+
+    public String getWelfare() {
+        return welfare;
+    }
+
+    public void setWelfare(String welfare) {
+        this.welfare = welfare == null ? null : welfare.trim();
     }
 }

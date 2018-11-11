@@ -22,7 +22,7 @@ public class PositionTypeTest extends TestBase {
         PositionType positionType = new PositionType();
         positionType.setPositionTypeName("类型三");
 //        positionType.setParent(0);
-        positionType.setState(Constant.STATE.VALUE);
+        positionType.setState(Constant.State.VALUE);
         positionTypeDao.add(positionType);
         System.out.println(positionType);
     }

@@ -14,6 +14,8 @@ public class PositionInterest implements Serializable {
 
     private Integer state;
 
+    private Integer preference;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -54,5 +56,13 @@ public class PositionInterest implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getPreference() {
+        return preference;
+    }
+
+    public void setPreference(Integer preference) {
+        this.preference = preference;
     }
 }

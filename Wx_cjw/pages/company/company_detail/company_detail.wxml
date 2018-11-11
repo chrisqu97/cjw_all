@@ -1,11 +1,11 @@
 <!--pages/company/company_detail/company_detail.wxml-->
 
 <view class='title'>
-    公司名称
+    {{comdetail.companyName}}
 </view>
 <view>
-  <text class='size'>#规模</text>
-  <text class='classify'>#行业分类</text>
+  <text class='size'>公司规模：{{comdetail.sizeName}}人</text>
+  <text class='classify'>公司类型：{{comdetail.companyTypeName}}</text>
 </view>
 
 <view class="swiper">
@@ -18,36 +18,37 @@
        <swiper-item >
        <!-- 公司地址 -->
      <view class='title'>公司地址</view>
-      <view class='content'>#具体地址</view>
+      <view class='content'>{{comdetail.detailPlace}}</view>
      <view class='bottom_line' > </view>
     <view class='title'>公司介绍</view>
-      <view class='content'>#具体介绍</view>
+      <view class='content'>{{comdetail.description}}</view>
     <view class='bottom_line' > </view>
-<!-- 工商信息 -->
+<!-- 工商信息
      <view class='title'>工商信息</view>
       <view class='content'>成立时间   <text class='right'>#成立时间</text> </view> 
       <view class='bottom_line' > </view> 
       <view class='content'>注册资金   <text class='right'>#注册资金</text> </view> 
       <view class='bottom_line' > </view> 
-      <view class='content'>法人代表   <text class='right'>#法人代表</text> </view> 
-      <view class='bottom_line' > </view> 
+      <view class='content'>法人代表   <text class='right'>#法人代表</text> </view>  -->
+     
        </swiper-item>
 
        <swiper-item >
           <!-- 职位列表 -->
-            <view class="main_11" >
+            <view class="main_11" wx:for="{{job}}"  wx:key="index" data-id='{{job[index].positionId}}' bindtap='main_19_click'>
                       <view class="main_12" >
-                        <text class="main_15" >要求：专科以上|宁波</text>
-                        <text class="main_13" >.net开发工程师</text>
-                        <text class="main_14" >4K-8K</text>
-                        <text class="main_16" >五险一金</text>
-                        <text class="main_17" >住房补贴</text>
+                        <text class="main_15" >要求：{{job[index].educationalRequirements}}以上|地点：{{job[index].place[0]}}</text>
+                        <text class="main_13" >{{job[index].positionName}}</text>
+                        <text class="main_14" >工资：{{job[index].salary}}</text>
+              <view class='welfare'>
+                        <view class="main_16" wx:for="{{job[index].welfare[index]}}">{{job[index].welfare[index]}}</view>
+              </view>         
                       </view>
                       <view class="main_20" >
-                        <text class="main_18" >三天前更新</text>
-                        <button bindtap="main_19_click"  class="main_19" >查看</button>
+                        <text class="main_18" >{{job[index].createTime}}更新</text>
+                     
                       </view>
-                    </view>
+              </view>    
        </swiper-item>
 
      </swiper>
