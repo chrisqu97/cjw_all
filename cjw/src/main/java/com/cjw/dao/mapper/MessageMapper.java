@@ -33,4 +33,7 @@ public interface MessageMapper {
 
     @Select("select * from message where position_id =#{positionId} and (user_id=#{userId} or accepter_id =#{userId})and state =1 order by create_time;")
     List<Message> findByPosition(@Param("positionId") Integer positionId, @Param("userId") Integer userId);
+
+    @Select("select * from message where (user_id =123 or accepter_id =123) and position_id=1 and state =1 order by create_time")
+    List<Message> findByUserIdAndPositionId(@Param("userId") Integer userId, @Param("positionId") Integer positionId);
 }

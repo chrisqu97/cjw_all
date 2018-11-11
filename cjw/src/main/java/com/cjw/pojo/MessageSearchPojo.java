@@ -12,6 +12,5 @@ public class MessageSearchPojo {
     private Integer totalCount;
     private List<MessagePojo> messagePojos;
     private Integer userId;
-    private Integer accepterId;
     private Integer positionId;
 }

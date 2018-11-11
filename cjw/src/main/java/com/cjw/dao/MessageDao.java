@@ -32,32 +32,6 @@ public class MessageDao {
         return null;
     }
 
-    public List<Message> findByAcceptId(Integer accepterId, Integer positionId) {
-        MessageExample example = new MessageExample();
-        example.createCriteria()
-                .andAccepterIdEqualTo(accepterId)
-                .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.State.VALUE);
-        List<Message> messages = messageMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(messages)) {
-            return messages;
-        }
-        return null;
-    }
-
-    public List<Message> findByUserId(Integer userId, Integer positionId) {
-        MessageExample example = new MessageExample();
-        example.createCriteria()
-                .andUserIdEqualTo(userId)
-                .andPositionIdEqualTo(positionId)
-                .andStateEqualTo(Constant.State.VALUE);
-        List<Message> messages = messageMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(messages)) {
-            return messages;
-        }
-        return null;
-    }
-
     public List<Message> findForNotRead(Integer accepterId) {
         MessageExample example = new MessageExample();
         example.createCriteria()
@@ -70,7 +44,8 @@ public class MessageDao {
         }
         return null;
     }
-    public List<Message> findByPositionId(Integer positionId, Integer userId) {
-        return messageMapper.findByPosition(positionId, userId);
+
+    public List<Message> findByUserIdAndPositionId(Integer userId, Integer positionId) {
+        return messageMapper.findByUserIdAndPositionId(userId, positionId);
     }
 }
