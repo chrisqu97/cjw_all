@@ -157,4 +157,13 @@ public class PositionService {
         return list;
     }
 
+    public PositionSearchPojo findByPositionIds(PositionSearchPojo searchPojo) {
+        PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
+        List<Position> positions = positionDao.findByPositionIds(searchPojo.getPositionIds());
+        if (CollectionUtils.isNotEmpty(positions)) {
+            setPositionPojos(searchPojo, positions);
+        }
+        return searchPojo;
+    }
+
 }

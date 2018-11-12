@@ -42,11 +42,7 @@ public class PositionDao {
                 .andCompanyIdEqualTo(companyId)
                 .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_id desc");
-        List<Position> positions = positionMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(positions)) {
-            return positions;
-        }
-        return null;
+        return positionMapper.selectByExample(example);
     }
 
     public List<Position> findByPositionName(String positionName) {
@@ -55,14 +51,19 @@ public class PositionDao {
                 .andPositionNameLike("%" + positionName + "%")
                 .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_id desc");
-        List<Position> positions = positionMapper.selectByExample(example);
-        if (CollectionUtils.isNotEmpty(positions)) {
-            return positions;
-        }
-        return null;
+        return positionMapper.selectByExample(example);
     }
 
     public List<String> getPositionName(String positionName) {
         return positionMapper.getPositionName("%" + positionName + "%");
+    }
+
+    public List<Position> findByPositionIds(List<Integer> positionIds) {
+        PositionExample example = new PositionExample();
+        example.createCriteria()
+                .andPositionIdIn(positionIds)
+                .andStateEqualTo(Constant.State.VALUE);
+        example.setOrderByClause("position_id desc");
+        return positionMapper.selectByExample(example);
     }
 }
