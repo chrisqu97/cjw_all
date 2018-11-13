@@ -5,6 +5,7 @@ import com.cjw.pojo.RecommendPojo;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.recommend.BaseRecommender;
 import com.cjw.service.RecommendService;
+import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,7 +72,11 @@ public class RecommendController {
         recommendPojo.setPositionIds(positonIds);
 
         resultPojo.setSuccess(true);
-        resultPojo.setMessage("获取推荐的职位id列表成功");
+        if (CollectionUtils.isNotEmpty(positonIds)){
+            resultPojo.setMessage("获取推荐的职位id列表成功");
+        }else{
+            resultPojo.setMessage("数据生成中请等待");
+        }
         resultPojo.setData(recommendPojo);
         return resultPojo;
     }
