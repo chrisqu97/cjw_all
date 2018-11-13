@@ -57,3 +57,11 @@ wx:
 
 webSocket:
   url: "/webSocketServer"
+
+
+thread:
+  pool:
+    corePoolSize: 20
+    maxPoolSize: 40
+    keepAliveSeconds: 300
+    queueCapacity: 50
