@@ -66,4 +66,20 @@ public class PositionDao {
         example.setOrderByClause("position_id desc");
         return positionMapper.selectByExample(example);
     }
+
+    public Integer countAll() {
+        PositionExample example = new PositionExample();
+        example.createCriteria()
+                .andStateEqualTo(Constant.State.VALUE);
+        example.setOrderByClause("position_id desc");
+        return positionMapper.countByExample(example);
+    }
+
+    public List<Integer> getAllPositionIdsByPositionType(Integer positionType) {
+        return positionMapper.getAllPositionIdsByPositionType(positionType);
+    }
+
+    public List<Integer> getAllPositionIds(){
+        return positionMapper.getAllPositionIds();
+    }
 }

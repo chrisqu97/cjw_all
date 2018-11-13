@@ -175,4 +175,21 @@ public class PositionController {
         resultPojo.setData(searchPojo);
         return resultPojo;
     }
+
+    /**
+     * 随机查找职位
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByRandom", method = RequestMethod.POST)
+    public ResultPojo findByRandom(@RequestBody PositionSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        searchPojo = positionService.findByRandom(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
 }

@@ -3,7 +3,6 @@ package com.cjw.controller;
 import com.cjw.async.RecommendTask;
 import com.cjw.pojo.RecommendPojo;
 import com.cjw.pojo.ResultPojo;
-import com.cjw.recommend.BaseRecommender;
 import com.cjw.service.RecommendService;
 import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

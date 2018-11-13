@@ -14,4 +14,5 @@ public class PositionSearchPojo {
     private Integer companyId;
     private String positionName;
     private List<Integer> positionIds;
+    private Integer positionType;
 }
