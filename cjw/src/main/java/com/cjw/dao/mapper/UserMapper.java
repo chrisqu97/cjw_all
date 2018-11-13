@@ -36,4 +36,7 @@ public interface UserMapper {
 
     @Select("select user_id,user_name from user")
     List<User> getUserIdAndUserName();
+
+    @Select("select user_id from user")
+    List<Integer> getAllUserIds();
 }

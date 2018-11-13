@@ -241,4 +241,8 @@ public class UserService {
         }
         return null;
     }
+
+    public List<Integer> getAllUserIds() {
+        return userDao.getAllUserIds();
+    }
 }

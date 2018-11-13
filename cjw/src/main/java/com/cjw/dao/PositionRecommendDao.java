@@ -22,6 +22,10 @@ public class PositionRecommendDao {
         positionRecommendMapper.insert(positionRecommend);
     }
 
+    public void update(PositionRecommend positionRecommend) {
+        positionRecommendMapper.updateByPrimaryKey(positionRecommend);
+    }
+
     /**
      * 根据用户id获取职位id列表
      *

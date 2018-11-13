@@ -30,8 +30,6 @@ public class RecommendService {
     private RecommendUtils recommendUtils;
     @Autowired
     private PositionRecommendDao positionRecommendDao;
-    @Autowired
-    private PositionDao positionDao;
 
     /**
      * slopOne
@@ -95,6 +93,14 @@ public class RecommendService {
      */
     public void addList(Integer userId, List<RecommendedItem> items) {
         if (CollectionUtils.isNotEmpty(items)) {
+            List<PositionRecommend> positionRecommends = positionRecommendDao.findByUserId(userId);
+            if (CollectionUtils.isNotEmpty(positionRecommends)) {
+                //清除已有的推荐数据
+                for (PositionRecommend positionRecommend : positionRecommends) {
+                    positionRecommend.setState(Constant.State.INVALUE);
+                    positionRecommendDao.update(positionRecommend);
+                }
+            }
             for (RecommendedItem item : items) {
                 PositionRecommend recommend = new PositionRecommend();
                 recommend.setUserId(userId);
@@ -103,6 +109,7 @@ public class RecommendService {
                 recommend.setCreateTime(new Date(System.currentTimeMillis()));
                 positionRecommendDao.add(recommend);
             }
+
         }
     }
 

@@ -48,14 +48,14 @@ public class PositionDao {
     public List<Position> findByPositionName(String positionName) {
         PositionExample example = new PositionExample();
         example.createCriteria()
-                .andPositionNameLike("%" + positionName + "%")
+                .andPositionNameLike(positionName + "%")
                 .andStateEqualTo(Constant.State.VALUE);
         example.setOrderByClause("position_id desc");
         return positionMapper.selectByExample(example);
     }
 
     public List<String> getPositionName(String positionName) {
-        return positionMapper.getPositionName("%" + positionName + "%");
+        return positionMapper.getPositionName(positionName + "%");
     }
 
     public List<Position> findByPositionIds(List<Integer> positionIds) {
