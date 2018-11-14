@@ -7,7 +7,9 @@ Page({
    */
   data: {
     motto: 'Hello World',
-    userInfo: {}  
+    userInfo: {}  ,
+    userId:1,
+    size:3
   
   },
   //事件处理函数  
@@ -16,7 +18,17 @@ Page({
       url: '../logs/logs'
     })
   },  
+  recommendpos:function(){
+    // 创建推荐
 
+
+    wx.navigateTo({
+      url: '../people_Num/people_Num',
+    })
+  },
+
+
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -57,3 +69,5 @@ Page({
     })
   }
 })
+
+
