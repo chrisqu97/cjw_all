@@ -28,7 +28,7 @@ public class RecommendSchedule{
     /**
      * 每天0点更新推荐信息
      */
-    @Scheduled(cron = "0 0 0 * * ? *")
+    @Scheduled(cron = "0 0 0 1/1 * ? ")
     public void updateUserRecommend() {
         List<Integer> allUserIds = userService.getAllUserIds();
         if (CollectionUtils.isNotEmpty(allUserIds)) {
