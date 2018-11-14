@@ -58,7 +58,7 @@ public class MessageController {
      * @return
      */
     @RequestMapping(value = "/findByUserIdAndPositionId", method = RequestMethod.POST)
-    public ResultPojo findByUserIdAndPositionId(MessageSearchPojo searchPojo) {
+    public ResultPojo findByUserIdAndPositionId(@RequestBody MessageSearchPojo searchPojo) {
         ResultPojo resultPojo = new ResultPojo();
         if (searchPojo.getUserId() == null) {
             resultPojo.setMessage("用户id为空");
