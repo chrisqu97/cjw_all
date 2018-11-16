@@ -11,8 +11,34 @@ Page({
     del_id:'',//方便存在本地的locakStorage  
     response:'' //存取返回数据  
   }, 
+  onLoad:function(){
+    this.createRecommend()
+  },
+ 
+  createRecommend: function (e) {
+    var that = this
+    // 请求后台 
+    var req_url = 'Recommend/createRecommend'
 
-  
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: {
+        userId: that.data.userId,
+        size: that.data.size
+      },
+
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "POST",
+
+      success: function (res) {
+      },
+      fail: function (res) {
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

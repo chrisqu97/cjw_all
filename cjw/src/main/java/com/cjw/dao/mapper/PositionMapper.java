@@ -33,4 +33,10 @@ public interface PositionMapper {
 
     @Select("select position_name from position where position_name like #{positionName}")
     List<String> getPositionName(@Param("positionName") String positionName);
+
+    @Select("select position_id from position where position_type =#{positionType}")
+    List<Integer> getAllPositionIdsByPositionType(@Param("positionType") Integer positionType);
+
+    @Select("select position_id from position")
+    List<Integer> getAllPositionIds();
 }

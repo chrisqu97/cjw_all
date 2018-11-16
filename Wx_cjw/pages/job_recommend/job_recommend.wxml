@@ -1,23 +1,25 @@
  <view class="swiper">
- <view class="swiper-tab">
+ <!-- <view class="swiper-tab">
         <view class="swiper-tab-list {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">保底岗位</view>
         <view class="swiper-tab-list {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> 核心岗位</view>
         <view class="swiper-tab-list {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab"> 冲刺岗位</view>
-    </view>
+    </view> -->
 
 
- <view class="main_11" >
-    <view class="main_12" >
-      <text class="main_13" >软件工程师 </text>
-      <text class="main_15" >要求：本科以上|长沙</text>
-      <text class="main_14" >中专/技校|十年以上</text>
-      <text class="main_16" >执行力强</text>
-      <text class="main_17" >责任心强</text>
-    </view>
-    <view class="main_20" >
-      <text class="main_18" >一天前更新</text>
-      <button bindtap="main_19_click"  class="main_19" >查看</button>
-    </view>
-  </view>
+  <!-- 职位列表 -->
+            <view class="main_11" wx:for="{{job}}"  wx:key="index" data-id='{{job[index].positionId}}' bindtap='main_19_click'>
+                      <view class="main_12" >
+                        <text class="main_15" >要求：{{job[index].educationalRequirements}}以上|地点：{{job[index].place[0]}}</text>
+                        <text class="main_13" >{{job[index].positionName}}</text>
+                        <text class="main_14" >工资：{{job[index].salary}}</text>
+              <view class='welfare'>
+                        <view class="main_16" wx:for="{{job[index].welfare[index]}}">{{job[index].welfare[index]}}</view>
+              </view>         
+                      </view>
+                      <view class="main_20" >
+                        <text class="main_18" >{{job[index].createTime}}更新</text>
+                     
+                      </view>
+              </view>    
 
 </view>

@@ -62,8 +62,11 @@
         <!--<table tableName="message" domainObjectName="Message">-->
             <!--<generatedKey column="message_id" sqlStatement="MySql" identity="true"/>-->
         <!--</table>-->
-        <table tableName="position" domainObjectName="Position">
-            <generatedKey column="position_id" sqlStatement="MySql" identity="true"/>
+        <!--<table tableName="position" domainObjectName="Position">-->
+            <!--<generatedKey column="position_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="position_recommend" domainObjectName="PositionRecommend">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <!--<table tableName="position_interest" domainObjectName="PositionInterest">-->
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->

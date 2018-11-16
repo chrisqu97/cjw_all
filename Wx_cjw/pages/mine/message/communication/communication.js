@@ -2,12 +2,15 @@
 var app=getApp()
 Page({
   data: {
-    message: {
+    message: [{
       "content": "",
       "userId": 123,
       "accepterId": 2,
       "positionId": 1,
-    }
+    }],
+    messageList:[],
+    content:""
+
   },
   sendSocketMessage: function (msg) {
     wx.sendSocketMessage({
@@ -29,10 +32,31 @@ Page({
     
 
   },
+  message:function(e){
+    var that=this
+    var index=0
+   var content=that.data.content
+     that.data.message[index].content = e.detail.value;
+
+  },
 
 //发送消息
 sendMsg :function(e){
   var that=this
+  //后端获取聊天记录
+  var messageHt = [{content:"你好"},{content:"123"}]
+// 前台消息
+var message=that.data.message
+// 消息列表
+  var messageList=that.data.messageList
+
+var content=that.data.content
+  that.setData({
+    messageList:messageHt.concat(message),
+
+    
+      })
+console.log(messageList)
   //开启连接
   wx.connectSocket({
     url: 'ws://localhost:8080/webSocketServer',
@@ -41,11 +65,14 @@ sendMsg :function(e){
       'userId': "123"
     },
   })
+  
   //检查连接是否开启 回调成功才能发送消息
   wx.onSocketOpen(function (res) {
+    
     //发送
     that.sendSocketMessage(JSON.stringify(that.data.message))
   })
+  console.log(that.data.message)
 },
 
 //关闭连接

@@ -13,35 +13,45 @@ Page({
       { url: '../../images/2.jpg' },
       ],
 
-    jobs: []
+    job: []
   },
 
-  check_click: function (e) {
+
+  main_19_click: function (e) {
+    var positionId = e.currentTarget.dataset.id;
+    console.log("id+" + positionId)
     wx.navigateTo({
-      url: '../job_detail/job_detail',
-      
+      url: '../job_detail/job_detail?id=' + positionId,
     })
-    console.log(1);
-  },
 
+
+  },
   getjob: function () {
     var that = this
-    var req_url = '/getJob'
+    var req_url = 'Position/findByRandom'
     wx.request({
       url: app.globalData.host + req_url,
       data: {
-        username: app.globalData.userid
+        pageNum: 1,
+        pageSize: 5,
+        positionType: 5
       },
-      method: 'GET',
+      method: 'POST',
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
       },
       success: function (res) {
-        console.log("请求职位列表成功");
+        // 后端获取数据源
+        var positionPojos = res.data.data.positionPojos
+        console.log(positionPojos);
+        var job=that.data.job
+
         that.setData({
-          jobs: res.data.jobdata
+        job:positionPojos
+        
         })
-        console.log(that.data.jobs)
+      
       },
       fail: function (res) {
         console.log(".....fail.....");

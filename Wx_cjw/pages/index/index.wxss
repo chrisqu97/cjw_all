@@ -57,7 +57,7 @@
 }
 
 .main_11 .main_12 {
-  width: 458rpx;
+  width: 600rpx;
   position: relative;
   height: 218rpx;
   padding: 0rpx;
@@ -124,7 +124,7 @@
   margin-top: 160rpx;
   margin-left: 16rpx;
   float: left;
-  position: absolute;
+ 
   top: 0rpx;
   left: 0rpx;
   text-align: center;

@@ -1,7 +1,6 @@
 package com.cjw.service;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.cjw.common.Constant;
 import com.cjw.dao.CompanyDao;
 import com.cjw.dao.PositionDao;
@@ -16,7 +15,6 @@ import com.cjw.utils.DateUtils;
 import com.cjw.utils.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.mahout.math.jet.random.Poisson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -137,6 +135,7 @@ public class PositionService {
         for (Position position : positions) {
             PositionPojo positionPojo = new PositionPojo();
             positionPojo.setPositionId(position.getPositionId());
+            positionPojo.setPositionType(position.getPositionType());
             positionPojo.setPositionName(position.getPositionName());
             positionPojo.setPlace(JSON.parseArray(position.getPlace(), String.class));
             positionPojo.setSalary(position.getSalary());
@@ -157,4 +156,53 @@ public class PositionService {
         return list;
     }
 
+    public PositionSearchPojo findByPositionIds(PositionSearchPojo searchPojo) {
+        PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
+        List<Position> positions = positionDao.findByPositionIds(searchPojo.getPositionIds());
+        if (CollectionUtils.isNotEmpty(positions)) {
+            setPositionPojos(searchPojo, positions);
+        }
+        return searchPojo;
+    }
+
+    public PositionSearchPojo findByRandom(PositionSearchPojo searchPojo) {
+        List<Integer> positionIds = randomForPositionIds(searchPojo);
+        PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
+        List<Position> positions = positionDao.findByPositionIds(positionIds);
+        if (CollectionUtils.isNotEmpty(positions)) {
+            setPositionPojos(searchPojo, positions);
+        }
+        return searchPojo;
+    }
+
+    /**
+     * 随机获取职位id
+     *
+     * @param searchPojo
+     * @return
+     */
+    private List<Integer> randomForPositionIds(PositionSearchPojo searchPojo) {
+        List<Integer> randomPositionIds = new ArrayList<>();
+        List<Integer> positionIds;
+        if (searchPojo.getPositionType() != null) {
+            positionIds = positionDao.getAllPositionIdsByPositionType(searchPojo.getPositionType());
+        } else {
+            positionIds = positionDao.getAllPositionIds();
+        }
+        if (CollectionUtils.isNotEmpty(positionIds) && positionIds.size() > searchPojo.getPageSize()) {
+            Random random = new Random();
+            Set<Integer> randomList = new HashSet<>();
+            boolean flag = true;
+            while (flag) {
+                randomList.add(random.nextInt(positionIds.size()));
+                if (randomList.size() == searchPojo.getPageSize()) {
+                    flag = false;
+                }
+            }
+            CollectionUtils.addAll(randomPositionIds, randomList.iterator());
+        } else {
+            CollectionUtils.addAll(randomPositionIds, positionIds.iterator());
+        }
+        return randomPositionIds;
+    }
 }

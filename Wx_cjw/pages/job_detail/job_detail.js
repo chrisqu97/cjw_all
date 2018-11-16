@@ -15,7 +15,7 @@ Page({
     del_id:'',//方便存在本地的locakStorage  
     response:'', //存取返回数据 ，
     posdetail:[],
-    postionId:1
+ 
   }, 
  
   /**

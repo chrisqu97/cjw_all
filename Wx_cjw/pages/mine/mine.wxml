@@ -20,13 +20,13 @@
     <image class="option_img" style='float:right;' src='../../images/right.png'/>
   </view>
   </navigator >
-  <navigator url='../people_Num/people_Num'>
-  <view class="option_block">
+
+  <view class="option_block" bindtap='recommendpos'>
     <image class="option_img" src='../../images/xihuan.png'/>
-    竞争力分析
+    职位推荐
     <image class="option_img" style='float:right;' src='../../images/right.png'/>
   </view>
-  </navigator>
+
   
   <navigator url="../tag_interest/tag_interest">
     <view class="option_block">

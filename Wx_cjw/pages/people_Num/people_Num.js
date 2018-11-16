@@ -3,9 +3,42 @@ var app = getApp();
 var radarChart = null;
 Page({
   data: {
+    userId:1
   },
   touchHandler: function (e) {
     console.log(radarChart.getCurrentDataIndex(e));
+  },
+
+  recommendpos:function(e){
+    
+    wx.navigateTo({
+      url: '../job_recommend/job_recommend',
+    })
+  },
+  getrecommend:function(e){
+    var that = this
+    // 请求后台 
+    var req_url = 'Recommend/getRecommend'
+
+    wx.request({
+      url: app.globalData.host + req_url,
+      data: {
+        userId: that.data.userId,
+     
+      },
+
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "POST",
+
+      success: function (res) {
+        var positionList=res.data.data
+      },
+      fail: function (res) {
+      }
+    })
   },
   onReady: function (e) {
     var windowWidth = 320;

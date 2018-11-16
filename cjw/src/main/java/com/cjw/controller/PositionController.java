@@ -5,6 +5,7 @@ import com.cjw.pojo.PositionSearchPojo;
 import com.cjw.pojo.ResultPojo;
 import com.cjw.service.PositionService;
 import com.cjw.service.PositionTypeService;
+import com.cjw.utils.CollectionUtils;
 import com.cjw.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -150,6 +151,45 @@ public class PositionController {
 
         resultPojo.setSuccess(true);
         resultPojo.setData(list);
+        return resultPojo;
+    }
+
+    /**
+     * 根据职位id列表获取
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByPositionIds", method = RequestMethod.POST)
+    public ResultPojo findByPositionIds(@RequestBody PositionSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        if (CollectionUtils.isEmpty(searchPojo.getPositionIds())) {
+            resultPojo.setMessage("职位id列表为空");
+            return resultPojo;
+        }
+
+        searchPojo = positionService.findByPositionIds(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(searchPojo);
+        return resultPojo;
+    }
+
+    /**
+     * 随机查找职位
+     *
+     * @param searchPojo
+     * @return
+     */
+    @RequestMapping(value = "/findByRandom", method = RequestMethod.POST)
+    public ResultPojo findByRandom(@RequestBody PositionSearchPojo searchPojo) {
+        ResultPojo resultPojo = new ResultPojo();
+
+        searchPojo = positionService.findByRandom(searchPojo);
+
+        resultPojo.setSuccess(true);
+        resultPojo.setData(searchPojo);
         return resultPojo;
     }
 }

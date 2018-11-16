@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @RequestMapping("/test")
     public String test(@CurrentUser AuthUser user){
-        System.out.println("test");
+        System.out.println("currentUser:"+user.getUserId());
         return "test success";
     }
 }
