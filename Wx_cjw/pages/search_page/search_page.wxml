@@ -1,5 +1,19 @@
 <!--pages/search_page/search_page.wxml-->
-<include src="../../search/search.wxml"/>
+<view class="search {{search_selected==1?'search_selector':''}}">
+  <view class="search_bg {{search_selected==1?'search_bg_selector':''}}">
+    <icon class='search_icon' size='15' type='search'></icon>
+    <input class='search_input' placeholder="搜索才聚网" value='{{positionName}}' bindinput='search_input' />
+  </view>
+  <view class="search_cancel {{search_selected==1?'search_cancel_selector':''}}" bindtap='search_cabcel'>取消</view>
+</view>
+<!--搜索项-->
+<view class="option">
+  <view wx:for="{{positionNames}}">
+    <navigator url="search_res/search_res?positionName={{item}}">
+      <view class="option_item">{{item}}</view>
+    </navigator>
+  </view>
+</view>
 <!--标签-->
 <view class="tag {{tag_selected==1?'':'none_display'}}">
   <view class="tag_title">
@@ -31,14 +45,3 @@
   </view>
 </view>
 
-<!--搜索项-->
-<view class="option">
-  <navigator url="search_res/search_res">
-    <view class="option_item">{{search_value}}</view>
-  </navigator>
-  <view class="option_item">{{search_value}}</view>
-  <view class="option_item">{{search_value}}</view>
-  <view class="option_item">{{search_value}}</view>
-  <view class="option_item">{{search_value}}</view>
-  <view class="option_item">{{search_value}}</view>
-</view>

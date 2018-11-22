@@ -1,17 +1,40 @@
 // pages/search_page/search_page.js
+const app=getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     search_selected: 1,
-    search_value: '',
-    tag_selected:1
+    positionName: '',
+    tag_selected:1,
+    positionNames: [],
+  },
+  //搜索职位名称
+  getPositionName: function () {
+    var that = this
+    var req_url = "Position/getPositionName"
+    wx.request({
+      url: app.globalData.host + req_url + "?positionName=" + that.data.positionName,
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({
+          positionNames: res.data.data
+        })
+      },
+      fail: function (res) {
+      }
+    })
   },
   /*输入时*/
   search_input: function (e) {
     this.setData({
-      search_value: e.detail.value,
+      positionName: e.detail.value,
       tag_selected: 0
     })
     if (e.detail.value.length==0){
@@ -19,6 +42,7 @@ Page({
         tag_selected: 1
       })
     }
+    this.getPositionName()
   },
   /*获得焦点时*/
   search_focus: function (e) {
@@ -30,10 +54,11 @@ Page({
   search_blur: function (e) {
     
   },
+  
   //点击取消时
   search_cabcel: function () {
     this.setData({
-      search_value: '',
+      positionName: '',
       tag_selected: 1
     })
   },
