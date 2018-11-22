@@ -9,14 +9,7 @@ Page({
       "accepterId":'',
       "positionId":'',
     },
-    messageList:[
-      {
-        "content": 123,
-        "userId": 123,
-        "accepterId": 1,
-        "positionId": 1,
-      },
-    ],
+    messageList:[],
   },
   sendSocketMessage: function (msg) {
     wx.sendSocketMessage({
@@ -74,7 +67,7 @@ sendMsg :function(e){
     url: 'ws://localhost:8080/webSocketServer',
     header: {
       'content-type': 'application/json',
-      'userId': "123"
+      'userId': that.data.message.userId
     },
   })
   
