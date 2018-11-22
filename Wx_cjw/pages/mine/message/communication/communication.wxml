@@ -2,16 +2,22 @@
 <view class="head">负责人李</view>
 <view class="cmt">
   <scroll-view scroll-y="true" style="height:100vh;">
-    <view class="cmt_item_right">
-      <!-- <view class="avatar"></view> -->
-      <view class="content">
-        <text>{{content}}</text>
+    <view wx:for="{{messageList}}">
+      <view class="cmt_item_left" wx:if="{{item.userId==message.accepterId}}">
+        <view class="content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+      <view class="cmt_item_right" wx:if="{{item.userId==message.userId}}">
+        <view class="content">
+          <text>{{item.content}}</text>
+        </view>
       </view>
     </view>
    
   </scroll-view>
 </view>
 <view class="cmt_input">
-  <input class="input_content" placeholder="请输入" bindinput='message'/>
+  <input class="input_content" placeholder="请输入" bindinput='updateMessageContent'/>
   <button class='send' bindtap='sendMsg'>发送</button> 
 </view>
