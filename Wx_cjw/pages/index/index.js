@@ -10,7 +10,7 @@ Page({
     currentTab: 0,
     imgList: [
       { url: '../../images/1.jpg' },
-      { url: '../../images/2.jpg' },
+      { url: '../../images/6.jpg' },
       ],
     pageNum: 1,
     pageSize: 5,

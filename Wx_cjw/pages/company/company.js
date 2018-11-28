@@ -4,8 +4,8 @@ Page({
     // 下拉菜单
     first: '规模',
     second: '行业',
-    currentCompanySize:1,
-    currentIndustry:1,
+    currentCompanySize:null,
+    currentIndustry:null,
     // 筛选
     array: [{ name: '请选择' },{ name: '0-20' }, { name: '20-99' }, { name: '100-499' }, { name: '500-999' }, { name: '1000-9999' }, { name: '10000以上' }],
     industry: [{ industry: '请选择' },{ industry: '国有企业' }, { industry: '集体所有制企业' }, { industry: '私营企业' }, { industry: '有限责任公司' }, { industry: '股份有限公司' }, { industry: '有限合伙企业' }, { industry: '联营企业' }, { industry: '外商投资企业' }, { industry: '个人投资企业' }, { industry: '港澳台' }, { industry: '股份合作企业' }, { industry: '其他' }, ],
@@ -32,7 +32,18 @@ Page({
     var that=this
     that.getcompany()
   },
+  qingchu:function(e){
+  var that=this;
+   var currentCompanySize=that.data.currentCompanySize;
+    var currentIndustry=that.data.currentIndustry;
+   that.setData({
+     currentCompanySize: null,
+     currentIndustry: null,
 
+   })
+    console.log(currentCompanySize)
+    console.log(currentIndustry)
+  },
   detail:function(e){
 var postId=e.currentTarget.dataset.id;
 wx.navigateTo({
@@ -46,6 +57,7 @@ choosecompany:function(e){
   var req_url = 'Company/findByCondition'
   wx.request({
     url: app.globalData.host + req_url,
+
     data: {
       pageSize: that.data.pageSize,
       pageNum: that.data.pageNum,

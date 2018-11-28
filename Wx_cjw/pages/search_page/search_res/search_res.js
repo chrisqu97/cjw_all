@@ -37,6 +37,15 @@ Page({
       }
     })
   },
+  main_19_click: function (e) {
+    var positionId = e.currentTarget.dataset.id;
+  
+    wx.navigateTo({
+      url: '../../job_detail/job_detail?id=' + positionId,
+    })
+
+
+  },
 
   /**
    * 生命周期函数--监听页面加载
