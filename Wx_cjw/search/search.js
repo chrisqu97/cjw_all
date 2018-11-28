@@ -22,5 +22,8 @@ search_blur: function (e) {
 //点击取消时
 search_cabcel:function(){
 
+},
+search_for_res:function(e){
+  
 }
 })

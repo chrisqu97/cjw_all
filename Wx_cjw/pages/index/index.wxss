@@ -161,11 +161,11 @@
 }
 
 .main_11 .main_20 .main_18 {
-  width: 208rpx;
+  width:200rpx;
   height: 40rpx;
   padding: 0rpx;
   clear: both;
-  margin-top: 48rpx;
+  margin-top: 50rpx;
   margin-left: 18rpx;
   float: left;
   text-align: center;

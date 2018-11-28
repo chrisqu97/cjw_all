@@ -12,16 +12,17 @@
 </view>
 
 <view class="res_list">
-  <view class="res_box">
-    结果一
-  </view>
-  <view class="res_box">
-    结果二
-  </view>
-  <view class="res_box">
-    结果三
-  </view>
-  <view class="res_box">
-    结果四
+
+<!-- 职位列表 -->
+  <view class="main_11" wx:for="{{positions}}"  wx:key="index" data-id='{{positions[index].positionId}}' bindtap='main_19_click'>
+    <view class="main_12" >
+      <text class="main_15" >要求：{{positions[index].educationalRequirements}}以上|地点：{{positions[index].place[0]}}</text>
+      <text class="main_13" >{{positions[index].positionName}}</text>
+      <text class="main_14" >工资：{{positions[index].salary}}</text>
+             <view class="main_20" >
+      <text class="main_18" >{{positions[index].createTime}}更新</text>
+    </view>
+    </view>
+   
   </view>
 </view>

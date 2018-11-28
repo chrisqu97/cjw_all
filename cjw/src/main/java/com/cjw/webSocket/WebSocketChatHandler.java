@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 public class WebSocketChatHandler implements WebSocketHandler {
-    private static final List<WebSocketSession> users = new ArrayList<>();
+    private static final List<WebSocketSession> USERS = new ArrayList<>();
 
     @Autowired
     private MessageTask messageTask;
@@ -31,7 +31,7 @@ public class WebSocketChatHandler implements WebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         Integer userId = getUserId(session);
         System.out.println("用户" + userId + "开启了websocket");
-        users.add(session);
+        USERS.add(session);
 
 //        sendMessagesToUsers(new TextMessage("这是群发消息"));
     }
@@ -79,7 +79,7 @@ public class WebSocketChatHandler implements WebSocketHandler {
         if (session.isOpen()) {
             session.close();
         }
-        users.remove(session);
+        USERS.remove(session);
         System.out.println("用户" + getUserId(session) + "关闭了连接");
     }
 
@@ -94,7 +94,7 @@ public class WebSocketChatHandler implements WebSocketHandler {
      * @param message
      */
     public void sendMessagesToUsers(TextMessage message) {
-        for (WebSocketSession user : users) {
+        for (WebSocketSession user : USERS) {
             try {
                 // isOpen()在线就发送
                 if (user.isOpen()) {
@@ -115,7 +115,7 @@ public class WebSocketChatHandler implements WebSocketHandler {
     private void sendMessageToUser(MessagePojo messagePojo, WebSocketMessage message) {
         //存储消息
         messageTask.addMessage(messagePojo);
-        for (WebSocketSession user : users) {
+        for (WebSocketSession user : USERS) {
             Integer currentUserId = getUserId(user);
             if (currentUserId != null && currentUserId.equals(messagePojo.getAccepterId())) {
                 try {

@@ -16,7 +16,6 @@ public class WebSocketInterceptor implements HandshakeInterceptor {
         if (serverHttpRequest instanceof ServletServerHttpRequest) {
             ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) serverHttpRequest;
             HttpServletRequest httpRequest = servletRequest.getServletRequest();
-
         }
 
         System.out.println("连接到我了");

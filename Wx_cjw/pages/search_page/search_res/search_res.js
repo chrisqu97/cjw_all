@@ -1,18 +1,62 @@
 // pages/search_page/search_res/search_res.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    positionName:'',
+    positions:[],
+    pageSize:10,
+    pageNum:1
+  },
+
+  findByPositionName:function(){
+    var that = this
+    var req_url = "Position/findByPositionName"
+    wx.request({
+      url: app.globalData.host + req_url,
+      header: {
+        "Content-Type": "application/json",
+        "session_key": app.globalData.session_key
+      },
+      data:{
+        pageSize:that.data.pageSize,
+        pageNum:that.data.pageNum,
+        positionName:that.data.positionName
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({
+          positions: res.data.data.positionPojos
+        })
+      },
+      fail: function (res) {
+      }
+    })
+  },
+  main_19_click: function (e) {
+    var positionId = e.currentTarget.dataset.id;
   
+    wx.navigateTo({
+      url: '../../job_detail/job_detail?id=' + positionId,
+    })
+
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options.positionName)
+    var that =this
+    that.setData({
+      positionName: options.positionName
+    })
+    this.findByPositionName()
   },
 
   /**

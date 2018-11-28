@@ -2,15 +2,14 @@
 var app=getApp()
 Page({
   data: {
-    message: [{
-      "content": "",
-      "userId": 123,
-      "accepterId": 2,
-      "positionId": 1,
-    }],
+    //消息模板
+    message: {
+      "content": '',
+      "userId":'',
+      "accepterId":'',
+      "positionId":'',
+    },
     messageList:[],
-    content:""
-
   },
   sendSocketMessage: function (msg) {
     wx.sendSocketMessage({
@@ -20,7 +19,19 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    //设置从前一个跳转带过来的参数
+    var that=this
+    // that.data.message.userId=options.userId
+    // that.data.message.accepterId=options.accepterId
+    // that.data.message.positionId=options.positionId
+    that.data.message.userId=123
+    that.data.message.accepterId=1
+    that.data.message.positionId=1
+    that.setData({
+      message:that.data.message
+    })
+
     //开启失败监控
     wx.onSocketError(function (res) {
       console.log('WebSocket连接打开失败，请检查！')
@@ -32,43 +43,36 @@ Page({
     
 
   },
-  message:function(e){
+  //更新消息的内容
+  updateMessageContent:function(e){
     var that=this
-    var index=0
-   var content=that.data.content
-     that.data.message[index].content = e.detail.value;
-
+    that.data.message.content = e.detail.value;
+  },
+  //追加消息
+  addMessage: function (msg) {
+    var that = this
+    that.data.messageList.push(msg)
+    console.log(that.data.messageList)
+    that.setData({
+      messageList: that.data.messageList
+    })
   },
 
 //发送消息
 sendMsg :function(e){
   var that=this
-  //后端获取聊天记录
-  var messageHt = [{content:"你好"},{content:"123"}]
-// 前台消息
-var message=that.data.message
-// 消息列表
-  var messageList=that.data.messageList
-
-var content=that.data.content
-  that.setData({
-    messageList:messageHt.concat(message),
-
-    
-      })
-console.log(messageList)
+  that.addMessage(that.data.message)
   //开启连接
   wx.connectSocket({
     url: 'ws://localhost:8080/webSocketServer',
     header: {
       'content-type': 'application/json',
-      'userId': "123"
+      'userId': that.data.message.userId
     },
   })
   
   //检查连接是否开启 回调成功才能发送消息
   wx.onSocketOpen(function (res) {
-    
     //发送
     that.sendSocketMessage(JSON.stringify(that.data.message))
   })

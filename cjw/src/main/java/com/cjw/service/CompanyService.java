@@ -23,11 +23,11 @@ public class CompanyService {
     private CompanyDao companyDao;
 
     public CompanySearchPojo findByCondition(CompanySearchPojo searchPojo, Map<String, String> companyType, Map<String, String> companySize) {
+        List<CompanyPojo> companyPojos = new ArrayList<>();
         PageHelper.startPage(searchPojo.getPageNum(), searchPojo.getPageSize());
         List<Company> companies = companyDao.findByCondition(searchPojo);
 
         if (CollectionUtils.isNotEmpty(companies)) {
-            List<CompanyPojo> companyPojos = new ArrayList<>();
             PageInfo pageInfo = new PageInfo<>(companies, searchPojo.getPageSize());
             for (Company company : companies) {
                 CompanyPojo companyPojo = new CompanyPojo();
@@ -48,7 +48,7 @@ public class CompanyService {
             searchPojo.setTotalPage(pageInfo.getPages());
             searchPojo.setCompanyPojos(companyPojos);
         }
-
+        searchPojo.setCompanyPojos(companyPojos);
         return searchPojo;
     }
 

@@ -1,2 +1,143 @@
 /* pages/search_page/search_res/search_res.wxss */
 @import '../../../search/search.wxss';
+
+.main_11 {
+  width: 742rpx;
+  height: 252rpx;
+  padding: 0rpx;
+  clear: both;
+  float: left;
+  text-align: left;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.main_11 .main_12 {
+  width: 600rpx;
+  position: relative;
+  height: 218rpx;
+  padding: 0rpx;
+  margin-top: 24rpx;
+  margin-left: 18rpx;
+  float: left;
+  text-align: left;
+ 
+}
+
+.main_11 .main_12 .main_15 {
+  width: 378rpx;
+  height: 38rpx;
+  padding: 0rpx;
+  margin-top: 112rpx;
+  margin-left: 12rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+
+.main_11 .main_12 .main_13 {
+  width: 500rpx;
+  height: 36rpx;
+  padding: 0rpx;
+  margin-top: 14rpx;
+  margin-left: 16rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  font-weight: bold;
+  color: #505350;
+  font-size: 32rpx;
+  line-height: 36rpx;
+}
+
+.main_11 .main_12 .main_14 {
+  width: 384rpx;
+  height: 44rpx;
+  padding: 0rpx;
+  margin-top: 62rpx;
+  margin-left: 16rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: left;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+
+.main_11 .main_12 .main_16 {
+  width: 128rpx;
+  height: 44rpx;
+  padding: 0rpx;
+  margin-top: 160rpx;
+  margin-left: 16rpx;
+  float: left;
+ 
+  top: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  color: #505050;
+  font-size: 20rpx;
+  line-height: 44rpx;
+  border: 1px solid;
+}
+
+.main_11 .main_12 .main_17 {
+  width: 140rpx;
+  height: 44rpx;
+  padding: 0rpx;
+  margin-top: 160rpx;
+  margin-left: 196rpx;
+  float: left;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  color: #505050;
+  font-size: 20rpx;
+  line-height: 44rpx;
+  border: 1px solid;
+}
+
+.main_11 .main_20 {
+  width: 224rpx;
+  height: 236rpx;
+  padding: 0rpx;
+  margin-top: 8rpx;
+  float: right;
+  text-align: left;
+}
+
+.main_11 .main_20 .main_18 {
+  width: 208rpx;
+  height: 40rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 48rpx;
+  margin-left: 18rpx;
+  float: left;
+  text-align: center;
+  font-size: 22rpx;
+  line-height: 40rpx;
+}
+
+.main_11 .main_20 .main_19 {
+  width: 128rpx;
+  height: 76rpx;
+  padding: 0rpx;
+  clear: both;
+  margin-top: 32rpx;
+  margin-left: 88rpx;
+  float: left;
+  text-align: center;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+  line-height: 76rpx;
+}
