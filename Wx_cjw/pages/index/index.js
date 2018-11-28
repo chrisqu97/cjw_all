@@ -12,8 +12,10 @@ Page({
       { url: '../../images/1.jpg' },
       { url: '../../images/2.jpg' },
       ],
-
-    job: []
+    pageNum: 1,
+    pageSize: 5,
+    job: [],
+    hasMoreData: true
   },
 
 
@@ -26,14 +28,30 @@ Page({
 
 
   },
+
+  // * 页面上拉触底事件的处理函数
+  //  */
+  onReachBottom: function () {
+
+    if (this.data.hasMoreData) {
+      wx.showToast({
+        title: '正在加载' + this.data.pageNum + "页",
+      })
+      this.getjob()
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
+  },
   getjob: function () {
     var that = this
     var req_url = 'Position/findByRandom'
     wx.request({
       url: app.globalData.host + req_url,
       data: {
-        pageNum: 1,
-        pageSize: 5,
+        pageNum: that.data.pageNum,
+        pageSize: that.data.pageSize,
         positionType: 5
       },
       method: 'POST',
@@ -45,12 +63,26 @@ Page({
         // 后端获取数据源
         var positionPojos = res.data.data.positionPojos
         console.log(positionPojos);
+        // 前端渲染包
         var job=that.data.job
 
-        that.setData({
-        job:positionPojos
+        if(positionPojos.length<that.data.pageSize)
+        {
+          that.setData({
+            job: job.concat(positionPojos),
+            hasMoreData:false
+          })
+        }
+        else{
+          that.setData({
+            job: job.concat(positionPojos),
+            hasMoreData: true,
+            pageNum:that.data.pageNum+1
+          })
+        }
         
-        })
+        
+      
       
       },
       fail: function (res) {

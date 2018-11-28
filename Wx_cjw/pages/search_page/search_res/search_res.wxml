@@ -19,9 +19,7 @@
       <text class="main_15" >要求：{{positions[index].educationalRequirements}}以上|地点：{{positions[index].place[0]}}</text>
       <text class="main_13" >{{positions[index].positionName}}</text>
       <text class="main_14" >工资：{{positions[index].salary}}</text>
-      <view class='welfare'>
-        <view class="main_16" wx:for="{{positions[index].welfare[index]}}">{{positions[index].welfare[index]}}</view>
-      </view>         
+            
     </view>
     <view class="main_20" >
       <text class="main_18" >{{positions[index].createTime}}更新</text>

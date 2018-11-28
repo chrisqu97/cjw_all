@@ -23,12 +23,7 @@
   <view class="tag_list">
     <view class='tag_item'>系统</view>
     <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>系统</view>
+  
   </view>
   <view class="tag_title">
     <view style="width:50%">热门搜索</view>
@@ -36,12 +31,7 @@
   <view class="tag_list">
     <view class='tag_item'>系统</view>
     <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>3dmax</view>
-    <view class='tag_item'>系统</view>
-    <view class='tag_item'>系统</view>
+  
   </view>
 </view>
 
