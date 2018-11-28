@@ -9,6 +9,7 @@ import com.cjw.utils.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -68,6 +69,6 @@ public class CompanyDao {
         if (CollectionUtils.isNotEmpty(companies)) {
             return companies;
         }
-        return null;
+        return new ArrayList<>();
     }
 }
